@@ -201,6 +201,7 @@ export function ThreeCanvas() {
       };
     } catch {
       setWebglFailed(true);
+      return undefined;
     }
   }, []);
 

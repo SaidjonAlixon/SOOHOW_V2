@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 
-// Components
+import { FullereneIntro } from "@/components/FullereneIntro";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Navbar } from "@/components/Navbar";
@@ -23,7 +23,7 @@ import { Product, products } from "@/lib/products";
 
 const queryClient = new QueryClient();
 
-function Home() {
+function MainSite() {
   const [loading, setLoading] = useState(true);
   const [searchOpen, setSearchOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -35,56 +35,36 @@ function Home() {
     setQuoteOpen(true);
   };
 
-  const openProductModal = (product: Product) => {
-    setModalProduct(product);
-  };
+  const openProductModal = (product: Product) => setModalProduct(product);
+  const closeProductModal = () => setModalProduct(null);
 
-  const closeProductModal = () => {
-    setModalProduct(null);
-  };
-
-  const getRelatedProducts = (current: Product) => {
-    return products
-      .filter(p => p.id !== current.id && p.category === current.category)
-      .slice(0, 4);
-  };
+  const getRelatedProducts = (current: Product) =>
+    products.filter(p => p.id !== current.id && p.category === current.category).slice(0, 4);
 
   return (
     <>
       {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
-      
       {!loading && (
         <div className="bg-[#061A2E] text-white min-h-screen font-sans selection:bg-[#00A8E8] selection:text-white">
           <CustomCursor />
-          
-          <Navbar 
-            onSearchClick={() => setSearchOpen(true)} 
-            onQuoteClick={() => openQuoteModal()} 
+          <Navbar
+            onSearchClick={() => setSearchOpen(true)}
+            onQuoteClick={() => openQuoteModal()}
           />
-          
           <main>
             <HeroSection onQuoteClick={() => openQuoteModal()} />
             <StatsStrip />
             <AboutSection />
-            <ProductsSection 
-              onProductClick={openProductModal} 
-              onQuoteClick={openQuoteModal} 
-            />
+            <ProductsSection onProductClick={openProductModal} onQuoteClick={openQuoteModal} />
             <ContactSection />
           </main>
-          
           <Footer />
 
-          {/* Overlays and Modals */}
           {searchOpen && (
-            <SearchOverlay 
-              onClose={() => setSearchOpen(false)} 
-              onProductSelect={openProductModal}
-            />
+            <SearchOverlay onClose={() => setSearchOpen(false)} onProductSelect={openProductModal} />
           )}
-
           {modalProduct && (
-            <ProductModal 
+            <ProductModal
               product={modalProduct}
               onClose={closeProductModal}
               onQuote={openQuoteModal}
@@ -92,12 +72,8 @@ function Home() {
               onProductSelect={openProductModal}
             />
           )}
-
           {quoteOpen && (
-            <QuoteModal 
-              product={selectedProduct}
-              onClose={() => setQuoteOpen(false)}
-            />
+            <QuoteModal product={selectedProduct} onClose={() => setQuoteOpen(false)} />
           )}
         </div>
       )}
@@ -108,7 +84,8 @@ function Home() {
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route path="/" component={FullereneIntro} />
+      <Route path="/site" component={MainSite} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -116,7 +93,6 @@ function Router() {
 
 function App() {
   useEffect(() => {
-    // Ensure dark mode is active immediately
     document.documentElement.classList.add("dark");
   }, []);
 
