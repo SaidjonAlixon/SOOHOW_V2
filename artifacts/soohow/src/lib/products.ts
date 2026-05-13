@@ -1,0 +1,26 @@
+export interface Product {
+  id: number;
+  name: string;
+  brand: string;
+  model: string;
+  category: string;
+  spec: string;
+  badges: string[];
+  desc: string;
+  specs: [string, string][];
+}
+
+export const products: Product[] = [
+  { id:1, name:"Ultrasonic Flow Meter XT-500", brand:"Bronkhorst", model:"XT-500-DN50", category:"Industrial Measurement", spec:"Clamp-on, DN50–DN2000, ±0.5%", badges:["BESTSELLER"], desc:"High-precision ultrasonic flow measurement for liquids. Clamp-on design requires no pipe cutting. Suitable for DN50 to DN2000 pipe diameters.", specs:[["Measurement Range","DN50–DN2000"],["Accuracy","±0.5%"],["Medium","Liquids"],["Output","4-20mA, RS485"],["IP Rating","IP65"]] },
+  { id:2, name:"Digital Pressure Gauge DPG-200", brand:"WIKA", model:"DPG-200", category:"Industrial Measurement", spec:"0–600 bar, 0.1% accuracy", badges:["NEW"], desc:"High-accuracy digital pressure gauge with stainless steel wetted parts. Suitable for aggressive media.", specs:[["Range","0–600 bar"],["Accuracy","0.1% FS"],["Display","4.5 digit LCD"],["Connection","G1/2\" BSP"],["IP Rating","IP67"]] },
+  { id:3, name:"Portable Gas Analyzer GA-3000", brand:"Dräger", model:"GA-3000", category:"Industrial Measurement", spec:"CO, H₂S, O₂, LEL detection", badges:["BESTSELLER"], desc:"Multi-gas detector for simultaneous monitoring of up to 4 gases. Used in confined spaces and hazardous areas.", specs:[["Gases","CO, H₂S, O₂, LEL"],["Display","LCD with backlight"],["Battery","12 hours"],["Alarm","Visual+Audible+Vibration"],["Certifications","ATEX, IECEx"]] },
+  { id:4, name:"Infrared Thermometer IT-900", brand:"Fluke", model:"IT-900", category:"Industrial Measurement", spec:"-50°C to +2200°C range", badges:[], desc:"Professional infrared thermometer with laser targeting. Ideal for non-contact temperature measurement in industrial environments.", specs:[["Range","-50°C to +2200°C"],["Accuracy","±1°C"],["D:S Ratio","50:1"],["Emissivity","0.1–1.0 adjustable"],["Response Time","150ms"]] },
+  { id:5, name:"Ultrasonic Thickness Gauge TG-5", brand:"Olympus", model:"TG-5", category:"Industrial Measurement", spec:"0.08–635mm measurement range", badges:["NEW"], desc:"Portable thickness gauge using ultrasonic pulse-echo for non-destructive testing of metals, plastics, ceramics.", specs:[["Range","0.08–635mm"],["Accuracy","±0.001mm"],["Display","B-scan"],["Frequency","2–10 MHz"],["Standards","ASTM E797"]] },
+  { id:6, name:"Rotary Viscometer RV-300", brand:"Brookfield", model:"RV-300", category:"Industrial Measurement", spec:"1–2000 mPa·s viscosity range", badges:[], desc:"Digital rotary viscometer with spindle system for measuring viscosity of liquids, pastes and semi-solids.", specs:[["Range","1–2,000,000 mPa·s"],["Accuracy","±1%"],["Display","Touch LCD"],["Speeds","0.1–200 rpm"],["Spindles","LV, RV, HA, HB series"]] },
+  { id:7, name:"Acetonitrile HPLC Grade", brand:"Honeywell", model:"ACN-HPLC-2.5L", category:"Chemical Reagents", spec:"99.9% purity, 2.5L", badges:["BESTSELLER"], desc:"Ultra-high purity acetonitrile for HPLC and LC-MS applications. Low UV absorbance, low water content.", specs:[["Purity","≥99.9%"],["Water","≤0.01%"],["UV Cutoff","190 nm"],["Volume","2.5L"],["Grade","HPLC/Spectroscopic"]] },
+  { id:8, name:"Sulfuric Acid Analytical Grade", brand:"Sigma-Aldrich", model:"SA-ACS-2.5L", category:"Chemical Reagents", spec:"95–97%, ACS reagent grade", badges:[], desc:"High-purity sulfuric acid meeting ACS reagent specifications. For gravimetry, volumetric analysis and synthesis.", specs:[["Purity","95–97%"],["Grade","ACS Reagent"],["Density","1.84 g/mL"],["Volume","2.5L"],["Standard","ACS, ISO, Reag. Ph Eur"]] },
+  { id:9, name:"pH 7.00 Buffer Solution", brand:"Merck", model:"PH700-500ML", category:"Chemical Reagents", spec:"±0.01 pH accuracy at 25°C", badges:["NEW"], desc:"Certified reference buffer solution for pH meter calibration. NIST-traceable with certificate of analysis.", specs:[["pH Value","7.00 ±0.01"],["Temperature","25°C"],["Volume","500mL"],["Traceability","NIST"],["Shelf Life","2 years"]] },
+  { id:10, name:"Sodium Chloride Certified", brand:"AppliChem", model:"NaCl-ACS-1KG", category:"Chemical Reagents", spec:"99.5% purity, ACS grade, 1kg", badges:[], desc:"Highest purity sodium chloride for analytical chemistry, buffer preparation and cell biology applications.", specs:[["Purity","≥99.5%"],["Grade","ACS, ISO, Ph Eur"],["Form","Crystalline"],["Weight","1 kg"],["Appearance","White crystals"]] },
+  { id:11, name:"Hexane HPLC Grade", brand:"VWR", model:"HEX-HPLC-1L", category:"Chemical Reagents", spec:"99% purity, 1L bottle", badges:["BESTSELLER"], desc:"High-purity n-Hexane for HPLC, GC and extraction applications. Low in aromatics and sulfur compounds.", specs:[["Purity","≥99%"],["Grade","HPLC"],["Benzene","<0.01%"],["Volume","1L"],["Boiling Point","68–70°C"]] },
+  { id:12, name:"Potassium Dichromate Standard", brand:"Certipur", model:"K2CR2O7-0.1N-500ML", category:"Chemical Reagents", spec:"0.1N volumetric standard, 500mL", badges:[], desc:"Certified volumetric standard solution for titrimetric analysis. Used as oxidizing titrant and for COD determination.", specs:[["Concentration","0.1N"],["Volume","500mL"],["Accuracy","±0.2%"],["Traceability","NIST"],["Grade","Certipur"]] }
+];
