@@ -43,10 +43,16 @@ function parseBody(req) {
   return body;
 }
 
+function getTelegramEnv() {
+  const token = (process.env.TELEGRAM_BOT_TOKEN || process.env.VITE_TELEGRAM_BOT_TOKEN)?.trim();
+  const chatId = (process.env.TELEGRAM_CHAT_ID || process.env.VITE_TELEGRAM_CHAT_ID)?.trim();
+  return { token, chatId };
+}
+
 function humanizeTelegramError(description) {
   const d = String(description ?? "");
   if (d.includes("chat not found")) {
-    return "Guruh topilmadi. Bot guruhga qo‘shilganmi? TELEGRAM_CHAT_ID to‘g‘rimi? (odatda -100... bilan boshlanadi)";
+    return "Guruh topilmadi. Botni guruhga qo‘shing, guruhda xabar yozing, keyin to‘g‘ri TELEGRAM_CHAT_ID (-100...) qo‘ying. Shaxsiy chat ID ishlamaydi.";
   }
   if (d.includes("bot is not a member")) {
     return "Bot guruh a’zosi emas. Botni guruhga qo‘shing va admin qiling.";
@@ -75,11 +81,21 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  const token = process.env.TELEGRAM_BOT_TOKEN?.trim();
-  const chatId = process.env.TELEGRAM_CHAT_ID?.trim();
+  const { token, chatId } = getTelegramEnv();
 
   if (!token || !chatId) {
-    res.status(503).json({ error: "Telegram bot is not configured on the server" });
+    res.status(503).json({
+      error:
+        "Telegram sozlanmagan. Vercelda TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID qo‘ying (VITE_ emas). Keyin Redeploy.",
+    });
+    return;
+  }
+
+  if (/^\d+$/.test(chatId)) {
+    res.status(502).json({
+      error:
+        "TELEGRAM_CHAT_ID shaxsiy ID ko‘rinadi (faqat raqam). Guruh/superguruh ID kerak: -1001234567890 kabi. @RawDataBot ni guruhga qo‘shib ID oling.",
+    });
     return;
   }
 
