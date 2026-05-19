@@ -32,7 +32,7 @@ function formatMessage(data: Record<string, unknown>, type: TelegramFormType): s
   }
 
   lines.push(`💬 Message: ${data.message ? String(data.message) : "N/A"}`);
-  lines.push("🌐 Source: soohowasia.uz");
+  lines.push("🌐 Source: soohowcentralasia.com");
 
   return lines.join("\n");
 }

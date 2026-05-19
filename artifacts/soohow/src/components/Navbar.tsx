@@ -89,17 +89,18 @@ export function Navbar({ onSearchClick, onQuoteClick }: NavbarProps) {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2 sm:gap-3">
-            <LanguageSwitcher className="hidden sm:flex" />
-
+          <div className="flex items-center gap-1.5 sm:gap-3">
             <button
               onClick={onSearchClick}
-              className="p-2 site-icon-btn transition-colors"
+              className="p-2 site-icon-btn transition-colors shrink-0"
               aria-label={t("common.search")}
               data-testid="btn-search"
             >
               <Search size={20} />
             </button>
+
+            <LanguageSwitcher compact className="flex md:hidden" />
+            <LanguageSwitcher className="hidden md:flex" />
 
             <button
               onClick={toggleTheme}
@@ -147,8 +148,6 @@ export function Navbar({ onSearchClick, onQuoteClick }: NavbarProps) {
                 <X size={28} />
               </button>
             </div>
-
-            <LanguageSwitcher className="mx-auto mb-6 sm:hidden" />
 
             <nav className="flex flex-col space-y-6 text-2xl font-display tracking-widest text-center mt-4">
               {navItems.map((item, i) => (

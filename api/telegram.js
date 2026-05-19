@@ -26,7 +26,7 @@ function formatMessage(data, type) {
   }
 
   lines.push(`💬 Message: ${data.message ? String(data.message) : "N/A"}`);
-  lines.push("🌐 Source: soohowasia.uz");
+  lines.push("🌐 Source: soohowcentralasia.com");
 
   return lines.join("\n");
 }
