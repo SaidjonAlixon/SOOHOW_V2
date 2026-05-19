@@ -46,11 +46,21 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   publicDir: "public",
+  esbuild: {
+    sourcemap: false,
+    legalComments: "none",
+  },
   build: {
     outDir: "dist",
     emptyOutDir: true,
     sourcemap: false,
     chunkSizeWarningLimit: 900,
+    rollupOptions: {
+      onwarn(warning, warn) {
+        if (warning.code === "SOURCEMAP_ERROR") return;
+        warn(warning);
+      },
+    },
   },
   server: {
     port,
