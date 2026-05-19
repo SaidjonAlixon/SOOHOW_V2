@@ -46,8 +46,10 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist"),
+    outDir: path.resolve(import.meta.dirname, "build"),
     emptyOutDir: true,
+    sourcemap: false,
+    chunkSizeWarningLimit: 900,
   },
   server: {
     port,
