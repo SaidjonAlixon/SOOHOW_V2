@@ -1,7 +1,8 @@
 ﻿# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# compiled output — do NOT gitignore `dist` or `artifacts/soohow/dist` (Vercel deploy fails)
+# compiled output — never gitignore artifacts/soohow/vercel-out (Vercel deploy output)
 artifacts/api-server/dist/
+artifacts/soohow/dist/
 lib/**/dist/
 tmp
 out-tsc

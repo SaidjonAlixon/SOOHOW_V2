@@ -2,8 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "installCommand": "pnpm install --frozen-lockfile",
-  "buildCommand": "pnpm run build:vercel",
-  "outputDirectory": "dist",
+  "buildCommand": "pnpm --filter @workspace/soohow run build",
+  "outputDirectory": "artifacts/soohow/vercel-out",
   "framework": null,
   "routes": [
     { "handle": "filesystem" },
@@ -28,7 +28,6 @@
   ],
   "env": {
     "BASE_PATH": "/",
-    "NODE_ENV": "production",
-    "VERCEL_OUT_DIR": "root"
+    "NODE_ENV": "production"
   }
 }
