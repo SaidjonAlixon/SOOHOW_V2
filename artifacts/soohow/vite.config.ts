@@ -17,13 +17,6 @@ const normalizedBase =
 const apiProxyPrefix = `${normalizedBase}api`.replace(/\/+/g, "/");
 const apiServerPort = process.env.API_PORT ?? "5000";
 const isProduction = process.env.NODE_ENV === "production";
-const packageRoot = path.resolve(import.meta.dirname);
-/** Vercel repo-root deploy writes to /dist; package-root deploy writes to artifacts/soohow/dist */
-const buildOutDir =
-  process.env.VERCEL_OUT_DIR === "root"
-    ? path.resolve(packageRoot, "../../dist")
-    : path.join(packageRoot, "dist");
-
 export default defineConfig({
   base: basePath,
   plugins: [
@@ -57,7 +50,7 @@ export default defineConfig({
     legalComments: "none",
   },
   build: {
-    outDir: buildOutDir,
+    outDir: "dist",
     emptyOutDir: true,
     sourcemap: false,
     chunkSizeWarningLimit: 900,
