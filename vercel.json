@@ -3,7 +3,7 @@
   "version": 2,
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm --filter @workspace/soohow run build",
-  "outputDirectory": "vercel-out",
+  "outputDirectory": "artifacts/soohow/dist",
   "framework": null,
   "routes": [
     { "handle": "filesystem" },
