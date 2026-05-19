@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
+  "buildCommand": "cd ../.. && VERCEL_OUT_DIR=package sh scripts/vercel-build.sh",
+  "outputDirectory": "dist",
+  "framework": null,
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "functions": {
+    "api/telegram.ts": {
+      "maxDuration": 15
+    }
+  },
+  "env": {
+    "BASE_PATH": "/",
+    "NODE_ENV": "production",
+    "VERCEL_OUT_DIR": "package"
+  }
+}
