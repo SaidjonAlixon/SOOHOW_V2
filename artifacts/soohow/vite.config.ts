@@ -16,15 +16,15 @@ const normalizedBase =
   basePath === "/" ? "/" : basePath.endsWith("/") ? basePath : `${basePath}/`;
 const apiProxyPrefix = `${normalizedBase}api`.replace(/\/+/g, "/");
 const apiServerPort = process.env.API_PORT ?? "5000";
+const isProduction = process.env.NODE_ENV === "production";
 
 export default defineConfig({
   base: basePath,
   plugins: [
     react(),
     tailwindcss(),
-    ...(process.env.NODE_ENV !== "production" ? [runtimeErrorOverlay()] : []),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
+    ...(!isProduction ? [runtimeErrorOverlay()] : []),
+    ...(!isProduction && process.env.REPL_ID !== undefined
       ? [
           await import("@replit/vite-plugin-cartographer").then((m) =>
             m.cartographer({
@@ -45,8 +45,9 @@ export default defineConfig({
     dedupe: ["react", "react-dom"],
   },
   root: path.resolve(import.meta.dirname),
+  publicDir: "public",
   build: {
-    outDir: path.resolve(import.meta.dirname, "build"),
+    outDir: "dist",
     emptyOutDir: true,
     sourcemap: false,
     chunkSizeWarningLimit: 900,

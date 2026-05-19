@@ -1,7 +1,10 @@
 # See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# compiled output
-dist
+# compiled output (never use bare "dist" — it breaks Vercel output at artifacts/soohow/dist)
+/dist
+artifacts/soohow/dist/
+artifacts/api-server/dist/
+lib/**/dist/
 tmp
 out-tsc
 *.tsbuildinfo
