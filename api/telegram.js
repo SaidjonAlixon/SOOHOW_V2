@@ -43,25 +43,41 @@ function parseBody(req) {
   return body;
 }
 
+function cleanEnv(value) {
+  if (!value) return "";
+  return value.trim().replace(/^["']|["']$/g, "");
+}
+
 function getTelegramEnv() {
-  const token = (process.env.TELEGRAM_BOT_TOKEN || process.env.VITE_TELEGRAM_BOT_TOKEN)?.trim();
-  const chatId = (process.env.TELEGRAM_CHAT_ID || process.env.VITE_TELEGRAM_CHAT_ID)?.trim();
+  const token = cleanEnv(process.env.TELEGRAM_BOT_TOKEN || process.env.VITE_TELEGRAM_BOT_TOKEN);
+  const chatId = cleanEnv(process.env.TELEGRAM_CHAT_ID || process.env.VITE_TELEGRAM_CHAT_ID);
   return { token, chatId };
 }
 
-function humanizeTelegramError(description) {
+async function callTelegram(token, method, body) {
+  const res = await fetch(`https://api.telegram.org/bot${token}/${method}`, {
+    method: body ? "POST" : "GET",
+    headers: body ? { "Content-Type": "application/json" } : undefined,
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  return res.json();
+}
+
+function humanizeTelegramError(description, botUsername) {
   const d = String(description ?? "");
+  const botHint = botUsername ? ` (@${botUsername})` : "";
+
   if (d.includes("chat not found")) {
-    return "Guruh topilmadi. Botni guruhga qo‘shing, guruhda xabar yozing, keyin to‘g‘ri TELEGRAM_CHAT_ID (-100...) qo‘ying. Shaxsiy chat ID ishlamaydi.";
+    return `Guruh topilmadi${botHint}. 1) Shu botni guruhga qo'shing 2) Guruhda xabar yozing 3) getUpdates dan yangi "chat":{"id":-100...} oling 4) Vercel TELEGRAM_CHAT_ID ni yangilang va Redeploy`;
   }
   if (d.includes("bot is not a member")) {
-    return "Bot guruh a’zosi emas. Botni guruhga qo‘shing va admin qiling.";
+    return `Bot${botHint} guruh a'zosi emas. Botni guruhga qo'shing.`;
   }
   if (d.includes("upgraded to a supergroup")) {
-    return "Guruh supergroupga o‘tgan. Yangi chat_id oling (@RawDataBot yoki getUpdates).";
+    return "Guruh supergroupga o'tgan. getUpdates dan YANGI chat id (-100...) oling.";
   }
   if (d.includes("Unauthorized")) {
-    return "TELEGRAM_BOT_TOKEN noto‘g‘ri. BotFather dan yangi token oling.";
+    return "TELEGRAM_BOT_TOKEN noto'g'ri. BotFather dan tokenni qayta nusxalang.";
   }
   return d || "Telegram xabarni qabul qilmadi";
 }
@@ -86,7 +102,7 @@ module.exports = async function handler(req, res) {
   if (!token || !chatId) {
     res.status(503).json({
       error:
-        "Telegram sozlanmagan. Vercelda TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID qo‘ying (VITE_ emas). Keyin Redeploy.",
+        "Telegram sozlanmagan. Vercelda TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID qo'ying (VITE_ emas). Keyin Redeploy.",
     });
     return;
   }
@@ -94,7 +110,7 @@ module.exports = async function handler(req, res) {
   if (/^\d+$/.test(chatId)) {
     res.status(502).json({
       error:
-        "TELEGRAM_CHAT_ID shaxsiy ID ko‘rinadi (faqat raqam). Guruh/superguruh ID kerak: -1001234567890 kabi. @RawDataBot ni guruhga qo‘shib ID oling.",
+        "TELEGRAM_CHAT_ID shaxsiy ID (faqat raqam). Guruh ID kerak: -1001234567890. @RawDataBot yordam beradi.",
     });
     return;
   }
@@ -110,21 +126,29 @@ module.exports = async function handler(req, res) {
   const text = formatMessage(body, type);
 
   try {
-    const tgRes = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text,
-        disable_web_page_preview: true,
-      }),
+    const me = await callTelegram(token, "getMe");
+    const botUsername = me.ok ? me.result.username : null;
+
+    const chat = await callTelegram(token, `getChat?chat_id=${encodeURIComponent(chatId)}`);
+    if (!chat.ok) {
+      console.error("[telegram] getChat failed", chat.description, { chatIdPrefix: chatId.slice(0, 12) });
+      res.status(502).json({
+        error: humanizeTelegramError(chat.description, botUsername),
+        detail: chat.description,
+        bot: botUsername ? `@${botUsername}` : undefined,
+      });
+      return;
+    }
+
+    const payload = await callTelegram(token, "sendMessage", {
+      chat_id: chatId,
+      text,
+      disable_web_page_preview: true,
     });
 
-    const payload = await tgRes.json();
-
-    if (!tgRes.ok || !payload.ok) {
-      const message = humanizeTelegramError(payload.description);
-      console.error("[telegram]", payload.description ?? payload);
+    if (!payload.ok) {
+      const message = humanizeTelegramError(payload.description, botUsername);
+      console.error("[telegram] sendMessage failed", payload.description);
       res.status(502).json({ error: message, detail: payload.description });
       return;
     }
