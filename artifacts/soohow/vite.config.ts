@@ -50,7 +50,7 @@ export default defineConfig({
     legalComments: "none",
   },
   build: {
-    outDir: process.env.VERCEL ? "vercel-out" : "dist",
+    outDir: path.resolve(import.meta.dirname, "vercel-out"),
     emptyOutDir: true,
     sourcemap: false,
     chunkSizeWarningLimit: 900,
