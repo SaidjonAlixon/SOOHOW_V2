@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm --filter @workspace/soohow run build",
+  "outputDirectory": "artifacts/soohow/dist/public",
+  "framework": null,
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "functions": {
+    "api/telegram.ts": {
+      "maxDuration": 15
+    }
+  },
+  "env": {
+    "BASE_PATH": "/",
+    "PORT": "4173",
+    "NODE_ENV": "production"
+  }
+}

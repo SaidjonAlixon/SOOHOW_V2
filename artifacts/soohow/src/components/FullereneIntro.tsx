@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import { useLocation } from "wouter";
 import { gsap } from "gsap";
+import { Logo } from "@/components/Logo";
+import { useLocale } from "@/lib/i18n/LocaleContext";
 
 const BALL_COLORS = ["#FF3B3B", "#FFD700", "#00E676", "#00A8E8"];
 
@@ -43,8 +44,12 @@ function generateFibonacciSphere(count: number, radius: number): Ball[] {
   return balls;
 }
 
-export function FullereneIntro() {
-  const [, setLocation] = useLocation();
+interface FullereneIntroProps {
+  onComplete: () => void;
+}
+
+export function FullereneIntro({ onComplete }: FullereneIntroProps) {
+  const { t } = useLocale();
   const sphereRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef({ x: 0, y: 0, targetX: 0, targetY: 0 });
@@ -88,8 +93,8 @@ export function FullereneIntro() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [handleMouseMove]);
 
-  const handleClick = useCallback(() => {
-    if (explodedRef.current) return;
+  const handleLeftClick = useCallback((e: MouseEvent) => {
+    if (e.button !== 0 || explodedRef.current) return;
     explodedRef.current = true;
     setHint(false);
 
@@ -137,16 +142,26 @@ export function FullereneIntro() {
           duration: 0.5,
           opacity: 0,
           ease: "power2.inOut",
-          onComplete: () => setLocation("/site"),
+          onComplete,
         });
       }
     }, 900);
-  }, [setLocation]);
+  }, [onComplete]);
 
   useEffect(() => {
-    window.addEventListener("click", handleClick);
-    return () => window.removeEventListener("click", handleClick);
-  }, [handleClick]);
+    const blockScroll = (e: WheelEvent) => e.preventDefault();
+    const blockContextMenu = (e: Event) => e.preventDefault();
+
+    window.addEventListener("mousedown", handleLeftClick);
+    window.addEventListener("wheel", blockScroll, { passive: false });
+    window.addEventListener("contextmenu", blockContextMenu);
+
+    return () => {
+      window.removeEventListener("mousedown", handleLeftClick);
+      window.removeEventListener("wheel", blockScroll);
+      window.removeEventListener("contextmenu", blockContextMenu);
+    };
+  }, [handleLeftClick]);
 
   return (
     <div
@@ -183,15 +198,20 @@ export function FullereneIntro() {
       {/* Hint text */}
       {hint && (
         <div className="fullerene-hint" data-testid="fullerene-hint">
-          <span>Нажмите в любом месте</span>
+          <div className="fullerene-hint-mouse" aria-hidden>
+            <svg width="28" height="40" viewBox="0 0 28 40" fill="none">
+              <rect x="4" y="2" width="20" height="32" rx="10" stroke="currentColor" strokeWidth="1.5" />
+              <rect x="4" y="2" width="10" height="14" rx="5" fill="currentColor" fillOpacity="0.35" />
+            </svg>
+          </div>
+          <span>{t('intro.clickHint')}</span>
           <div className="fullerene-hint-line" />
         </div>
       )}
 
       {/* Brand watermark */}
       <div className="fullerene-brand">
-        <span className="fullerene-brand-soohow">SOOHOW</span>
-        <span className="fullerene-brand-ca">CENTRAL ASIA</span>
+        <Logo size="lg" />
       </div>
     </div>
   );

@@ -4,34 +4,25 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
-const rawPort = process.env.PORT;
-
-if (!rawPort) {
-  throw new Error(
-    "PORT environment variable is required but was not provided.",
-  );
-}
-
+const rawPort = process.env.PORT ?? "4173";
 const port = Number(rawPort);
 
 if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
-const basePath = process.env.BASE_PATH;
-
-if (!basePath) {
-  throw new Error(
-    "BASE_PATH environment variable is required but was not provided.",
-  );
-}
+const basePath = process.env.BASE_PATH ?? "/";
+const normalizedBase =
+  basePath === "/" ? "/" : basePath.endsWith("/") ? basePath : `${basePath}/`;
+const apiProxyPrefix = `${normalizedBase}api`.replace(/\/+/g, "/");
+const apiServerPort = process.env.API_PORT ?? "5000";
 
 export default defineConfig({
   base: basePath,
   plugins: [
     react(),
     tailwindcss(),
-    runtimeErrorOverlay(),
+    ...(process.env.NODE_ENV !== "production" ? [runtimeErrorOverlay()] : []),
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
       ? [
@@ -66,10 +57,24 @@ export default defineConfig({
     fs: {
       strict: true,
     },
+    proxy: {
+      [apiProxyPrefix]: {
+        target: `http://127.0.0.1:${apiServerPort}`,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(apiProxyPrefix, "/api"),
+      },
+    },
   },
   preview: {
     port,
     host: "0.0.0.0",
     allowedHosts: true,
+    proxy: {
+      [apiProxyPrefix]: {
+        target: `http://127.0.0.1:${apiServerPort}`,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(apiProxyPrefix, "/api"),
+      },
+    },
   },
 });

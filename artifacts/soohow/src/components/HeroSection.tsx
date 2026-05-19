@@ -1,103 +1,124 @@
-import React from 'react';
-import { ThreeCanvas } from './ThreeCanvas';
-import { ArrowRight, ChevronDown } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Link } from "wouter";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { routes } from "@/lib/routes";
+import { useLocale } from "@/lib/i18n/LocaleContext";
+
+const base = import.meta.env.BASE_URL;
+const heroBackground = `${base}HOME/HOME_P1.jpeg`;
 
 export function HeroSection({ onQuoteClick }: { onQuoteClick: () => void }) {
-  const scrollToAbout = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const { t } = useLocale();
 
   return (
-    <section id="home" className="relative min-h-screen pt-20 flex items-center bg-[#061A2E] overflow-hidden noise-bg" data-testid="hero-section">
-      <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 relative z-10">
-        
-        {/* LEFT CONTENT */}
-        <div className="flex flex-col justify-center py-20">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center px-4 py-2 rounded-full border border-[#00A8E8]/40 bg-[#00A8E8]/5 backdrop-blur-sm w-fit mb-8"
-          >
-            <span className="text-[#00A8E8] mr-2">⬡</span>
-            <span className="text-sm font-sans font-medium text-[#8B9BB4]">Central Asia's #1 Industrial Supplier</span>
-          </motion.div>
+    <section
+      id="home"
+      className="hero-section relative isolate min-h-screen pt-20 flex items-stretch overflow-hidden"
+      data-testid="hero-section"
+    >
+      <motion.div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <img
+          src={heroBackground}
+          alt=""
+          className="hero-section__image absolute inset-0 h-full w-full object-cover object-[72%_center] lg:object-[88%_center]"
+        />
 
-          <h1 className="font-display text-[70px] md:text-[90px] leading-[0.9] text-white mb-6">
-            <motion.div initial={{ clipPath: "inset(100% 0 0 0)" }} animate={{ clipPath: "inset(0% 0 0 0)" }} transition={{ duration: 0.8, delay: 0.3 }}>
-              PRECISION<br/>
-              INSTRUMENTS.<br/>
-            </motion.div>
-            <motion.div initial={{ clipPath: "inset(100% 0 0 0)" }} animate={{ clipPath: "inset(0% 0 0 0)" }} transition={{ duration: 0.8, delay: 0.6 }} className="text-gradient">
-              PURE REAGENTS.
-            </motion.div>
-          </h1>
+        <div className="hero-section__wash absolute inset-0" />
+        <div className="hero-section__fade-left absolute inset-0" />
+        <div className="hero-section__fade-right absolute inset-0 hidden sm:block" />
+        <div className="hero-section__glow absolute inset-0" />
+      </motion.div>
 
-          <motion.p 
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}
-            className="text-lg font-sans text-[#8B9BB4] max-w-lg mb-10 leading-relaxed"
-          >
-            SOOHOW CENTRAL ASIA supplies world-class industrial measurement instruments and certified chemical reagents to laboratories and manufacturing plants across Central Asia.
-          </motion.p>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }}
-            className="flex flex-wrap gap-4 mb-12"
-          >
-            <button 
-              onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 rounded-full bg-gradient-primary text-white font-heading font-bold hover:shadow-[0_0_30px_rgba(0,168,232,0.3)] hover:scale-105 transition-all flex items-center"
-              data-testid="btn-explore"
+      <div className="relative z-10 flex w-full min-h-[calc(100vh-5rem)] flex-col">
+        <div className="flex flex-1 items-center">
+          <div className="w-full max-w-[min(100%,42rem)] px-5 sm:px-8 lg:pl-12 xl:pl-20 2xl:pl-28 lg:pr-6 py-14 lg:py-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 rounded-md border border-[#00A8E8]/30 bg-white/70 px-3 py-1.5 text-[11px] font-mono uppercase tracking-[0.14em] text-[#0c5a7a] shadow-sm backdrop-blur-sm mb-7 dark:border-[#00D4FF]/35 dark:bg-[#00D4FF]/5 dark:text-[#9ae6ff] dark:shadow-none"
             >
-              Explore Instruments <ArrowRight className="ml-2" size={18} />
-            </button>
-            <button 
-              onClick={onQuoteClick}
-              className="px-8 py-4 rounded-full border border-[#00A8E8] text-[#00A8E8] font-heading font-bold hover:bg-[#00A8E8]/10 transition-colors"
-              data-testid="btn-hero-quote"
+              <span className="text-[#00A8E8] dark:text-[#00D4FF]">⬡</span>
+              {t("hero.badge")}
+            </motion.div>
+
+            <h1 className="hero-title font-heading font-extrabold text-[clamp(2.15rem,6.8vw,4rem)] uppercase mb-6 space-y-1.5 sm:space-y-2">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.25 }}
+                className="text-[hsl(213_74%_15%)] dark:text-white [text-wrap:balance]"
+              >
+                {t("hero.title1")} {t("hero.title2")}
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+                className="text-[#0096c7] dark:text-[#00E5FF] [text-wrap:balance]"
+              >
+                {t("hero.title3")}
+              </motion.div>
+            </h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.55 }}
+              className="max-w-lg text-sm sm:text-base leading-relaxed site-muted mb-9 dark:text-white/75"
             >
-              Request a Quote
-            </button>
-          </motion.div>
+              {t("hero.description")}
+            </motion.p>
 
-          <motion.div 
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}
-            className="flex items-center text-sm font-mono text-[#8B9BB4] divide-x divide-[#1E3A5F]"
-          >
-            <span className="pr-4">500+ Products</span>
-            <span className="px-4">200+ Clients</span>
-            <span className="pl-4">10+ Years</span>
-          </motion.div>
-        </div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.65 }}
+              className="flex flex-wrap items-center gap-3 sm:gap-4 mb-10"
+            >
+              <Link
+                href={routes.products}
+                className="inline-flex items-center gap-2 rounded-md bg-[#00A8E8] px-6 py-3.5 text-sm font-heading font-bold uppercase tracking-wide text-white shadow-[0_4px_20px_rgba(0,168,232,0.35)] transition-all hover:scale-[1.02] hover:bg-[#0096c7] hover:shadow-[0_6px_28px_rgba(0,168,232,0.45)] dark:bg-[#00D4FF] dark:text-[#031018] dark:shadow-[0_0_24px_rgba(0,229,255,0.35)] dark:hover:bg-[#00D4FF] dark:hover:shadow-[0_0_32px_rgba(0,229,255,0.45)]"
+                data-testid="btn-explore"
+              >
+                {t("hero.primaryCta")}
+                <ArrowRight size={16} strokeWidth={2.5} />
+              </Link>
+              <button
+                type="button"
+                onClick={onQuoteClick}
+                className="rounded-md border border-[hsl(213_74%_15%/0.2)] bg-white/60 px-6 py-3.5 text-sm font-heading font-bold uppercase tracking-wide text-[hsl(213_74%_15%)] shadow-sm backdrop-blur-sm transition-colors hover:border-[#00A8E8] hover:text-[#00A8E8] dark:border-white/50 dark:bg-transparent dark:text-white dark:shadow-none dark:hover:border-[#00E5FF] dark:hover:text-[#00E5FF]"
+                data-testid="btn-hero-quote"
+              >
+                {t("common.requestQuote")}
+              </button>
+            </motion.div>
 
-        {/* RIGHT CONTENT (Three.js) */}
-        <div className="hidden lg:block relative h-[600px] w-full mt-10 rounded-2xl overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <ThreeCanvas />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[hsl(216_18%_42%)] dark:text-white/55"
+            >
+              <span>{t("hero.statProducts")}</span>
+              <span className="hidden sm:inline text-[hsl(211_27%_84%)] dark:text-white/25">|</span>
+              <span>{t("hero.statClients")}</span>
+              <span className="hidden sm:inline text-[hsl(211_27%_84%)] dark:text-white/25">|</span>
+              <span>{t("hero.statYears")}</span>
+            </motion.div>
           </div>
-          
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.8 }}
-            className="absolute bottom-10 right-10 z-10 glass-panel p-4 rounded-xl animate-[float_4s_ease-in-out_infinite] w-64 shadow-2xl"
-          >
-            <div className="text-[10px] text-[#8B9BB4] uppercase tracking-wider mb-1">Featured Instrument</div>
-            <div className="font-heading font-bold text-white text-sm">Ultrasonic Flow Meter XT-500</div>
-          </motion.div>
         </div>
 
-      </div>
-
-      {/* SCROLL INDICATOR */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-10 cursor-pointer" onClick={scrollToAbout}>
-        <div className="w-[1px] h-12 bg-white/20 relative overflow-hidden mb-2">
-          <motion.div 
-            animate={{ y: ["-100%", "200%"] }} 
-            transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-            className="absolute top-0 w-full h-1/2 bg-[#00A8E8]" 
-          />
-        </div>
-        <span className="text-[10px] font-mono text-[#8B9BB4] uppercase tracking-widest">Scroll</span>
+        <motion.a
+          href="#stats-strip"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="flex flex-col items-center gap-1 pb-8 text-[10px] font-mono uppercase tracking-[0.22em] site-muted transition-colors hover:text-[#00A8E8] dark:text-white/45 dark:hover:text-[#00E5FF]"
+        >
+          <ChevronDown size={18} className="animate-bounce" />
+          {t("hero.scrollDown")}
+        </motion.a>
       </div>
     </section>
   );
