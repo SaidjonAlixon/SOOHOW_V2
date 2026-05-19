@@ -4,6 +4,8 @@ export const routes = {
   about: "/about",
   products: "/products",
   contact: "/contact",
+  privacy: "/privacy",
+  terms: "/terms",
 } as const;
 
 export const navItems = [

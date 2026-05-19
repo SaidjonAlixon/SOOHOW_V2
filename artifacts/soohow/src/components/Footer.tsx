@@ -86,8 +86,12 @@ export function Footer() {
         <div className="pt-8 border-t site-border flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-sans site-muted">
           <div>&copy; {new Date().getFullYear()} SOOHOW CENTRAL ASIA. {t('footer.rights')}</div>
           <div className="flex gap-4">
-            <a href="#" className="hover:site-heading transition-colors">{t('footer.privacy')}</a>
-            <a href="#" className="hover:site-heading transition-colors">{t('footer.terms')}</a>
+            <Link href={routes.privacy} className="hover:site-heading transition-colors">
+              {t('footer.privacy')}
+            </Link>
+            <Link href={routes.terms} className="hover:site-heading transition-colors">
+              {t('footer.terms')}
+            </Link>
           </div>
         </div>
       </div>

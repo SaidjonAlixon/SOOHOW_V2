@@ -13,6 +13,8 @@ import HomePage from "@/pages/home";
 import AboutPage from "@/pages/about";
 import ProductsPage from "@/pages/products";
 import ContactPage from "@/pages/contact";
+import PrivacyPage from "@/pages/privacy";
+import TermsPage from "@/pages/terms";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +23,8 @@ const sitePaths = new Set<string>([
   routes.about,
   routes.products,
   routes.contact,
+  routes.privacy,
+  routes.terms,
 ]);
 
 function normalizePath(location: string) {
@@ -41,6 +45,12 @@ function SiteApp() {
       break;
     case routes.contact:
       page = <ContactPage />;
+      break;
+    case routes.privacy:
+      page = <PrivacyPage />;
+      break;
+    case routes.terms:
+      page = <TermsPage />;
       break;
     default:
       page = <HomePage />;

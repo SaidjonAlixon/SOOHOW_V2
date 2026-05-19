@@ -209,6 +209,33 @@ const en = {
     rights: "All rights reserved.",
     hours: "Mon–Fri: 09:00–18:00",
   },
+  legal: {
+    backHome: "Back to home",
+    privacy: {
+      title: "Privacy Policy",
+      updated: "Last updated: 19 May 2026",
+      paragraphs: [
+        "SOOHOW CENTRAL ASIA (“we”, “our”, “us”) respects your privacy. This policy explains how we collect, use, and protect personal information when you visit soohowcentralasia.com or contact us through forms, email, or phone.",
+        "We may collect your name, company, phone number, email address, product interest, and message content when you request a quote, contact us, or subscribe to updates. Technical data such as IP address, browser type, and cookies may also be collected to improve site performance and security.",
+        "We use your information to respond to inquiries, prepare commercial offers, deliver products and services, improve our website, and comply with applicable laws. We do not sell your personal data to third parties.",
+        "Data may be shared with trusted service providers (hosting, messaging, logistics) only as needed to operate our business, and with authorities when required by law. We apply reasonable technical and organizational measures to protect your information.",
+        "You may request access, correction, or deletion of your personal data by contacting us at info@soohowasia.uz. We retain data only as long as necessary for the purposes described above.",
+        "Our website may contain links to third-party sites. We are not responsible for their privacy practices. Continued use of this site after policy updates constitutes acceptance of the revised policy.",
+      ],
+    },
+    terms: {
+      title: "Terms of Service",
+      updated: "Last updated: 19 May 2026",
+      paragraphs: [
+        "By accessing soohowcentralasia.com and using the services of SOOHOW CENTRAL ASIA, you agree to these Terms of Service. If you do not agree, please do not use this website.",
+        "Product descriptions, specifications, images, and prices on this site are for general information and may change without notice. Final terms of supply are confirmed in written quotations, contracts, or invoices.",
+        "You agree to provide accurate information in contact and quote forms. We may refuse or cancel requests that contain false, misleading, or unlawful content.",
+        "All content on this website—including text, logos, graphics, and layout—is owned by SOOHOW CENTRAL ASIA or its licensors and may not be copied or reused without prior written permission.",
+        "To the fullest extent permitted by law, SOOHOW CENTRAL ASIA is not liable for indirect, incidental, or consequential damages arising from use of this website or reliance on its content. Liability for supplied goods is governed by applicable contract and warranty terms.",
+        "These terms are governed by the laws of the Republic of Uzbekistan. We may update these terms at any time; the current version is always published on this page.",
+      ],
+    },
+  },
   search: {
     placeholder: "Search by instrument name, model, or reagent...",
     noResults: "No products found",
@@ -642,6 +669,33 @@ const uz: TranslationTree = {
     rights: "Barcha huquqlar himoyalangan.",
     hours: "Dush–Jum: 09:00–18:00",
   },
+  legal: {
+    backHome: "Bosh sahifaga",
+    privacy: {
+      title: "Maxfiylik siyosati",
+      updated: "Oxirgi yangilanish: 2026-yil 19-may",
+      paragraphs: [
+        "SOOHOW CENTRAL ASIA (“biz”) foydalanuvchilarning maxfiyligini hurmat qiladi. Ushbu siyosat soohowcentralasia.com saytiga tashrif buyurganingizda yoki forma, email va telefon orqali murojaat qilganingizda shaxsiy ma’lumotlaringiz qanday yig‘ilishi, ishlatilishi va himoyalanishini tushuntiradi.",
+        "Narx so‘rovi, aloqa formasi yoki yangiliklarga obuna bo‘lganingizda ism, kompaniya, telefon, email, mahsulot qiziqishi va xabar matni yig‘ilishi mumkin. Sayt ishlashi va xavfsizligi uchun IP manzil, brauzer turi va cookie ma’lumotlari ham qayd etilishi mumkin.",
+        "Ma’lumotlaringiz murojaatlarga javob berish, tijoriy taklif tayyorlash, mahsulot va xizmat ko‘rsatish, saytni yaxshilash hamda qonunchilik talablariga rioya qilish uchun ishlatiladi. Shaxsiy ma’lumotlar uchinchi shaxslarga sotilmaydi.",
+        "Ma’lumotlar faqat biznes faoliyatimiz uchun zarur bo‘lgan ishonchli xizmat ko‘rsatuvchilar (hosting, xabar almashish, logistika) bilan va qonun talab qilganda davlat organlari bilan baham ko‘rilishi mumkin. Ma’lumotlarni himoya qilish uchun oqilona texnik va tashkiliy choralalar qo‘llaniladi.",
+        "Shaxsiy ma’lumotlaringizga kirish, tuzatish yoki o‘chirishni info@soohowasia.uz orqali so‘rashingiz mumkin. Ma’lumotlar faqat yuqoridagi maqsadlar uchun zarur bo‘lgan muddatda saqlanadi.",
+        "Saytimizda uchinchi tomon havolalari bo‘lishi mumkin; ularning maxfiylik amaliyotlari uchun javobgar emasmiz. Siyosat yangilangach saytdan foydalanish davom etishi yangi shartlarga rozilik bildiradi.",
+      ],
+    },
+    terms: {
+      title: "Foydalanish shartlari",
+      updated: "Oxirgi yangilanish: 2026-yil 19-may",
+      paragraphs: [
+        "soohowcentralasia.com saytidan foydalanish va SOOHOW CENTRAL ASIA xizmatlaridan foydalanish ushbu Foydalanish shartlariga roziligingizni anglatadi. Rozi bo‘lmasangiz, saytdan foydalanmang.",
+        "Saytdagi mahsulot tavsiflari, texnik xususiyatlar, rasmlar va narxlar umumiy ma’lumot uchun berilgan bo‘lib, oldindan xabar berilmasdan o‘zgarishi mumkin. Yetkazib berishning yakuniy shartlari yozma taklif, shartnoma yoki hisob-fakturada tasdiqlanadi.",
+        "Aloqa va narx so‘rovi formalarida to‘g‘ri ma’lumot taqdim etishingiz shart. Yolg‘on, chalg‘ituvchi yoki noqonuniy murojaatlar rad etilishi yoki bekor qilinishi mumkin.",
+        "Saytdagi barcha kontent — matn, logotip, grafika va dizayn — SOOHOW CENTRAL ASIA yoki litsenziarlar mulki hisoblanadi va yozma ruxsatsiz ko‘chirilmasligi kerak.",
+        "Qonun ruxsat bergan darajada SOOHOW CENTRAL ASIA saytdan foydalanish yoki undagi ma’lumotlarga tayanish natijasida yuzaga keladigan bilvosita zararlar uchun javobgar emas. Yetkazilgan mahsulotlar bo‘yicha javobgarlik shartnoma va kafolat shartlariga muvofiq belgilanadi.",
+        "Ushbu shartlar O‘zbekiston Respublikasi qonunchiligiga bo‘ysunadi. Shartlar istalgan vaqtda yangilanishi mumkin; amaldagi versiya doim shu sahifada e’lon qilinadi.",
+      ],
+    },
+  },
   search: {
     placeholder: "Uskuna nomi, model yoki reagent bo'yicha qidiring...",
     noResults: "Mahsulot topilmadi",
@@ -1067,6 +1121,33 @@ const ru: TranslationTree = {
     terms: "Условия использования",
     rights: "Все права защищены.",
     hours: "Пн–Пт: 09:00–18:00",
+  },
+  legal: {
+    backHome: "На главную",
+    privacy: {
+      title: "Политика конфиденциальности",
+      updated: "Последнее обновление: 19 мая 2026 г.",
+      paragraphs: [
+        "SOOHOW CENTRAL ASIA («мы») уважает вашу конфиденциальность. Настоящая политика объясняет, как мы собираем, используем и защищаем персональные данные при посещении soohowcentralasia.com или обращении через формы, email и телефон.",
+        "При запросе коммерческого предложения или обращении мы можем получить имя, компанию, телефон, email, интерес к продукции и текст сообщения. Для работы и безопасности сайта также могут собираться IP-адрес, тип браузера и cookie.",
+        "Данные используются для ответов на запросы, подготовки предложений, поставки продукции и услуг, улучшения сайта и соблюдения законодательства. Мы не продаём персональные данные третьим лицам.",
+        "Информация может передаваться доверенным поставщикам услуг (хостинг, обмен сообщениями, логистика) в объёме, необходимом для деятельности компании, а также государственным органам по требованию закона. Применяются разумные меры защиты данных.",
+        "Вы можете запросить доступ, исправление или удаление данных, связавшись с нами: info@soohowasia.uz. Данные хранятся только в течение срока, необходимого для указанных целей.",
+        "Сайт может содержать ссылки на сторонние ресурсы; мы не отвечаем за их политику конфиденциальности. Продолжение использования сайта после обновления политики означает согласие с новой редакцией.",
+      ],
+    },
+    terms: {
+      title: "Условия использования",
+      updated: "Последнее обновление: 19 мая 2026 г.",
+      paragraphs: [
+        "Используя soohowcentralasia.com и услуги SOOHOW CENTRAL ASIA, вы соглашаетесь с настоящими Условиями. Если вы не согласны, пожалуйста, не используйте сайт.",
+        "Описания продукции, характеристики, изображения и цены носят информационный характер и могут изменяться без предварительного уведомления. Окончательные условия поставки подтверждаются в письменном предложении, договоре или счёте.",
+        "Вы обязуетесь предоставлять достоверные данные в формах обратной связи и запроса цен. Мы вправе отклонить обращения с ложной, вводящей в заблуждение или незаконной информацией.",
+        "Весь контент сайта — тексты, логотипы, графика и оформление — принадлежит SOOHOW CENTRAL ASIA или правообладателям и не может копироваться без письменного разрешения.",
+        "В пределах, допускаемых законом, SOOHOW CENTRAL ASIA не несёт ответственности за косвенные убытки, возникшие при использовании сайта или доверии к его содержанию. Ответственность за поставленную продукцию определяется договором и гарантийными условиями.",
+        "Настоящие условия регулируются законодательством Республики Узбекистан. Условия могут обновляться; актуальная версия всегда публикуется на этой странице.",
+      ],
+    },
   },
   search: {
     placeholder: "Поиск по названию, модели или реагенту...",
