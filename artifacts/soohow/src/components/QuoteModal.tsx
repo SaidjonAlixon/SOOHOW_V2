@@ -21,6 +21,7 @@ interface QuoteModalProps {
 export function QuoteModal({ product, onClose }: QuoteModalProps) {
   const { t } = useLocale();
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorDetail, setErrorDetail] = useState<string | null>(null);
 
   const quoteSchema = useMemo(
     () =>
@@ -66,10 +67,12 @@ export function QuoteModal({ product, onClose }: QuoteModalProps) {
 
   const onSubmit = async (values: z.infer<typeof quoteSchema>) => {
     setStatus('loading');
+    setErrorDetail(null);
     try {
       await sendTelegramMessage(values, "quote");
       setStatus('success');
     } catch (err) {
+      setErrorDetail(err instanceof Error ? err.message : t('quote.sendFailed'));
       setStatus('error');
     }
   };
@@ -120,7 +123,10 @@ export function QuoteModal({ product, onClose }: QuoteModalProps) {
                     <div className="p-4 bg-red-500/10 border border-red-500/30 rounded flex items-start gap-3">
                       <AlertCircle className="text-red-500 shrink-0" size={20} />
                       <div className="text-sm text-red-200">
-                        {t('quote.sendFailed')}
+                        <p>{t('quote.sendFailed')}</p>
+                        {errorDetail && (
+                          <p className="mt-2 text-red-300/90 text-xs">{errorDetail}</p>
+                        )}
                       </div>
                     </div>
                   )}

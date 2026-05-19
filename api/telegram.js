@@ -31,6 +31,35 @@ function formatMessage(data, type) {
   return lines.join("\n");
 }
 
+function parseBody(req) {
+  let body = req.body ?? {};
+  if (typeof body === "string") {
+    try {
+      body = JSON.parse(body);
+    } catch {
+      body = {};
+    }
+  }
+  return body;
+}
+
+function humanizeTelegramError(description) {
+  const d = String(description ?? "");
+  if (d.includes("chat not found")) {
+    return "Guruh topilmadi. Bot guruhga qo‘shilganmi? TELEGRAM_CHAT_ID to‘g‘rimi? (odatda -100... bilan boshlanadi)";
+  }
+  if (d.includes("bot is not a member")) {
+    return "Bot guruh a’zosi emas. Botni guruhga qo‘shing va admin qiling.";
+  }
+  if (d.includes("upgraded to a supergroup")) {
+    return "Guruh supergroupga o‘tgan. Yangi chat_id oling (@RawDataBot yoki getUpdates).";
+  }
+  if (d.includes("Unauthorized")) {
+    return "TELEGRAM_BOT_TOKEN noto‘g‘ri. BotFather dan yangi token oling.";
+  }
+  return d || "Telegram xabarni qabul qilmadi";
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -46,15 +75,15 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  const token = process.env.TELEGRAM_BOT_TOKEN?.trim();
+  const chatId = process.env.TELEGRAM_CHAT_ID?.trim();
 
   if (!token || !chatId) {
     res.status(503).json({ error: "Telegram bot is not configured on the server" });
     return;
   }
 
-  const body = req.body ?? {};
+  const body = parseBody(req);
   const { name, phone } = body;
   if (!name || !phone) {
     res.status(400).json({ error: "Name and phone are required" });
@@ -68,20 +97,25 @@ module.exports = async function handler(req, res) {
     const tgRes = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: chatId, text, disable_web_page_preview: true }),
+      body: JSON.stringify({
+        chat_id: chatId,
+        text,
+        disable_web_page_preview: true,
+      }),
     });
 
     const payload = await tgRes.json();
 
     if (!tgRes.ok || !payload.ok) {
-      res.status(502).json({
-        error: payload.description ?? "Telegram API rejected the message",
-      });
+      const message = humanizeTelegramError(payload.description);
+      console.error("[telegram]", payload.description ?? payload);
+      res.status(502).json({ error: message, detail: payload.description });
       return;
     }
 
     res.status(200).json({ ok: true });
-  } catch {
+  } catch (err) {
+    console.error("[telegram]", err);
     res.status(502).json({ error: "Failed to reach Telegram API" });
   }
 };

@@ -34,6 +34,7 @@ export function ContactSection() {
   );
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorDetail, setErrorDetail] = useState<string | null>(null);
 
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
@@ -63,6 +64,7 @@ export function ContactSection() {
 
   const onSubmit = async (values: z.infer<typeof contactSchema>) => {
     setStatus('loading');
+    setErrorDetail(null);
     try {
       await sendTelegramMessage(
         { ...values, subject: values.subject },
@@ -72,6 +74,7 @@ export function ContactSection() {
       form.reset();
       setTimeout(() => setStatus('idle'), 5000);
     } catch (err) {
+      setErrorDetail(err instanceof Error ? err.message : t('contact.sendFailed'));
       setStatus('error');
     }
   };
@@ -187,7 +190,12 @@ export function ContactSection() {
                 )} />
 
                 {status === 'error' && (
-                  <div className="text-red-400 text-sm flex items-center"><AlertCircle size={16} className="mr-2"/> {t('contact.sendFailed')}</div>
+                  <div className="text-red-400 text-sm flex items-start gap-2">
+                    <AlertCircle size={16} className="shrink-0 mt-0.5" />
+                    <div>
+                      <p>{t('contact.sendFailed')}</p>
+                      {errorDetail && <p className="mt-1 text-xs text-red-300/90">{errorDetail}</p>}
+                    </div></div>
                 )}
 
                 <button type="submit" disabled={status === 'loading'} className="w-full py-4 rounded bg-[#00A8E8] site-heading font-heading font-bold hover:bg-[#00A8E8]/90 transition-colors flex justify-center mt-2">
