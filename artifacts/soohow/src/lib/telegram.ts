@@ -65,12 +65,17 @@ async function sendViaBackend(
     body: JSON.stringify({ ...data, type }),
   });
 
-  if (res.ok) return true;
-  if (res.status === 503) return false;
   const body = (await res.json().catch(() => null)) as { error?: string } | null;
-  if (res.status >= 500 && !body?.error) {
-    return false;
+
+  if (res.ok) return true;
+
+  if (res.status === 503) {
+    throw new Error(
+      body?.error ??
+        "Telegram serverda sozlanmagan. Vercel → Settings → Environment Variables da TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID qo‘ying.",
+    );
   }
+
   throw new Error(body?.error ?? "Failed to send message");
 }
 
