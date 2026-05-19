@@ -1,17 +1,5 @@
-type FormType = "quote" | "contact";
-
-interface VercelRequest {
-  method?: string;
-  body?: Record<string, unknown>;
-}
-
-interface VercelResponse {
-  status: (code: number) => VercelResponse;
-  json: (body: unknown) => void;
-  end: () => void;
-}
-
-function formatMessage(data: Record<string, unknown>, type: FormType): string {
+/** @param {Record<string, unknown>} data @param {"quote"|"contact"} type */
+function formatMessage(data, type) {
   const date = new Date().toLocaleString("en-US", { timeZone: "Asia/Tashkent" });
   const header =
     type === "contact"
@@ -43,7 +31,7 @@ function formatMessage(data: Record<string, unknown>, type: FormType): string {
   return lines.join("\n");
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
     res.status(405).json({ error: "Method not allowed" });
     return;
@@ -64,7 +52,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  const type: FormType = body.type === "contact" ? "contact" : "quote";
+  const type = body.type === "contact" ? "contact" : "quote";
   const text = formatMessage(body, type);
 
   try {
@@ -74,7 +62,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       body: JSON.stringify({ chat_id: chatId, text, disable_web_page_preview: true }),
     });
 
-    const payload = (await tgRes.json()) as { ok?: boolean; description?: string };
+    const payload = await tgRes.json();
 
     if (!tgRes.ok || !payload.ok) {
       res.status(502).json({
@@ -87,4 +75,4 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   } catch {
     res.status(502).json({ error: "Failed to reach Telegram API" });
   }
-}
+};
