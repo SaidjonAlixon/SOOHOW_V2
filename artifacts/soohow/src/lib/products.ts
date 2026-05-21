@@ -1,4 +1,4 @@
-export type ProductCategoryKey = "industrial" | "chemical";
+export type ProductCategoryKey = "industrial";
 
 const base = import.meta.env.BASE_URL;
 

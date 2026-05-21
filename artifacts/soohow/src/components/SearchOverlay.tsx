@@ -115,11 +115,7 @@ export function SearchOverlay({ onClose, onProductSelect }: SearchOverlayProps) 
                     className="group site-card border site-border p-4 md:p-6 rounded-xl cursor-pointer hover:border-[#00A8E8] transition-all flex items-center gap-6"
                   >
                     <div className="w-16 h-16 rounded site-section border site-border hidden sm:flex items-center justify-center shrink-0">
-                      {product.categoryKey === 'chemical' ? (
-                        <div className="w-6 h-6 border-b-2 border-[#00D4AA] rounded-b-md relative"><div className="absolute bottom-0 w-full h-3 bg-[#00D4AA]/20"></div></div>
-                      ) : (
-                        <div className="w-6 h-6 border-2 border-[#00A8E8] rounded-full"></div>
-                      )}
+                      <div className="w-6 h-6 border-2 border-[#00A8E8] rounded-full"></div>
                     </div>
                     
                     <div className="flex-grow min-w-0">

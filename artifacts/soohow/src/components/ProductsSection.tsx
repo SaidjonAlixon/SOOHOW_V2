@@ -6,7 +6,7 @@ import { useLocale } from '@/lib/i18n/LocaleContext';
 import { useLocalizedProducts } from '@/lib/i18n/useLocalizedProducts';
 import { mountAnimatedTitleChars } from '@/lib/animateTitleChars';
 
-type FilterKey = 'all' | 'industrial' | 'chemical';
+type FilterKey = 'all' | 'industrial';
 
 interface ProductsSectionProps {
   onProductClick: (p: Product) => void;
@@ -23,7 +23,6 @@ export function ProductsSection({ onProductClick, onQuoteClick }: ProductsSectio
   const filters: { key: FilterKey; label: string }[] = [
     { key: 'all', label: t('productsPage.filterAll') },
     { key: 'industrial', label: t('productsPage.catIndustrial') },
-    { key: 'chemical', label: t('productsPage.catChemical') },
   ];
 
   const filteredProducts =

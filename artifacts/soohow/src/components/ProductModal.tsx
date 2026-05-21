@@ -81,11 +81,6 @@ export function ProductModal({ product, onClose, onQuote, relatedProducts, onPro
                       alt={product.name}
                       className="relative z-10 max-h-64 w-full object-contain"
                     />
-                  ) : product.categoryKey === 'chemical' ? (
-                    <div className="w-48 h-48 border-4 border-[#00A8E8]/30 rounded-t-[4rem] rounded-b-2xl relative shadow-[0_0_50px_rgba(0,168,232,0.1)]">
-                      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#00D4AA]/20 rounded-b-xl border-t border-[#00D4AA]/30"></div>
-                      <div className="absolute top-8 left-1/2 -translate-x-1/2 w-8 h-2 bg-white/20 rounded-full"></div>
-                    </div>
                   ) : (
                     <div className="w-64 h-48 border-4 border-[#00A8E8]/30 rounded-xl relative shadow-[0_0_50px_rgba(0,168,232,0.1)]">
                       <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-24 h-24 rounded-full border-2 border-[#00A8E8]/30 flex items-center justify-center">

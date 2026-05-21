@@ -71,15 +71,9 @@ export function ProductCard({ product, onClick, onQuote }: ProductCardProps) {
         ) : (
           <div className="relative flex h-full w-full items-center justify-center">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTIwIDBMNDAgMTBMMzkgMzBMMjAgNDBMMCAzMEwwIDEwTDIwIDBaIiBmaWxsPSJub25lIiBzdHJva2U9IiMyMDRBODAiIHN0cm9rZS1vcGFjaXR5PSIwLjE1Ii8+PC9zdmc+')] opacity-30 group-hover:opacity-60 transition-opacity" />
-            {product.categoryKey === 'chemical' ? (
-              <div className="relative h-16 w-16 rounded-t-3xl rounded-b-xl border-2 border-[#00A8E8]/50 group-hover:border-[#00A8E8] transition-colors">
-                <div className="absolute bottom-0 left-0 right-0 h-1/2 rounded-b-lg bg-[#00D4AA]/20" />
-              </div>
-            ) : (
-              <div className="relative h-16 w-20 rounded-lg border-2 border-[#00A8E8]/50 group-hover:border-[#00A8E8] transition-colors">
-                <div className="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#00A8E8]/50" />
-              </div>
-            )}
+            <div className="relative h-16 w-20 rounded-lg border-2 border-[#00A8E8]/50 group-hover:border-[#00A8E8] transition-colors">
+              <div className="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#00A8E8]/50" />
+            </div>
           </div>
         )}
       </div>

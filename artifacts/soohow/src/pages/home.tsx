@@ -4,6 +4,7 @@ import { HomeIntroSection } from "@/components/HomeIntroSection";
 import { WhyChooseUsSection } from "@/components/WhyChooseUsSection";
 import { ScientificCapabilitySection } from "@/components/ScientificCapabilitySection";
 import { IndustrialCapacitySection } from "@/components/IndustrialCapacitySection";
+import { WarrantyServiceSection } from "@/components/WarrantyServiceSection";
 import { PartnersSection } from "@/components/PartnersSection";
 import { NewsSection } from "@/components/NewsSection";
 import { useSiteActions } from "@/layouts/SiteLayout";
@@ -19,6 +20,7 @@ export default function HomePage() {
       <WhyChooseUsSection />
       <ScientificCapabilitySection />
       <IndustrialCapacitySection />
+      <WarrantyServiceSection />
       <PartnersSection />
       <NewsSection />
     </main>

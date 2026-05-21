@@ -11,9 +11,9 @@ export function LegalDocumentSection({ kind }: { kind: LegalKind }) {
   const doc = kind === "privacy" ? messages.legal.privacy : messages.legal.terms;
 
   useEffect(() => {
-    document.title = `${doc.title} — SOOHOW CENTRAL ASIA`;
+    document.title = `${doc.title} — OOO FALCON TRADE LINES`;
     return () => {
-      document.title = "SOOHOW CENTRAL ASIA";
+      document.title = "OOO FALCON TRADE LINES";
     };
   }, [doc.title]);
 

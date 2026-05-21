@@ -35,7 +35,7 @@ const en = {
     title2: "QUALITY",
     title3: "INNOVATIONS",
     description:
-      "SOOHOW CENTRAL ASIA supplies world-class industrial measurement instruments and certified chemical reagents to laboratories and manufacturing plants across Central Asia.",
+      "OOO FALCON TRADE LINES supplies world-class industrial measurement instruments and analytical equipment to laboratories and manufacturing plants across Central Asia.",
     primaryCta: "Catalog",
     scrollDown: "Scroll down",
     statProducts: "40+ Products",
@@ -44,14 +44,14 @@ const en = {
   },
   homeIntro: {
     badge: "About the platform",
-    title: "SOOHOW CENTRAL ASIA — YOUR PRECISION PARTNER",
+    title: "OOO FALCON TRADE LINES — YOUR PRECISION PARTNER",
     lead:
-      "This site is built for laboratories, plants, and engineers who need reliable instruments and certified reagents without friction. Explore our catalog, company story, and support channels in one modern industrial experience.",
+      "This site is built for laboratories, plants, and engineers who need reliable instruments and professional service without friction. Explore our catalog, company story, and support channels in one modern industrial experience.",
     pillars: [
       {
         title: "Mission & expertise",
         description:
-          "We connect Central Asia with world-class measurement technology, spectrometry, and chemical supplies backed by ISO-certified quality and 10+ years of field experience.",
+          "We connect Central Asia with world-class measurement technology, spectrometry, and OEM service support backed by ISO-certified quality and 10+ years of field experience.",
       },
       {
         title: "Design language",
@@ -128,6 +128,19 @@ const en = {
       },
     ],
   },
+  warranty: {
+    badge: "Technical support",
+    title: "Warranty & service maintenance",
+    paragraph1:
+      "We provide a complete cycle of equipment technical support — from warranty repairs to professional service maintenance. We use only original certified spare parts (OEM), ensuring reliability, safety, and a long service life for your equipment.",
+    paragraph2:
+      "Our team of qualified engineers performs accurate diagnostics, upgrades, and technical maintenance using modern specialized equipment. We help keep your equipment running stably and without interruption at every stage of operation.",
+    highlights: [
+      "Warranty & post-warranty repair",
+      "Original OEM certified parts",
+      "Diagnostics, upgrades & maintenance",
+    ],
+  },
   partners: {
     badge: "Trust of leaders",
     title: "OUR PARTNERS",
@@ -180,25 +193,21 @@ const en = {
   whyChoose: {
     title: "FOUR REASONS TO CHOOSE US",
     badge: "Advantages",
-    cardTitle: "Many years of experience in industry",
+    cardTitle: "Official dealer & authorized service in Central Asia",
     years: "10+ YEARS",
     excellence: "Certified excellence",
     openCertificate: "View certificate full size",
     closeLightbox: "Close",
     items: [
-      "National high-tech enterprise",
-      "Specialized, refined and innovative SMEs in Jiangsu Province",
-      "Innovative SMEs in Jiangsu Province",
-      "Suzhou Atomic Emission Spectrometry Engineering Technology Research Center",
-      "Suzhou Gazelle Enterprise",
-      "Kunshan Institute of Science and Technology Research and Development",
-      "Specialized, refined and innovative SMEs in Kunshan City",
-      "Implemented 3 provincial projects, 2 Suzhou city projects and more than 10 Kunshan city projects",
+      "Authorized service center",
+      "After-sales service for equipment and instruments",
+      "Original OEM spare parts",
+      "Professional technical support",
     ],
   },
   footer: {
     tagline:
-      "The premier supplier of industrial measurement instruments and certified chemical reagents in Central Asia. Precision you can trust.",
+      "The premier supplier of industrial measurement instruments and analytical equipment in Central Asia. Precision you can trust.",
     navigation: "Navigation",
     categories: "Categories",
     contactUs: "Contact Us",
@@ -217,7 +226,7 @@ const en = {
       title: "Privacy Policy",
       updated: "Last updated: 19 May 2026",
       paragraphs: [
-        "SOOHOW CENTRAL ASIA (“we”, “our”, “us”) respects your privacy. This policy explains how we collect, use, and protect personal information when you visit soohowcentralasia.com or contact us through forms, email, or phone.",
+        "OOO FALCON TRADE LINES (“we”, “our”, “us”) respects your privacy. This policy explains how we collect, use, and protect personal information when you visit soohowcentralasia.com or contact us through forms, email, or phone.",
         "We may collect your name, company, phone number, email address, product interest, and message content when you request a quote, contact us, or subscribe to updates. Technical data such as IP address, browser type, and cookies may also be collected to improve site performance and security.",
         "We use your information to respond to inquiries, prepare commercial offers, deliver products and services, improve our website, and comply with applicable laws. We do not sell your personal data to third parties.",
         "Data may be shared with trusted service providers (hosting, messaging, logistics) only as needed to operate our business, and with authorities when required by law. We apply reasonable technical and organizational measures to protect your information.",
@@ -229,17 +238,17 @@ const en = {
       title: "Terms of Service",
       updated: "Last updated: 19 May 2026",
       paragraphs: [
-        "By accessing soohowcentralasia.com and using the services of SOOHOW CENTRAL ASIA, you agree to these Terms of Service. If you do not agree, please do not use this website.",
+        "By accessing soohowcentralasia.com and using the services of OOO FALCON TRADE LINES, you agree to these Terms of Service. If you do not agree, please do not use this website.",
         "Product descriptions, specifications, images, and prices on this site are for general information and may change without notice. Final terms of supply are confirmed in written quotations, contracts, or invoices.",
         "You agree to provide accurate information in contact and quote forms. We may refuse or cancel requests that contain false, misleading, or unlawful content.",
-        "All content on this website—including text, logos, graphics, and layout—is owned by SOOHOW CENTRAL ASIA or its licensors and may not be copied or reused without prior written permission.",
-        "To the fullest extent permitted by law, SOOHOW CENTRAL ASIA is not liable for indirect, incidental, or consequential damages arising from use of this website or reliance on its content. Liability for supplied goods is governed by applicable contract and warranty terms.",
+        "All content on this website—including text, logos, graphics, and layout—is owned by OOO FALCON TRADE LINES or its licensors and may not be copied or reused without prior written permission.",
+        "To the fullest extent permitted by law, OOO FALCON TRADE LINES is not liable for indirect, incidental, or consequential damages arising from use of this website or reliance on its content. Liability for supplied goods is governed by applicable contract and warranty terms.",
         "These terms are governed by the laws of the Republic of Uzbekistan. We may update these terms at any time; the current version is always published on this page.",
       ],
     },
   },
   search: {
-    placeholder: "Search by instrument name, model, or reagent...",
+    placeholder: "Search by instrument name or model...",
     noResults: "No products found",
     tryDifferent: "Try a different search term",
   },
@@ -248,7 +257,7 @@ const en = {
     clients: "Clients Served",
     partners: "Brand Partners",
     years: "Years Active",
-    reagents: "Reagents Supplied",
+    reagents: "OEM Parts Supplied",
   },
   badges: {
     bestseller: "BESTSELLER",
@@ -358,12 +367,11 @@ const en = {
     ],
   },
   productsPage: {
-    title: "INSTRUMENTS & REAGENTS",
+    title: "INDUSTRIAL INSTRUMENTS",
     subtitle:
-      "Precision tools for demanding industrial environments. Certified reagents for critical analytical processes.",
+      "Precision measurement and analytical equipment for demanding industrial and laboratory environments.",
     filterAll: "All",
     catIndustrial: "Industrial Measurement",
-    catChemical: "Chemical Reagents",
     modelLabel: "Model",
   },
   productModal: {
@@ -402,7 +410,7 @@ const en = {
     subjects: ["General Inquiry", "Price Quote", "Technical Support", "Partnership"],
     faqs: [
       { q: "Do you provide product certifications and datasheets?", a: "Yes. All instruments come with manufacturer certificates, calibration records, and full technical documentation in Uzbek, Russian, or English." },
-      { q: "Can you supply reagents in bulk quantities?", a: "Absolutely. We work with industrial-scale orders. Contact us for volume pricing and customized packaging." },
+      { q: "Do you supply original OEM spare parts?", a: "Yes. We provide manufacturer-original parts for spectrometers and analyzers with full traceability and documentation." },
       { q: "Do you deliver outside Tashkent?", a: "We deliver across all regions of Uzbekistan and export to Kazakhstan, Kyrgyzstan, and Tajikistan." },
       { q: "What is your calibration and service policy?", a: "We offer on-site calibration, installation supervision, and warranty service for all instruments. Training for operators is included." },
       { q: "How quickly can I get a price quote?", a: "Send a request through the website or Telegram — we respond within 30 minutes during working hours." },
@@ -454,7 +462,7 @@ const en = {
     popularCategories: "Popular Categories",
     resultsFound: "RESULTS FOUND",
     tryTypos: "Try checking for typos or searching with more general terms.",
-    tags: ["Flow Meters", "Gas Analyzers", "Viscometers", "HPLC Grade", "ACS Reagents", "Calibration Buffers"],
+    tags: ["OES Spectrometers", "Oil Analyzers", "Metal Analysis", "RDE-OES", "Gold Analyzers", "GD-OES"],
   },
   whyChooseImages: {
     alt1: "Certificate 1",
@@ -463,10 +471,10 @@ const en = {
   },
   footerCategories: [
     "Industrial Measurement",
-    "Chemical Reagents",
     "Laboratory Instruments",
     "Process Control",
     "Safety & Monitoring",
+    "Service & Support",
   ],
 };
 
@@ -500,7 +508,7 @@ const uz: TranslationTree = {
     title2: "SIFAT",
     title3: "INNOVATSIYALAR",
     description:
-      "SOOHOW CENTRAL ASIA laboratoriyalar va ishlab chiqarish zavodlari uchun dunyo darajasidagi sanoat o'lchov uskunalari va sertifikatlangan kimyo reagentlarini ta'minlaydi.",
+      "OOO FALCON TRADE LINES laboratoriyalar va ishlab chiqarish zavodlari uchun dunyo darajasidagi sanoat o'lchov uskunalari va analitik jihozlarni ta'minlaydi.",
     primaryCta: "Katalog",
     scrollDown: "Pastga tushish",
     statProducts: "40+ Mahsulot",
@@ -509,14 +517,14 @@ const uz: TranslationTree = {
   },
   homeIntro: {
     badge: "Platforma haqida",
-    title: "SOOHOW CENTRAL ASIA — ANIQLIK VA ISHONCH HAMKORI",
+    title: "OOO FALCON TRADE LINES — ANIQLIK VA ISHONCH HAMKORI",
     lead:
-      "Sayt laboratoriyalar, zavodlar va muhandislar uchun yaratilgan: sertifikatlangan uskunalar va reagentlarni tez topish, narx so'rash va kompaniya haqida bilish — barchasi bitta zamonaviy sanoat interfeysida.",
+      "Sayt laboratoriyalar, zavodlar va muhandislar uchun yaratilgan: sertifikatlangan uskunalarni tez topish, narx so'rash va kompaniya haqida bilish — barchasi bitta zamonaviy sanoat interfeysida.",
     pillars: [
       {
         title: "Missiya va tajriba",
         description:
-          "Markaziy Osiyoni dunyo darajasidagi o'lchov texnologiyalari, spektrometriya va kimyo ta'minoti bilan bog'laymiz — ISO sertifikatlari va 10+ yillik amaliy tajriba asosida.",
+          "Markaziy Osiyoni dunyo darajasidagi o'lchov texnologiyalari, spektrometriya va OEM servis qo'llab-quvvatlash bilan bog'laymiz — ISO sertifikatlari va 10+ yillik amaliy tajriba asosida.",
       },
       {
         title: "Sayt uslubi va mavzu",
@@ -593,6 +601,19 @@ const uz: TranslationTree = {
       },
     ],
   },
+  warranty: {
+    badge: "Texnik qo'llab-quvvatlash",
+    title: "Kafolat va servis xizmatlari",
+    paragraph1:
+      "Biz uskunalarga to'liq texnik qo'llab-quvvatlash tsiklini ta'minlaymiz — kafolatli ta'mirdan professional servis xizmatigacha. Faqat original sertifikatlangan ehtiyot qismlar (OEM) ishlatiladi, bu uskunaning ishonchliligi, xavfsizligi va uzoq xizmat muddatini kafolatlaydi.",
+    paragraph2:
+      "Malakali muhandislar jamoamiz zamonaviy maxsus uskunalar yordamida aniq diagnostika, modernizatsiya va texnik xizmat ko'rsatadi. Biz ekspluatatsiyaning har bir bosqichida uskunangizning barqaror va uzluksiz ishlashini ta'minlashga yordam beramiz.",
+    highlights: [
+      "Kafolatli va kafolatdan keyingi ta'mir",
+      "Original OEM sertifikatlangan qismlar",
+      "Diagnostika, modernizatsiya va TO",
+    ],
+  },
   partners: {
     badge: "Etkachilar ishonchi",
     title: "BIZNING HAMKORLARIMIZ",
@@ -645,25 +666,21 @@ const uz: TranslationTree = {
   whyChoose: {
     title: "BIZNI TANLASHNING TO'RTTA SABABI",
     badge: "Afzalliklari",
-    cardTitle: "Sanoat sohasidagi ko'p yillik tajriba",
+    cardTitle: "Markaziy Osiyodagi rasmiy diler va vakolatli servis markazi",
     years: "10+ YIL",
     excellence: "Sertifikatlangan mukammallik",
     openCertificate: "Sertifikatni to'liq ko'rish",
     closeLightbox: "Yopish",
     items: [
-      "Milliy yuqori texnologiyali korxona",
-      "Jiangsu provinsiyasida ixtisoslashgan, takomillashtirilgan va innovatsion kichik va o'rta korxonalar",
-      "Jiangsu provinsiyasidagi innovatsion kichik va o'rta korxonalar",
-      "Suzhou Atom Emissiya Spektrometri Muhandislik Texnologiyalari Tadqiqot Markazi",
-      "Suzhou Gazelle Enterprise",
-      "Kunshan fan va texnologiyalar tadqiqot va rivojlantirish institutlari",
-      "Kunshan shahrida ixtisoslashgan, takomillashtirilgan va innovatsion kichik va o'rta korxonalar",
-      "3 ta viloyat loyihasi, 2 ta Suzhou shahar loyihasi va 10 dan ortiq Kunshan shahar loyihalarini amalga oshirdi",
+      "Vakolatli servis markazi",
+      "Uskuna va asbob-uskunalar uchun sotuvdan keyingi xizmat",
+      "Original OEM ehtiyot qismlar",
+      "Professional texnik qo'llab-quvvatlash",
     ],
   },
   footer: {
     tagline:
-      "Markaziy Osiyoda sanoat o'lchov uskunalari va sertifikatlangan kimyo reagentlarining yetakchi yetkazib beruvchisi. Ishonchli aniqlik.",
+      "Markaziy Osiyoda sanoat o'lchov uskunalari va analitik jihozlarning yetakchi yetkazib beruvchisi. Ishonchli aniqlik.",
     navigation: "Navigatsiya",
     categories: "Kategoriyalar",
     contactUs: "Bog'lanish",
@@ -682,7 +699,7 @@ const uz: TranslationTree = {
       title: "Maxfiylik siyosati",
       updated: "Oxirgi yangilanish: 2026-yil 19-may",
       paragraphs: [
-        "SOOHOW CENTRAL ASIA (“biz”) foydalanuvchilarning maxfiyligini hurmat qiladi. Ushbu siyosat soohowcentralasia.com saytiga tashrif buyurganingizda yoki forma, email va telefon orqali murojaat qilganingizda shaxsiy ma’lumotlaringiz qanday yig‘ilishi, ishlatilishi va himoyalanishini tushuntiradi.",
+        "OOO FALCON TRADE LINES (“biz”) foydalanuvchilarning maxfiyligini hurmat qiladi. Ushbu siyosat soohowcentralasia.com saytiga tashrif buyurganingizda yoki forma, email va telefon orqali murojaat qilganingizda shaxsiy ma’lumotlaringiz qanday yig‘ilishi, ishlatilishi va himoyalanishini tushuntiradi.",
         "Narx so‘rovi, aloqa formasi yoki yangiliklarga obuna bo‘lganingizda ism, kompaniya, telefon, email, mahsulot qiziqishi va xabar matni yig‘ilishi mumkin. Sayt ishlashi va xavfsizligi uchun IP manzil, brauzer turi va cookie ma’lumotlari ham qayd etilishi mumkin.",
         "Ma’lumotlaringiz murojaatlarga javob berish, tijoriy taklif tayyorlash, mahsulot va xizmat ko‘rsatish, saytni yaxshilash hamda qonunchilik talablariga rioya qilish uchun ishlatiladi. Shaxsiy ma’lumotlar uchinchi shaxslarga sotilmaydi.",
         "Ma’lumotlar faqat biznes faoliyatimiz uchun zarur bo‘lgan ishonchli xizmat ko‘rsatuvchilar (hosting, xabar almashish, logistika) bilan va qonun talab qilganda davlat organlari bilan baham ko‘rilishi mumkin. Ma’lumotlarni himoya qilish uchun oqilona texnik va tashkiliy choralalar qo‘llaniladi.",
@@ -694,17 +711,17 @@ const uz: TranslationTree = {
       title: "Foydalanish shartlari",
       updated: "Oxirgi yangilanish: 2026-yil 19-may",
       paragraphs: [
-        "soohowcentralasia.com saytidan foydalanish va SOOHOW CENTRAL ASIA xizmatlaridan foydalanish ushbu Foydalanish shartlariga roziligingizni anglatadi. Rozi bo‘lmasangiz, saytdan foydalanmang.",
+        "soohowcentralasia.com saytidan foydalanish va OOO FALCON TRADE LINES xizmatlaridan foydalanish ushbu Foydalanish shartlariga roziligingizni anglatadi. Rozi bo‘lmasangiz, saytdan foydalanmang.",
         "Saytdagi mahsulot tavsiflari, texnik xususiyatlar, rasmlar va narxlar umumiy ma’lumot uchun berilgan bo‘lib, oldindan xabar berilmasdan o‘zgarishi mumkin. Yetkazib berishning yakuniy shartlari yozma taklif, shartnoma yoki hisob-fakturada tasdiqlanadi.",
         "Aloqa va narx so‘rovi formalarida to‘g‘ri ma’lumot taqdim etishingiz shart. Yolg‘on, chalg‘ituvchi yoki noqonuniy murojaatlar rad etilishi yoki bekor qilinishi mumkin.",
-        "Saytdagi barcha kontent — matn, logotip, grafika va dizayn — SOOHOW CENTRAL ASIA yoki litsenziarlar mulki hisoblanadi va yozma ruxsatsiz ko‘chirilmasligi kerak.",
-        "Qonun ruxsat bergan darajada SOOHOW CENTRAL ASIA saytdan foydalanish yoki undagi ma’lumotlarga tayanish natijasida yuzaga keladigan bilvosita zararlar uchun javobgar emas. Yetkazilgan mahsulotlar bo‘yicha javobgarlik shartnoma va kafolat shartlariga muvofiq belgilanadi.",
+        "Saytdagi barcha kontent — matn, logotip, grafika va dizayn — OOO FALCON TRADE LINES yoki litsenziarlar mulki hisoblanadi va yozma ruxsatsiz ko‘chirilmasligi kerak.",
+        "Qonun ruxsat bergan darajada OOO FALCON TRADE LINES saytdan foydalanish yoki undagi ma’lumotlarga tayanish natijasida yuzaga keladigan bilvosita zararlar uchun javobgar emas. Yetkazilgan mahsulotlar bo‘yicha javobgarlik shartnoma va kafolat shartlariga muvofiq belgilanadi.",
         "Ushbu shartlar O‘zbekiston Respublikasi qonunchiligiga bo‘ysunadi. Shartlar istalgan vaqtda yangilanishi mumkin; amaldagi versiya doim shu sahifada e’lon qilinadi.",
       ],
     },
   },
   search: {
-    placeholder: "Uskuna nomi, model yoki reagent bo'yicha qidiring...",
+    placeholder: "Uskuna nomi yoki model bo'yicha qidiring...",
     noResults: "Mahsulot topilmadi",
     tryDifferent: "Boshqa so'z bilan qidirib ko'ring",
   },
@@ -713,7 +730,7 @@ const uz: TranslationTree = {
     clients: "Xizmat ko'rsatilgan mijozlar",
     partners: "Hamkor brendlar",
     years: "Faol yillar",
-    reagents: "Yetkazilgan reagentlar",
+    reagents: "OEM ehtiyot qismlar",
   },
   badges: { bestseller: "ENG KO'P SOTILGAN", new: "YANGI" },
   about: {
@@ -819,11 +836,10 @@ const uz: TranslationTree = {
     ],
   },
   productsPage: {
-    title: "USKUNALAR VA REAGENTLAR",
-    subtitle: "Talabchan sanoat muhiti uchun aniq uskunalar. Muhim tahlil jarayonlari uchun sertifikatlangan reagentlar.",
+    title: "SANoat USKUNALARI",
+    subtitle: "Talabchan sanoat va laboratoriya muhiti uchun aniq o'lchov va analitik uskunalar.",
     filterAll: "Barchasi",
     catIndustrial: "Sanoat o'lchovi",
-    catChemical: "Kimyo reagentlari",
     modelLabel: "Model",
   },
   productModal: {
@@ -862,7 +878,7 @@ const uz: TranslationTree = {
     subjects: ["Umumiy so'rov", "Narx so'rovi", "Texnik yordam", "Hamkorlik"],
     faqs: [
       { q: "Mahsulot sertifikatlari va ma'lumot varaqlarini berasizmi?", a: "Ha. Barcha uskunalar ishlab chiqaruvchi sertifikatlari, kalibrlash yozuvlari va to'liq texnik hujjatlar bilan keladi (o'zbek, rus yoki ingliz tilida)." },
-      { q: "Reagentlarni ulgurji miqdorda yetkaza olasizmi?", a: "Albatta. Sanoat miqyosidagi buyurtmalar bilan ishlaymiz. Hajm narxi va qadoqlash uchun bog'laning." },
+      { q: "Original OEM ehtiyot qismlarini yetkazasizmi?", a: "Ha. Spektrometr va analizatorlar uchun ishlab chiqaruvchining original qismlarini to'liq hujjatlar bilan ta'minlaymiz." },
       { q: "Toshkentdan tashqariga yetkazasizmi?", a: "O'zbekistonning barcha hududlariga va Qozog'iston, Qirg'iziston, Tojikistonga eksport qilamiz." },
       { q: "Kalibrlash va servis siyosatingiz qanday?", a: "Barcha uskunalar uchun joyida kalibrlash, o'rnatish nazorati va kafolat xizmati. Operatorlar uchun o'qitish ham kiritilgan." },
       { q: "Narx taklifini qanchalik tez olsam bo'ladi?", a: "Sayt yoki Telegram orqali so'rov yuboring — ish vaqtida 30 daqiqa ichida javob beramiz." },
@@ -914,7 +930,7 @@ const uz: TranslationTree = {
     popularCategories: "Mashhur kategoriyalar",
     resultsFound: "NATIJA TOPILDI",
     tryTypos: "Imlo xatosini tekshiring yoki umumiyroq so'z bilan qidiring.",
-    tags: ["Oqim o'lchagichlar", "Gaz analizatorlari", "Viskozimetrlar", "HPLC darajasi", "ACS reagentlar", "Kalibrlash buferlari"],
+    tags: ["OES spektrometr", "Moy analizatori", "Metall tahlili", "RDE-OES", "Oltin analizatori", "GD-OES"],
   },
   whyChooseImages: {
     alt1: "Sertifikat 1",
@@ -923,10 +939,10 @@ const uz: TranslationTree = {
   },
   footerCategories: [
     "Sanoat o'lchovi",
-    "Kimyo reagentlari",
     "Laboratoriya uskunalari",
     "Jarayon nazorati",
     "Xavfsizlik va monitoring",
+    "Servis va qo'llab-quvvatlash",
   ],
 };
 
@@ -958,7 +974,7 @@ const ru: TranslationTree = {
     title2: "КАЧЕСТВА",
     title3: "ИННОВАЦИИ",
     description:
-      "SOOHOW CENTRAL ASIA поставляет промышленные измерительные приборы и сертифицированные химические реагенты для лабораторий и производственных предприятий Центральной Азии.",
+      "OOO FALCON TRADE LINES поставляет промышленные измерительные приборы и аналитическое оборудование для лабораторий и производственных предприятий Центральной Азии.",
     primaryCta: "Каталог",
     scrollDown: "Листайте вниз",
     statProducts: "40+ продуктов",
@@ -967,9 +983,9 @@ const ru: TranslationTree = {
   },
   homeIntro: {
     badge: "О платформе",
-    title: "SOOHOW CENTRAL ASIA — ВАШ ПАРТНЁР ТОЧНОСТИ",
+    title: "OOO FALCON TRADE LINES — ВАШ ПАРТНЁР ТОЧНОСТИ",
     lead:
-      "Сайт создан для лабораторий, заводов и инженеров: найти приборы и реагенты, запросить цену и узнать о компании — всё в одном современном промышленном интерфейсе.",
+      "Сайт создан для лабораторий, заводов и инженеров: найти приборы, запросить цену и узнать о компании — всё в одном современном промышленном интерфейсе.",
     pillars: [
       {
         title: "Миссия и опыт",
@@ -1051,6 +1067,19 @@ const ru: TranslationTree = {
       },
     ],
   },
+  warranty: {
+    badge: "Техническая поддержка",
+    title: "Гарантийное и сервисное обслуживание",
+    paragraph1:
+      "Мы обеспечиваем полный цикл технической поддержки оборудования — от гарантийного ремонта до профессионального сервисного обслуживания. Используем только оригинальные сертифицированные запчасти (OEM), что гарантирует надежность, безопасность и долгий срок службы техники.",
+    paragraph2:
+      "Наша команда квалифицированных инженеров проводит точную диагностику, модернизацию и техническое обслуживание с использованием современного специализированного оборудования. Мы помогаем поддерживать стабильную и бесперебойную работу вашей техники на каждом этапе эксплуатации.",
+    highlights: [
+      "Гарантийный и послегарантийный ремонт",
+      "Оригинальные запчасти OEM",
+      "Диагностика, модернизация и ТО",
+    ],
+  },
   partners: {
     badge: "Доверие лидеров",
     title: "НАШИ ПАРТНЁРЫ",
@@ -1103,25 +1132,21 @@ const ru: TranslationTree = {
   whyChoose: {
     title: "ЧЕТЫРЕ ПРИЧИНЫ ВЫБРАТЬ НАС",
     badge: "Преимущества",
-    cardTitle: "Многолетний опыт в промышленности",
+    cardTitle: "Официальный дилер и авторизованный сервис в Центральной Азии",
     years: "10+ ЛЕТ",
     excellence: "Сертифицированное качество",
     openCertificate: "Открыть сертификат в полном размере",
     closeLightbox: "Закрыть",
     items: [
-      "Национальное высокотехнологичное предприятие",
-      "Специализированные инновационные МСП в провинции Цзянсу",
-      "Инновационные МСП в провинции Цзянсу",
-      "Исследовательский центр атомно-эмиссионной спектрометрии Сучжоу",
-      "Suzhou Gazelle Enterprise",
-      "Институт научных исследований и разработок Куньшань",
-      "Специализированные инновационные МСП в городе Куньшань",
-      "Реализовано 3 провинциальных, 2 городских проекта Сучжоу и более 10 проектов Куньшань",
+      "Авторизованный сервисный центр",
+      "Послепродажное обслуживание оборудования и приборов",
+      "Оригинальные запчасти OEM",
+      "Профессиональная техническая поддержка",
     ],
   },
   footer: {
     tagline:
-      "Ведущий поставщик промышленных измерительных приборов и сертифицированных реагентов в Центральной Азии. Точность, которой можно доверять.",
+      "Ведущий поставщик промышленных измерительных приборов и аналитического оборудования в Центральной Азии. Точность, которой можно доверять.",
     navigation: "Навигация",
     categories: "Категории",
     contactUs: "Связаться с нами",
@@ -1140,7 +1165,7 @@ const ru: TranslationTree = {
       title: "Политика конфиденциальности",
       updated: "Последнее обновление: 19 мая 2026 г.",
       paragraphs: [
-        "SOOHOW CENTRAL ASIA («мы») уважает вашу конфиденциальность. Настоящая политика объясняет, как мы собираем, используем и защищаем персональные данные при посещении soohowcentralasia.com или обращении через формы, email и телефон.",
+        "OOO FALCON TRADE LINES («мы») уважает вашу конфиденциальность. Настоящая политика объясняет, как мы собираем, используем и защищаем персональные данные при посещении soohowcentralasia.com или обращении через формы, email и телефон.",
         "При запросе коммерческого предложения или обращении мы можем получить имя, компанию, телефон, email, интерес к продукции и текст сообщения. Для работы и безопасности сайта также могут собираться IP-адрес, тип браузера и cookie.",
         "Данные используются для ответов на запросы, подготовки предложений, поставки продукции и услуг, улучшения сайта и соблюдения законодательства. Мы не продаём персональные данные третьим лицам.",
         "Информация может передаваться доверенным поставщикам услуг (хостинг, обмен сообщениями, логистика) в объёме, необходимом для деятельности компании, а также государственным органам по требованию закона. Применяются разумные меры защиты данных.",
@@ -1152,17 +1177,17 @@ const ru: TranslationTree = {
       title: "Условия использования",
       updated: "Последнее обновление: 19 мая 2026 г.",
       paragraphs: [
-        "Используя soohowcentralasia.com и услуги SOOHOW CENTRAL ASIA, вы соглашаетесь с настоящими Условиями. Если вы не согласны, пожалуйста, не используйте сайт.",
+        "Используя soohowcentralasia.com и услуги OOO FALCON TRADE LINES, вы соглашаетесь с настоящими Условиями. Если вы не согласны, пожалуйста, не используйте сайт.",
         "Описания продукции, характеристики, изображения и цены носят информационный характер и могут изменяться без предварительного уведомления. Окончательные условия поставки подтверждаются в письменном предложении, договоре или счёте.",
         "Вы обязуетесь предоставлять достоверные данные в формах обратной связи и запроса цен. Мы вправе отклонить обращения с ложной, вводящей в заблуждение или незаконной информацией.",
-        "Весь контент сайта — тексты, логотипы, графика и оформление — принадлежит SOOHOW CENTRAL ASIA или правообладателям и не может копироваться без письменного разрешения.",
-        "В пределах, допускаемых законом, SOOHOW CENTRAL ASIA не несёт ответственности за косвенные убытки, возникшие при использовании сайта или доверии к его содержанию. Ответственность за поставленную продукцию определяется договором и гарантийными условиями.",
+        "Весь контент сайта — тексты, логотипы, графика и оформление — принадлежит OOO FALCON TRADE LINES или правообладателям и не может копироваться без письменного разрешения.",
+        "В пределах, допускаемых законом, OOO FALCON TRADE LINES не несёт ответственности за косвенные убытки, возникшие при использовании сайта или доверии к его содержанию. Ответственность за поставленную продукцию определяется договором и гарантийными условиями.",
         "Настоящие условия регулируются законодательством Республики Узбекистан. Условия могут обновляться; актуальная версия всегда публикуется на этой странице.",
       ],
     },
   },
   search: {
-    placeholder: "Поиск по названию, модели или реагенту...",
+    placeholder: "Поиск по названию или модели...",
     noResults: "Продукты не найдены",
     tryDifferent: "Попробуйте другой запрос",
   },
@@ -1171,7 +1196,7 @@ const ru: TranslationTree = {
     clients: "Обслуженных клиентов",
     partners: "Брендов-партнёров",
     years: "Лет на рынке",
-    reagents: "Поставлено реагентов",
+    reagents: "Оригинальные запчасти OEM",
   },
   badges: { bestseller: "ХИТ ПРОДАЖ", new: "НОВИНКА" },
   about: {
@@ -1277,11 +1302,10 @@ const ru: TranslationTree = {
     ],
   },
   productsPage: {
-    title: "ПРИБОРЫ И РЕАГЕНТЫ",
-    subtitle: "Точные инструменты для сложных условий. Сертифицированные реагенты для критических процессов.",
+    title: "ПРОМЫШЛЕННЫЕ ПРИБОРЫ",
+    subtitle: "Точные измерительные и аналитические приборы для сложных промышленных и лабораторных условий.",
     filterAll: "Все",
     catIndustrial: "Промышленные измерения",
-    catChemical: "Химические реагенты",
     modelLabel: "Модель",
   },
   productModal: {
@@ -1320,7 +1344,7 @@ const ru: TranslationTree = {
     subjects: ["Общий запрос", "Запрос цены", "Техподдержка", "Партнёрство"],
     faqs: [
       { q: "Предоставляете ли сертификаты и паспорта на продукцию?", a: "Да. Все приборы с сертификатами производителя, записями калибровки и полной документацией на узбекском, русском или английском." },
-      { q: "Можно ли заказать реагенты оптом?", a: "Да. Работаем с промышленными объёмами. Свяжитесь для оптовых цен и упаковки." },
+      { q: "Поставляете ли оригинальные запчасти OEM?", a: "Да. Обеспечиваем оригинальные детали производителя для спектрометров и анализаторов с полной документацией." },
       { q: "Доставляете ли за пределы Ташкента?", a: "По всему Узбекистану, а также в Казахстан, Кыргызстан и Таджикистан." },
       { q: "Какова политика калибровки и сервиса?", a: "Выездная калибровка, надзор за установкой и гарантийное обслуживание. Обучение операторов включено." },
       { q: "Как быстро получить коммерческое предложение?", a: "Отправьте запрос через сайт или Telegram — ответим в течение 30 минут в рабочее время." },
@@ -1372,7 +1396,7 @@ const ru: TranslationTree = {
     popularCategories: "Популярные категории",
     resultsFound: "НАЙДЕНО РЕЗУЛЬТАТОВ",
     tryTypos: "Проверьте опечатки или используйте более общий запрос.",
-    tags: ["Расходомеры", "Газоанализаторы", "Вискозиметры", "HPLC", "ACS реагенты", "Буферы калибровки"],
+    tags: ["OES-спектрометры", "Анализаторы масла", "Анализ металлов", "RDE-OES", "Анализаторы золота", "GD-OES"],
   },
   whyChooseImages: {
     alt1: "Сертификат 1",
@@ -1381,10 +1405,10 @@ const ru: TranslationTree = {
   },
   footerCategories: [
     "Промышленные измерения",
-    "Химические реагенты",
     "Лабораторные приборы",
     "Контроль процессов",
     "Безопасность и мониторинг",
+    "Сервис и поддержка",
   ],
 };
 
