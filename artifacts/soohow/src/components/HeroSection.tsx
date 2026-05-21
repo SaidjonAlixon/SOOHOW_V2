@@ -49,7 +49,15 @@ export function HeroSection({ onQuoteClick }: { onQuoteClick: () => void }) {
                 transition={{ duration: 0.7, delay: 0.25 }}
                 className="text-[hsl(213_74%_15%)] dark:text-white [text-wrap:balance]"
               >
-                {t("hero.title1")} {t("hero.title2")}
+                {t("hero.title1")}
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.32 }}
+                className="text-[hsl(213_74%_15%)] dark:text-white [text-wrap:balance]"
+              >
+                {t("hero.title2")}
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 24 }}

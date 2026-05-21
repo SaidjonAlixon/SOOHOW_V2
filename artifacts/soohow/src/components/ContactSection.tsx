@@ -112,7 +112,7 @@ export function ContactSection() {
                 <Mail className="text-[#00A8E8] mt-1 mr-4 shrink-0" size={24} />
                 <div>
                   <div className="font-heading font-bold site-heading mb-1">{t('contact.email')}</div>
-                  <div className="font-sans site-muted">info@soohowasia.uz<br/>sales@soohowasia.uz</div>
+                  <div className="font-sans site-muted">info@soohowcentralasia.com<br/>sales@soohowasia.uz</div>
                 </div>
               </div>
               <div className="flex items-start">

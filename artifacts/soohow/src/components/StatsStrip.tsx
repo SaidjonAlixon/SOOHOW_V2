@@ -2,11 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { useLocale } from '@/lib/i18n/LocaleContext';
 
 const statKeys = [
-  { key: 'stats.products', value: 500, suffix: '+' },
+  { key: 'stats.products', value: 40, suffix: '+' },
   { key: 'stats.clients', value: 200, suffix: '+' },
   { key: 'stats.partners', value: 15, suffix: '+' },
   { key: 'stats.years', value: 10, suffix: '+' },
-  { key: 'stats.reagents', value: 50, suffix: 'K+' },
 ] as const;
 
 export function StatsStrip() {
@@ -40,7 +39,7 @@ export function StatsStrip() {
       data-testid="stats-strip"
     >
       <div className="max-w-7xl mx-auto px-6 py-12 md:py-14">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-4">
           {statKeys.map((stat, i) => (
             <div
               key={i}

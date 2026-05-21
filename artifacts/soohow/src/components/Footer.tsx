@@ -74,8 +74,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@soohowasia.uz" className="hover:text-[#00A8E8] transition-colors">
-                  info@soohowasia.uz
+                <a href="mailto:info@soohowcentralasia.com" className="hover:text-[#00A8E8] transition-colors">
+                  info@soohowcentralasia.com
                 </a>
               </li>
               <li className="pt-2 text-xs">{t('footer.hours')}</li>

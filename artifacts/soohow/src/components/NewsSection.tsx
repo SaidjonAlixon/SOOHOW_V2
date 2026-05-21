@@ -4,7 +4,7 @@ import { Calendar, Newspaper } from "lucide-react";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 
 const base = import.meta.env.BASE_URL;
-const newsImages = ["HOME_P1.jpeg", "HOME_P2.jpeg", "HOME_P3.jpeg"] as const;
+const newsImages = ["yangili/yangili1.jpg", "yangili/yangili2.jpg", "yangili/yangili3.jpg"] as const;
 
 export function NewsSection() {
   const { t, messages } = useLocale();
@@ -48,7 +48,7 @@ export function NewsSection() {
             >
               <motion.div className="relative aspect-[16/10] overflow-hidden bg-slate-200 dark:bg-slate-800">
                 <img
-                  src={`${base}HOME/${newsImages[i]}`}
+                  src={`${base}${newsImages[i]}`}
                   alt={item.imageAlt}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
