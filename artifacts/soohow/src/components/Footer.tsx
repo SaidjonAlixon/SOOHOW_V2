@@ -67,15 +67,17 @@ export function Footer() {
             <h4 className="font-heading font-bold site-heading mb-6 uppercase">{t('footer.contactUs')}</h4>
             <ul className="space-y-3 text-sm site-muted font-sans">
               <li>{t('contact.address')}</li>
-              <li>{t('contact.city')}</li>
               <li className="pt-2">
-                <a href="tel:+998712345678" className="hover:text-[#00A8E8] transition-colors">
-                  +998 71 234-56-78
+                <a href="tel:+998777444048" className="hover:text-[#00A8E8] transition-colors">
+                  {t('contact.phone')}
                 </a>
               </li>
               <li>
-                <a href="mailto:info@soohowcentralasia.com" className="hover:text-[#00A8E8] transition-colors">
-                  info@soohowcentralasia.com
+                <a
+                  href={`mailto:${t('contact.emailAddress')}`}
+                  className="hover:text-[#00A8E8] transition-colors"
+                >
+                  {t('contact.emailAddress')}
                 </a>
               </li>
               <li className="pt-2 text-xs">{t('footer.hours')}</li>

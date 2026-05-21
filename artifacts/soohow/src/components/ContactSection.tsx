@@ -98,21 +98,40 @@ export function ContactSection() {
                 <MapPin className="text-[#00A8E8] mt-1 mr-4 shrink-0" size={24} />
                 <div>
                   <div className="font-heading font-bold site-heading mb-1">{t('contact.headquarters')}</div>
-                  <div className="font-sans site-muted">{t('contact.address')}<br/>{t('contact.city')}</div>
+                  <div className="font-sans site-muted">
+                    {t('contact.address')}
+                    {t('contact.city') ? (
+                      <>
+                        <br />
+                        {t('contact.city')}
+                      </>
+                    ) : null}
+                  </div>
                 </div>
               </div>
               <div className="flex items-start mb-6">
                 <Phone className="text-[#00A8E8] mt-1 mr-4 shrink-0" size={24} />
                 <div>
                   <div className="font-heading font-bold site-heading mb-1">{t('contact.directLines')}</div>
-                  <div className="font-sans site-muted">+998 71 234-56-78<br/>+998 90 123-45-67</div>
+                  <div className="font-sans site-muted">
+                    <a href="tel:+998777444048" className="hover:text-[#00A8E8] transition-colors">
+                      {t('contact.phone')}
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="flex items-start mb-6">
                 <Mail className="text-[#00A8E8] mt-1 mr-4 shrink-0" size={24} />
                 <div>
                   <div className="font-heading font-bold site-heading mb-1">{t('contact.email')}</div>
-                  <div className="font-sans site-muted">info@soohowcentralasia.com<br/>sales@soohowasia.uz</div>
+                  <div className="font-sans site-muted">
+                    <a
+                      href={`mailto:${t('contact.emailAddress')}`}
+                      className="hover:text-[#00A8E8] transition-colors"
+                    >
+                      {t('contact.emailAddress')}
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="flex items-start">
