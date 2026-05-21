@@ -44,7 +44,7 @@ const en = {
   },
   homeIntro: {
     badge: "About the platform",
-    title: "OOO FALCON TRADE LINES — YOUR PRECISION PARTNER",
+    title: "OOO FALCON TRADE LINES — YOUR RELIABLE PARTNER",
     lead:
       "This site is built for laboratories, plants, and engineers who need reliable instruments and professional service without friction. Explore our catalog, company story, and support channels in one modern industrial experience.",
     pillars: [
@@ -393,7 +393,7 @@ const en = {
     directLines: "Direct Lines",
     phone: "+998 77 744 40 48",
     email: "Email",
-    emailAddress: "info@falcontradelines.com",
+    emailAddress: "info@soohowcentralasia.com",
     workingHours: "Working Hours",
     hoursWeek: "Mon–Fri: 09:00–18:00",
     hoursSat: "Sat: 09:00–14:00, Sun: Closed",
@@ -517,7 +517,7 @@ const uz: TranslationTree = {
   },
   homeIntro: {
     badge: "Platforma haqida",
-    title: "OOO FALCON TRADE LINES — ANIQLIK VA ISHONCH HAMKORI",
+    title: "OOO FALCON TRADE LINES — ISHONCHLI HAMKORINGIZ",
     lead:
       "Sayt laboratoriyalar, zavodlar va muhandislar uchun yaratilgan: sertifikatlangan uskunalarni tez topish, narx so'rash va kompaniya haqida bilish — barchasi bitta zamonaviy sanoat interfeysida.",
     pillars: [
@@ -861,7 +861,7 @@ const uz: TranslationTree = {
     directLines: "To'g'ridan-to'g'ri liniyalar",
     phone: "+998 77 744 40 48",
     email: "Email",
-    emailAddress: "info@falcontradelines.com",
+    emailAddress: "info@soohowcentralasia.com",
     workingHours: "Ish vaqti",
     hoursWeek: "Dush–Jum: 09:00–18:00",
     hoursSat: "Shan: 09:00–14:00, Yak: Dam olish",
@@ -983,7 +983,7 @@ const ru: TranslationTree = {
   },
   homeIntro: {
     badge: "О платформе",
-    title: "OOO FALCON TRADE LINES — ВАШ ПАРТНЁР ТОЧНОСТИ",
+    title: "OOO FALCON TRADE LINES — ВАШ НАДЕЖНЫЙ ПАРТНЕР",
     lead:
       "Сайт создан для лабораторий, заводов и инженеров: найти приборы, запросить цену и узнать о компании — всё в одном современном промышленном интерфейсе.",
     pillars: [
@@ -1327,7 +1327,7 @@ const ru: TranslationTree = {
     directLines: "Прямые линии",
     phone: "+998 77 744 40 48",
     email: "Email",
-    emailAddress: "info@falcontradelines.com",
+    emailAddress: "info@soohowcentralasia.com",
     workingHours: "Режим работы",
     hoursWeek: "Пн–Пт: 09:00–18:00",
     hoursSat: "Сб: 09:00–14:00, Вс: выходной",
