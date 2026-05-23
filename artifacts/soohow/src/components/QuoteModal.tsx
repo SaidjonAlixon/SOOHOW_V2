@@ -31,7 +31,7 @@ export function QuoteModal({ product, onClose }: QuoteModalProps) {
           .string()
           .min(12, t('validation.phoneMin'))
           .regex(/^\+\d{10,15}$/, t('validation.phoneMin')),
-        company: z.string().optional(),
+        company: z.string().trim().min(2, t('validation.companyMin')),
         email: z.string().email(t('validation.emailInvalid')).optional().or(z.literal('')),
         product: z.string().optional(),
         quantity: z.string().optional(),
@@ -180,7 +180,12 @@ export function QuoteModal({ product, onClose }: QuoteModalProps) {
                         <FormItem>
                           <FormLabel className="site-muted">{t('quote.company')}</FormLabel>
                           <FormControl>
-                            <Input placeholder={t('quote.placeholders.company')} className="site-section site-border site-heading" {...field} />
+                            <Input
+                              placeholder={t('quote.placeholders.company')}
+                              className="site-section site-border site-heading"
+                              required
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

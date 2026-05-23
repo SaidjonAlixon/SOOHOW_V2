@@ -1,8 +1,9 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import { telegramApiDevPlugin } from "./vite-plugin-telegram-api";
 
 const rawPort = process.env.PORT ?? "4173";
 const port = Number(rawPort);
@@ -17,9 +18,18 @@ const normalizedBase =
 const apiProxyPrefix = `${normalizedBase}api`.replace(/\/+/g, "/");
 const apiServerPort = process.env.API_PORT ?? "5000";
 const isProduction = process.env.NODE_ENV === "production";
-export default defineConfig({
+const telegramApiPath = `${apiProxyPrefix}/telegram`.replace(/\/+/g, "/");
+
+export default defineConfig(async ({ mode }) => {
+  const appRoot = path.resolve(import.meta.dirname);
+  const workspaceRoot = path.resolve(appRoot, "../..");
+  Object.assign(process.env, loadEnv(mode, appRoot, ""));
+  Object.assign(process.env, loadEnv(mode, workspaceRoot, ""));
+
+  return {
   base: basePath,
   plugins: [
+    ...(!isProduction ? [telegramApiDevPlugin(telegramApiPath)] : []),
     react(),
     tailwindcss(),
     ...(!isProduction ? [runtimeErrorOverlay()] : []),
@@ -74,6 +84,12 @@ export default defineConfig({
         target: `http://127.0.0.1:${apiServerPort}`,
         changeOrigin: true,
         rewrite: (path) => path.replace(apiProxyPrefix, "/api"),
+        bypass(req) {
+          const url = req.url?.split("?")[0] ?? "";
+          if (url === telegramApiPath || url === `${telegramApiPath}/`) {
+            return url;
+          }
+        },
       },
     },
   },
@@ -86,7 +102,14 @@ export default defineConfig({
         target: `http://127.0.0.1:${apiServerPort}`,
         changeOrigin: true,
         rewrite: (path) => path.replace(apiProxyPrefix, "/api"),
+        bypass(req) {
+          const url = req.url?.split("?")[0] ?? "";
+          if (url === telegramApiPath || url === `${telegramApiPath}/`) {
+            return url;
+          }
+        },
       },
     },
   },
+};
 });

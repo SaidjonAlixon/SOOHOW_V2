@@ -157,6 +157,32 @@
     background-color: transparent;
   }
 
+  /* Why choose us — soohow_kare background */
+  .why-choose-section__bg-img {
+    object-fit: cover;
+    object-position: 58% center;
+    transform: scale(1.02);
+    filter: brightness(0.96) saturate(1.08);
+  }
+  @media (min-width: 1024px) {
+    .why-choose-section__bg-img {
+      object-position: 64% center;
+    }
+  }
+  .dark .why-choose-section__bg-img {
+    filter: brightness(0.9) saturate(1.1);
+  }
+  .why-choose-section__wash {
+    background: linear-gradient(
+      102deg,
+      hsl(var(--site-bg) / 0.88) 0%,
+      hsl(var(--site-bg) / 0.78) 28%,
+      hsl(var(--site-bg) / 0.66) 48%,
+      hsl(var(--site-bg) / 0.56) 68%,
+      hsl(var(--site-bg) / 0.46) 100%
+    );
+  }
+
   /* Inner pages — solid navy, no grid */
   .site-page-plain {
     background-color: hsl(var(--site-bg));

@@ -10,6 +10,7 @@ import { mountAnimatedTitleChars } from "@/lib/animateTitleChars";
 gsap.registerPlugin(ScrollTrigger);
 
 const base = import.meta.env.BASE_URL;
+const whyChooseBg = `${base}yangili/soohow_kare.png`;
 
 export function WhyChooseUsSection() {
   const { t, tList, locale } = useLocale();
@@ -48,9 +49,21 @@ export function WhyChooseUsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 md:py-32 site-home-section border-t site-border overflow-hidden"
+      className="relative py-24 md:py-32 site-home-section border-t site-border overflow-hidden why-choose-section"
       data-testid="why-choose-us-section"
     >
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+        <img
+          src={whyChooseBg}
+          alt=""
+          className="why-choose-section__bg-img absolute inset-0 h-full w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="why-choose-section__wash absolute inset-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--site-bg)/0.4)] via-transparent to-[hsl(var(--site-bg)/0.22)]" />
+      </div>
+
       <motion.div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.h2
           ref={titleRef}
@@ -67,7 +80,7 @@ export function WhyChooseUsSection() {
             initial={{ opacity: 0, x: -32 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="relative site-card border site-border rounded-2xl p-6 md:p-8 shadow-lg shadow-slate-200/50 dark:shadow-none overflow-hidden"
+            className="relative site-card border site-border rounded-2xl p-6 md:p-8 shadow-lg shadow-slate-200/50 dark:shadow-none overflow-hidden backdrop-blur-sm bg-[hsl(var(--site-card)/0.94)] dark:bg-[hsl(var(--site-card)/0.9)]"
           >
             <motion.div className="absolute inset-0 bg-gradient-to-br from-[#00A8E8]/5 via-transparent to-[#00D4AA]/5 dark:from-[#00A8E8]/8 dark:to-transparent pointer-events-none" />
 

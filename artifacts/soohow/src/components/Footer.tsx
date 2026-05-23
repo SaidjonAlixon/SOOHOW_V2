@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import { Send, Instagram, Linkedin, ArrowUpRight } from 'lucide-react';
+import { Send, Instagram, Linkedin, ArrowUpRight, Clock } from 'lucide-react';
 import { routes, navItems } from '@/lib/routes';
 import { Logo } from '@/components/Logo';
 import { useLocale } from '@/lib/i18n/LocaleContext';
@@ -80,7 +80,21 @@ export function Footer() {
                   {t('contact.emailAddress')}
                 </a>
               </li>
-              <li className="pt-2 text-xs">{t('footer.hours')}</li>
+              <li className="pt-4">
+                <div className="flex items-start gap-3">
+                  <Clock className="text-[#00A8E8] mt-0.5 shrink-0" size={18} />
+                  <div>
+                    <div className="font-heading font-bold site-heading text-sm mb-1">
+                      {t('contact.workingHours')}
+                    </div>
+                    <div className="text-sm site-muted leading-relaxed">
+                      {t('contact.hoursWeek')}
+                      <br />
+                      {t('contact.hoursSat')}
+                    </div>
+                  </div>
+                </div>
+              </li>
             </ul>
           </div>
         </div>

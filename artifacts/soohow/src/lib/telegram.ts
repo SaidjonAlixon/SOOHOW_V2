@@ -55,28 +55,50 @@ async function sendViaTelegramApi(text: string, token: string, chatId: string) {
   }
 }
 
+type BackendSendResult =
+  | { ok: true }
+  | { ok: false; fallback: true; error?: Error }
+  | { ok: false; fallback: false; error: Error };
+
 async function sendViaBackend(
   data: Record<string, unknown>,
   type: TelegramFormType,
-): Promise<boolean> {
-  const res = await fetch(apiTelegramUrl(), {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...data, type }),
-  });
+): Promise<BackendSendResult> {
+  let res: Response;
+  try {
+    res = await fetch(apiTelegramUrl(), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...data, type }),
+    });
+  } catch (err) {
+    return {
+      ok: false,
+      fallback: true,
+      error: err instanceof Error ? err : new Error(String(err)),
+    };
+  }
 
   const body = (await res.json().catch(() => null)) as { error?: string } | null;
 
-  if (res.ok) return true;
+  if (res.ok) return { ok: true };
 
   if (res.status === 503) {
-    throw new Error(
-      body?.error ??
-        "Telegram serverda sozlanmagan. Vercel → Settings → Environment Variables da TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID qo‘ying.",
-    );
+    return {
+      ok: false,
+      fallback: true,
+      error: new Error(
+        body?.error ??
+          "Telegram serverda sozlanmagan. Vercel → Settings → Environment Variables da TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID qo‘ying.",
+      ),
+    };
   }
 
-  throw new Error(body?.error ?? "Failed to send message");
+  return {
+    ok: false,
+    fallback: false,
+    error: new Error(body?.error ?? "Failed to send message"),
+  };
 }
 
 function getClientTelegramConfig() {
@@ -90,12 +112,8 @@ export async function sendTelegramMessage(
   data: Record<string, unknown>,
   type: TelegramFormType = "quote",
 ) {
-  try {
-    const sent = await sendViaBackend(data, type);
-    if (sent) return;
-  } catch (error) {
-    if (error instanceof Error) throw error;
-  }
+  const backend = await sendViaBackend(data, type);
+  if (backend.ok) return;
 
   const client = getClientTelegramConfig();
   if (client) {
@@ -104,7 +122,14 @@ export async function sendTelegramMessage(
     return;
   }
 
-  throw new Error(
-    "Telegram sozlanmagan. Vercelda TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID qo‘ying yoki mahalliy dev uchun artifacts/soohow/.env da VITE_TELEGRAM_* ni to‘ldiring.",
+  if (!backend.fallback) {
+    throw backend.error;
+  }
+
+  throw (
+    backend.error ??
+    new Error(
+      "Telegram sozlanmagan. Vercelda TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID qo‘ying yoki mahalliy dev uchun artifacts/soohow/.env da VITE_TELEGRAM_* ni to‘ldiring.",
+    )
   );
 }
