@@ -46,7 +46,7 @@ const en = {
     badge: "Our services",
     title: "OOO FALCON TRADE LINES YOUR RELIABLE PARTNER",
     lead:
-      "As the authorized SOOHOW partner in Central Asia, we supply spectrometers, oil analyzers, and industrial measurement equipment. Browse the catalog, request a quote online, and rely on warranty service, OEM spare parts, and engineer support.",
+      "As the authorized partner of KUNSHAN SOOHOW INSTRUMENT TECHNOLOGY CO., LTD. in Central Asia, we supply spectrometers, oil analyzers, and industrial measurement equipment. Browse the catalog, request a quote online, and rely on warranty service, OEM spare parts, and engineer support.",
     pillars: [
       {
         title: "Official SOOHOW partner",
@@ -99,8 +99,9 @@ const en = {
   },
   industrial: {
     badge: "MANUFACTURING EXCELLENCE",
-    titleLead: "PRECISION",
-    titleAccent: "PRODUCTION LINES",
+    eyebrow: "Scale · automation · QC",
+    title: "Intelligent manufacturing hub",
+    titleSub: "Automated lines for analytical instruments",
     intro:
       "An integrated ecosystem of assembly halls, optical metrology, and certified quality labs — engineered to deliver more than 2,000 advanced analytical instruments every year.",
     statValue: "2,000+",
@@ -213,6 +214,7 @@ const en = {
     title: "FOUR REASONS TO CHOOSE US",
     badge: "Advantages",
     lead: "What sets SOOHOW Central Asia apart — in four clear strengths.",
+    readMore: "More details",
     years: "10+ YEARS",
     excellence: "Certified excellence",
     openCertificate: "View certificate full size",
@@ -222,6 +224,8 @@ const en = {
         tag: "01",
         chip: "OEM · Service",
         title: "Official dealer & authorized service",
+        teaser:
+          "Original OEM supply, certified engineers, and factory-backed service across Central Asia.",
         description:
           "Guarantee of original products and qualified maintenance — from supply and commissioning to warranty support under factory procedures.",
         highlights: [
@@ -234,6 +238,7 @@ const en = {
         tag: "02",
         chip: "R&D · Lab",
         title: "Scientific potential",
+        teaser: "R&D expertise, spectrometry know-how, and innovative laboratory solutions.",
         description:
           "Modern developments, expert knowledge, and deployment of innovative solutions for metals analysis, oil diagnostics, and laboratory workflows.",
         highlights: [
@@ -244,8 +249,9 @@ const en = {
       },
       {
         tag: "03",
-        chip: "Smart factory",
-        title: "Intelligent production capacity",
+        chip: "Production lines",
+        title: "Precise production lines",
+        teaser: "Automated assembly lines, optical metrology, and quality-controlled production.",
         description:
           "Advanced technologies, automated processes, and high production efficiency — precision assembly built for reliable, large-scale instrument manufacturing.",
         highlights: [
@@ -258,6 +264,7 @@ const en = {
         tag: "04",
         chip: "ISO · Global",
         title: "International management recognition",
+        teaser: "ISO management systems independently audited to international standards.",
         description:
           "Compliance with world-class quality and management standards — independently audited systems that protect your investment and data.",
         highlights: [
@@ -267,6 +274,16 @@ const en = {
         ],
       },
     ],
+  },
+  pillarShowcase: {
+    trustNote0:
+      "Original OEM supply, factory-backed warranty, and certified engineers — one partner for the full equipment lifecycle in Central Asia.",
+    trustNote1:
+      "Patents, software products, and applied R&D — analytical expertise you can deploy in your lab or production line.",
+    trustNote2:
+      "Automated lines and ISO quality labs — stable capacity for spectrometers and analyzers shipped worldwide.",
+    ctaContact: "Contact us",
+    ctaQuote: "Request a quote",
   },
   footer: {
     tagline:
@@ -460,7 +477,9 @@ const en = {
     workingHours: "Working Hours",
     hoursWeek: "Mon–Fri: 09:00–18:00",
     hoursSat: "Sat: 09:00–14:00, Sun: Closed",
-    mapCoords: "TASHKENT 41°18'25.4\"N 69°16'44.2\"E",
+    mapCoords: "TASHKENT · 41.283848, 69.265665",
+    mapTitle: "Office location on map",
+    mapOpenLink: "Open in Google Maps",
     faqTitle: "FREQUENTLY ASKED QUESTIONS",
     formName: "Name *",
     formPhone: "Phone *",
@@ -662,7 +681,7 @@ const uz: TranslationTree = {
     badge: "Xizmatlarimiz",
     title: "OOO FALCON TRADE LINES ISHONCHLI HAMKORINGIZ",
     lead:
-      "Markaziy Osiyoda SOOHOW rasmiy vakili sifatida spektrometrlar, moy tahlil uskunalari va sanoat o'lchov asboblarini yetkazib beramiz. Katalogdan tanlang, saytda narx so'rovi yuboring, kafolatli servis, OEM ehtiyot qismlar va muhandis maslahatidan foydalaning.",
+      "Markaziy Osiyoda KUNSHAN SOOHOW INSTRUMENT TECHNOLOGY CO., LTD. rasmiy vakili sifatida spektrometrlar, moy tahlil uskunalari va sanoat o'lchov asboblarini yetkazib beramiz. Katalogdan tanlang, saytda narx so'rovi yuboring, kafolatli servis, OEM ehtiyot qismlar va muhandis maslahatidan foydalaning.",
     pillars: [
       {
         title: "Rasmiy SOOHOW hamkori",
@@ -715,8 +734,9 @@ const uz: TranslationTree = {
   },
   industrial: {
     badge: "ISHLAB CHIQARISH",
-    titleLead: "ANIQ",
-    titleAccent: "ISHLAB CHIQARISH LINIYALARI",
+    eyebrow: "Hajm · avtomatlashtirish · nazorat",
+    title: "Intellektual ishlab chiqarish kompleksi",
+    titleSub: "Analitik uskunalar uchun avtomatlashtirilgan liniyalar",
     intro:
       "Yig'ish zallari, optik metrologiya va sertifikatlangan sifat laboratoriyalari — yiliga 2000 dan ortiq ilg'or analitik uskunalarni yetkazib berish uchun yaratilgan yagona ekotizim.",
     statValue: "2000+",
@@ -829,6 +849,7 @@ const uz: TranslationTree = {
     title: "BIZNI TANLASHNING TO'RTTA SABABI",
     badge: "Afzalliklari",
     lead: "SOOHOW Central Asia ni ajratib turadigan to'rt aniq ustunlik.",
+    readMore: "Batafsil",
     years: "10+ YIL",
     excellence: "Sertifikatlangan mukammallik",
     openCertificate: "Sertifikatni to'liq ko'rish",
@@ -838,6 +859,8 @@ const uz: TranslationTree = {
         tag: "01",
         chip: "OEM · Servis",
         title: "Rasmiy diler va vakolatli servis",
+        teaser:
+          "Original OEM yetkazib berish, sertifikatlangan muhandislar va zavod kafolatli servis Markaziy Osiyoda.",
         description:
           "Original mahsulot va malakali xizmat kafolati — yetkazib berish va ishga tushirishdan kafolatli servisgacha, zavod tartib-qoidalariga mos.",
         highlights: [
@@ -850,6 +873,7 @@ const uz: TranslationTree = {
         tag: "02",
         chip: "R&D · Laboratoriya",
         title: "Ilmiy salohiyat",
+        teaser: "R&D tajribasi, spektrometriya va laboratoriya uchun innovatsion yechimlar.",
         description:
           "Zamonaviy ishlanmalar, ekspert bilim va innovatsion yechimlar — metall tahlili, moy diagnostikasi va laboratoriya jarayonlari uchun.",
         highlights: [
@@ -860,10 +884,11 @@ const uz: TranslationTree = {
       },
       {
         tag: "03",
-        chip: "Aqlli zavod",
-        title: "Intellektual ishlab chiqarish quvvatlari",
+        chip: "Aniq liniyalar",
+        title: "Aniq ishlab chiqarish liniyalari",
+        teaser: "Avtomatlashtirilgan liniyalar, optik metrologiya va sifat nazorati.",
         description:
-          "Ilg'or texnologiyalar, avtomatlashtirilgan jarayonlar va yuqori samaradorlik — ishonchli, keng ko'lamli uskunalar ishlab chiqarish uchun.",
+          "Ilg'or texnologiyalar, avtomatlashtirilgan jarayonlar va yuqori samaradorlik — ishonchli, keng ko'lamli uskunalar ishlab chiqarish uchun aniq yig'ilish.",
         highlights: [
           "Avtomatlashtirilgan liniyalar va jarayon nazorati",
           "Optik metrologiya va sifat laboratoriyalari",
@@ -874,6 +899,7 @@ const uz: TranslationTree = {
         tag: "04",
         chip: "ISO · Global",
         title: "Boshqaruv tizimlarining xalqaro tan olinishi",
+        teaser: "Xalqaro standartlarga mos, mustaqil auditdan o'tgan ISO tizimlari.",
         description:
           "Dunyo darajasidagi sifat va boshqaruv standartlariga muvofiqlik — mustaqil auditdan o'tgan tizimlar, investitsiya va ma'lumotlaringizni himoya qiladi.",
         highlights: [
@@ -883,6 +909,16 @@ const uz: TranslationTree = {
         ],
       },
     ],
+  },
+  pillarShowcase: {
+    trustNote0:
+      "Original OEM yetkazib berish, zavod kafolati va sertifikatlangan muhandislar — Markaziy Osiyoda uskuna hayot sikli uchun yagona hamkor.",
+    trustNote1:
+      "Patentlar, dasturiy mahsulotlar va amaliy R&D — laboratoriya va ishlab chiqarishda qo'llanadigan analitik tajriba.",
+    trustNote2:
+      "Avtomatlashtirilgan liniyalar va ISO sifat laboratoriyalari — dunyoga yetkazib berish uchun barqaror quvvat.",
+    ctaContact: "Bog'lanish",
+    ctaQuote: "Narx so'rash",
   },
   footer: {
     tagline:
@@ -1071,7 +1107,9 @@ const uz: TranslationTree = {
     workingHours: "Ish vaqti",
     hoursWeek: "Dush–Jum: 09:00–18:00",
     hoursSat: "Shan: 09:00–14:00, Yak: Dam olish",
-    mapCoords: "TOSHKENT 41°18'25.4\"N 69°16'44.2\"E",
+    mapCoords: "TOSHKENT · 41.283848, 69.265665",
+    mapTitle: "Ofis joylashuvi xaritada",
+    mapOpenLink: "Google Xaritada ochish",
     faqTitle: "KO'P BERILADIGAN SAVOLLAR",
     formName: "Ism *",
     formPhone: "Telefon *",
@@ -1271,7 +1309,7 @@ const ru: TranslationTree = {
     badge: "Наши услуги",
     title: "OOO FALCON TRADE LINES ВАШ НАДЕЖНЫЙ ПАРТНЕР",
     lead:
-      "Как официальный партнёр SOOHOW в Центральной Азии поставляем спектрометры, анализаторы масел и промышленные измерительные приборы. Выбирайте в каталоге, запрашивайте цену на сайте, пользуйтесь гарантийным сервисом, оригинальными запчастями OEM и консультацией инженеров.",
+      "Как официальный партнёр KUNSHAN SOOHOW INSTRUMENT TECHNOLOGY CO., LTD. в Центральной Азии поставляем спектрометры, анализаторы масел и промышленные измерительные приборы. Выбирайте в каталоге, запрашивайте цену на сайте, пользуйтесь гарантийным сервисом, оригинальными запчастями OEM и консультацией инженеров.",
     pillars: [
       {
         title: "Официальный партнёр SOOHOW",
@@ -1324,8 +1362,9 @@ const ru: TranslationTree = {
   },
   industrial: {
     badge: "ПРОИЗВОДСТВО",
-    titleLead: "ТОЧНЫЕ",
-    titleAccent: "ПРОИЗВОДСТВЕННЫЕ ЛИНИИ",
+    eyebrow: "Масштаб · автоматизация · контроль",
+    title: "Интеллектуальный производственный комплекс",
+    titleSub: "Автоматизированные линии аналитических приборов",
     intro:
       "Единая экосистема сборочных цехов, оптической метрологии и сертифицированных лабораторий — более 2000 передовых аналитических приборов в год.",
     statValue: "2000+",
@@ -1438,6 +1477,7 @@ const ru: TranslationTree = {
     title: "ЧЕТЫРЕ ПРИЧИНЫ ВЫБРАТЬ НАС",
     badge: "Преимущества",
     lead: "Четыре ключевых преимущества SOOHOW Central Asia.",
+    readMore: "Подробнее",
     years: "10+ ЛЕТ",
     excellence: "Сертифицированное качество",
     openCertificate: "Открыть сертификат в полном размере",
@@ -1447,6 +1487,8 @@ const ru: TranslationTree = {
         tag: "01",
         chip: "OEM · Сервис",
         title: "Официальный дилер и авторизованный сервис",
+        teaser:
+          "Оригинальные поставки OEM, сертифицированные инженеры и сервис с заводской гарантией в Центральной Азии.",
         description:
           "Гарантия оригинальной продукции и квалифицированного обслуживания — от поставки и пусконаладки до гарантийной поддержки по стандартам завода.",
         highlights: [
@@ -1459,6 +1501,7 @@ const ru: TranslationTree = {
         tag: "02",
         chip: "НИОКР · Лаборатория",
         title: "Научный потенциал",
+        teaser: "НИОКР, спектрометрия и инновационные решения для лабораторий.",
         description:
           "Современные разработки, экспертные знания и внедрение инновационных решений для анализа металлов, диагностики масел и лабораторных процессов.",
         highlights: [
@@ -1469,8 +1512,9 @@ const ru: TranslationTree = {
       },
       {
         tag: "03",
-        chip: "Умное производство",
-        title: "Интеллектуальные производственные мощности",
+        chip: "Точные линии",
+        title: "ТОЧНЫЕ ПРОИЗВОДСТВЕННЫЕ ЛИНИИ",
+        teaser: "Автоматизированные линии, оптическая метрология и контроль качества.",
         description:
           "Передовые технологии, автоматизированные процессы и высокая эффективность — точная сборка для надёжного серийного выпуска приборов.",
         highlights: [
@@ -1483,6 +1527,7 @@ const ru: TranslationTree = {
         tag: "04",
         chip: "ISO · Мир",
         title: "Международное признание систем управления",
+        teaser: "Системы менеджмента ISO с независимым международным аудитом.",
         description:
           "Соответствие мировым стандартам качества и эффективности управления — независимо аудированные системы, защищающие ваши инвестиции и данные.",
         highlights: [
@@ -1492,6 +1537,16 @@ const ru: TranslationTree = {
         ],
       },
     ],
+  },
+  pillarShowcase: {
+    trustNote0:
+      "Оригинальные поставки OEM, заводская гарантия и сертифицированные инженеры — один партнёр на весь жизненный цикл оборудования в Центральной Азии.",
+    trustNote1:
+      "Патенты, программные продукты и прикладные НИОКР — аналитическая экспертиза для вашей лаборатории и производства.",
+    trustNote2:
+      "Автоматизированные линии и лаборатории качества ISO — стабильные объёмы для мировых поставок.",
+    ctaContact: "Связаться с нами",
+    ctaQuote: "Запросить цену",
   },
   footer: {
     tagline:
@@ -1680,7 +1735,9 @@ const ru: TranslationTree = {
     workingHours: "Режим работы",
     hoursWeek: "Пн–Пт: 09:00–18:00",
     hoursSat: "Сб: 09:00–14:00, Вс: выходной",
-    mapCoords: "ТАШКЕНТ 41°18'25.4\"N 69°16'44.2\"E",
+    mapCoords: "ТАШКЕНТ · 41.283848, 69.265665",
+    mapTitle: "Расположение офиса на карте",
+    mapOpenLink: "Открыть в Google Maps",
     faqTitle: "ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ",
     formName: "Имя *",
     formPhone: "Телефон *",

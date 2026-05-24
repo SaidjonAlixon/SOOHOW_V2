@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Link } from "wouter";
 import {
   ArrowRight,
   Award,
@@ -14,6 +13,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { mountAnimatedTitleChars } from "@/lib/animateTitleChars";
+import { scrollToSection, sectionIdFromHref } from "@/lib/scrollToSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,12 +22,20 @@ const whyChooseBg = `${import.meta.env.BASE_URL}yangili/soohow_kare.png`;
 type PillarCard = {
   tag: string;
   title: string;
+  teaser: string;
   description: string;
   chip?: string;
   highlights: readonly string[];
 };
 
 const pillarIcons: readonly LucideIcon[] = [ShieldCheck, FlaskConical, Factory, Globe2];
+
+const pillarDetailLinks = [
+  "/#oem-service",
+  "/#scientific-capability",
+  "/#industrial-capacity",
+  "/#certificates",
+] as const;
 
 const pillarThemes = [
   {
@@ -137,15 +145,24 @@ export function WhyChooseUsSection() {
           {pillars.map((pillar, i) => {
             const Icon = pillarIcons[i] ?? ShieldCheck;
             const theme = pillarThemes[i] ?? pillarThemes[0];
-            const isCertificates = i === 3;
+            const detailHref = pillarDetailLinks[i] ?? "/#certificates";
+            const sectionId = sectionIdFromHref(detailHref);
+            const teaser = pillar.teaser;
 
             return (
-              <motion.article
-                key={pillar.tag}
+              <motion.a
+                key={pillar.title}
+                href={detailHref}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(sectionId);
+                }}
                 initial={{ opacity: 0, y: 28 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
-                className={`group relative flex flex-col rounded-2xl border border-l-4 ${theme.border} site-border backdrop-blur-md bg-[hsl(var(--site-card)/0.95)] dark:bg-[hsl(var(--site-card)/0.92)] shadow-lg overflow-hidden ring-1 ring-transparent ${theme.ring} hover:shadow-2xl transition-all duration-300 min-h-[280px]`}
+                className={`group relative flex flex-col rounded-2xl border border-l-4 ${theme.border} site-border backdrop-blur-md bg-[hsl(var(--site-card)/0.95)] dark:bg-[hsl(var(--site-card)/0.92)] shadow-lg overflow-hidden ring-1 ring-transparent ${theme.ring} hover:shadow-2xl transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00A8E8] focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--site-bg))]`}
+                data-testid={`why-choose-pillar-card-${i}`}
+                aria-label={`${pillar.title} — ${t("whyChoose.readMore")}`}
               >
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${theme.glow} to-transparent opacity-60 pointer-events-none`}
@@ -159,54 +176,39 @@ export function WhyChooseUsSection() {
                     >
                       <Icon size={26} strokeWidth={1.65} />
                     </div>
-                    <div className="flex flex-col items-end gap-2">
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.24em] text-[#F59E0B] dark:text-[#FBBF24]">
-                        {pillar.tag}
-                      </span>
-                      {pillar.chip && (
+                    {pillar.chip && (
+                      <div className="flex flex-col items-end">
                         <span
                           className={`inline-flex rounded-full border px-2.5 py-0.5 text-[9px] font-heading font-bold uppercase tracking-wider ${theme.chip}`}
                         >
                           {pillar.chip}
                         </span>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </div>
 
                   <h3 className="font-heading font-bold text-lg md:text-xl site-heading leading-snug mb-3">
                     {pillar.title}
                   </h3>
 
-                  <p className="text-sm md:text-[15px] site-muted leading-relaxed md:leading-[1.75] mb-5">
-                    {pillar.description}
+                  <p className="text-sm md:text-[15px] site-muted leading-relaxed line-clamp-3 mb-4">
+                    {teaser}
                   </p>
 
-                  {pillar.highlights.length > 0 && (
-                    <ul className="space-y-2.5 mt-auto pt-4 border-t site-border/80" role="list">
-                      {pillar.highlights.map((point) => (
-                        <li key={point} className="flex items-start gap-2.5 text-[13px] site-muted">
-                          <span
-                            className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${theme.dot}`}
-                            aria-hidden
-                          />
-                          <span className="leading-snug">{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {isCertificates && (
-                    <Link
-                      href="/#certificates"
-                      className={`mt-5 inline-flex items-center gap-2 self-start rounded-xl border px-4 py-2.5 text-xs font-heading font-semibold transition-colors ${theme.chip} hover:opacity-90`}
-                      data-testid="why-choose-pillar-certificates-link"
-                    >
-                      {t("certificates.viewAll")}
-                      <ArrowRight size={14} />
-                    </Link>
-                  )}
+                  <span
+                    className={`mt-auto inline-flex items-center gap-1.5 text-sm font-heading font-semibold ${theme.icon} group-hover:opacity-90`}
+                  >
+                    <span aria-hidden>—</span>
+                    {t("whyChoose.readMore")}
+                    <ArrowRight
+                      size={16}
+                      strokeWidth={2.25}
+                      className="transition-transform group-hover:translate-x-0.5"
+                      aria-hidden
+                    />
+                  </span>
                 </div>
-              </motion.article>
+              </motion.a>
             );
           })}
         </div>

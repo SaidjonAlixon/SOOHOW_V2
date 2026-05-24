@@ -7,6 +7,7 @@ import { routes } from "@/lib/routes";
 import { EquipmentPromoCarousel } from "@/components/EquipmentPromoCarousel";
 
 const pillarIcons = [Award, Layers, Wrench] as const;
+const homeIntroBg = `${import.meta.env.BASE_URL}yangili/FON3.png`;
 
 export function HomeIntroSection() {
   const { t, messages } = useLocale();
@@ -17,10 +18,22 @@ export function HomeIntroSection() {
   return (
     <section
       ref={sectionRef}
-      className="site-home-section border-t site-border"
+      className="relative overflow-hidden site-home-section border-t site-border home-intro-section"
       data-testid="home-intro-section"
     >
-      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+        <img
+          src={homeIntroBg}
+          alt=""
+          className="home-intro-section__bg-img absolute inset-0 h-full w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="home-intro-section__wash absolute inset-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--site-bg)/0.55)] via-[hsl(var(--site-bg)/0.35)] to-[hsl(var(--site-bg)/0.5)]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

@@ -17,6 +17,7 @@ import { mountAnimatedTitleChars } from "@/lib/animateTitleChars";
 gsap.registerPlugin(ScrollTrigger);
 
 const scientificImage = `${import.meta.env.BASE_URL}ish5.png`;
+const scientificBg = `${import.meta.env.BASE_URL}yangili/FON4.png`;
 
 type Metric = { value: string; label: string };
 
@@ -54,18 +55,21 @@ export function ScientificCapabilitySection() {
   return (
     <section
       ref={sectionRef}
-      className="scientific-section relative py-24 md:py-32 overflow-hidden border-t site-border"
+      id="scientific-capability"
+      className="scientific-section relative py-24 md:py-32 overflow-hidden border-t site-border scroll-mt-24 md:scroll-mt-28"
       data-testid="scientific-capability-section"
     >
-      <div className="scientific-section__canvas absolute inset-0 pointer-events-none" aria-hidden />
-      <div
-        className="pointer-events-none absolute -top-24 left-[8%] h-48 w-48 rounded-full bg-[#00D4AA]/15 blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute bottom-0 right-[5%] h-64 w-64 rounded-full bg-[#00A8E8]/12 blur-3xl"
-        aria-hidden
-      />
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+        <img
+          src={scientificBg}
+          alt=""
+          className="scientific-section__bg-img absolute inset-0 h-full w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="scientific-section__wash absolute inset-0" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--site-bg)/0.55)] via-[hsl(var(--site-bg)/0.35)] to-[hsl(var(--site-bg)/0.5)]" />
+      </div>
 
       <div className="max-w-[min(100%,90rem)] mx-auto px-6 lg:px-10 xl:px-12 relative z-10">
         <motion.header

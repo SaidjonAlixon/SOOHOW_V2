@@ -15,6 +15,7 @@ import { mountAnimatedTitleChars } from "@/lib/animateTitleChars";
 gsap.registerPlugin(ScrollTrigger);
 
 const CAROUSEL_INTERVAL_MS = 10_000;
+const certificatesBg = `${import.meta.env.BASE_URL}yangili/FON3.png`;
 
 type CertificateItem = {
   title: string;
@@ -94,7 +95,7 @@ export function CertificatesSection() {
     <section
       ref={sectionRef}
       id="certificates"
-      className="relative py-20 md:py-28 site-home-section border-t site-border overflow-hidden"
+      className="relative py-20 md:py-28 site-home-section border-t site-border overflow-hidden certificates-section scroll-mt-24 md:scroll-mt-28"
       data-testid="certificates-section"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -103,14 +104,17 @@ export function CertificatesSection() {
         if (!e.currentTarget.contains(e.relatedTarget as Node)) setPaused(false);
       }}
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35] dark:opacity-20"
-        aria-hidden
-        style={{
-          backgroundImage: `radial-gradient(circle at 20% 30%, rgba(0, 168, 232, 0.12) 0%, transparent 45%),
-            radial-gradient(circle at 80% 70%, rgba(0, 212, 170, 0.1) 0%, transparent 40%)`,
-        }}
-      />
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+        <img
+          src={certificatesBg}
+          alt=""
+          className="certificates-section__bg-img absolute inset-0 h-full w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="certificates-section__wash absolute inset-0" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--site-bg)/0.6)] via-[hsl(var(--site-bg)/0.4)] to-[hsl(var(--site-bg)/0.55)]" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">

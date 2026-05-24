@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { sendTelegramMessage } from '@/lib/telegram';
 import { useLocale } from '@/lib/i18n/LocaleContext';
 import { mountAnimatedTitleChars } from '@/lib/animateTitleChars';
-import { MapPin, Phone, Mail, Clock, Send, Instagram, Linkedin, Youtube, ChevronDown, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, Instagram, Linkedin, Youtube, ChevronDown, CheckCircle, AlertCircle, Loader2, ExternalLink } from 'lucide-react';
 import { gsap } from 'gsap';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -13,6 +13,11 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { PhoneInput } from '@/components/PhoneInput';
+
+const MAP_LAT = 41.283848;
+const MAP_LNG = 69.265665;
+const MAP_GOOGLE_URL = `https://www.google.com/maps?q=${MAP_LAT},${MAP_LNG}`;
+const MAP_EMBED_URL = `https://www.openstreetmap.org/export/embed.html?bbox=${MAP_LNG - 0.014}%2C${MAP_LAT - 0.01}%2C${MAP_LNG + 0.014}%2C${MAP_LAT + 0.01}&layer=mapnik&marker=${MAP_LAT}%2C${MAP_LNG}`;
 
 export function ContactSection() {
   const { t, messages, locale } = useLocale();
@@ -227,13 +232,28 @@ export function ContactSection() {
 
         {/* MAP & FAQ */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <div className="h-[400px] bg-[#1E3A5F] rounded-2xl overflow-hidden relative border site-border">
-            <div className="absolute inset-0 flex items-center justify-center site-section">
-              {/* Static representation of map for mockup */}
-              <div className="text-center opacity-50">
-                <MapPin size={48} className="mx-auto mb-4 text-[#00A8E8]" />
-                <div className="font-mono text-xs">{t('contact.mapCoords')}</div>
-              </div>
+          <div>
+            <div className="h-[400px] rounded-2xl overflow-hidden relative border site-border bg-[#1E3A5F]">
+              <iframe
+                title={t('contact.mapTitle')}
+                src={MAP_EMBED_URL}
+                className="absolute inset-0 h-full w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <p className="font-mono text-xs site-muted tracking-wide">{t('contact.mapCoords')}</p>
+              <a
+                href={MAP_GOOGLE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#00A8E8]/40 bg-[#00A8E8]/10 px-4 py-2.5 text-sm font-heading font-semibold text-[#00A8E8] transition-colors hover:bg-[#00A8E8] hover:text-white dark:text-[#5dd4ff] dark:hover:text-[#031018]"
+              >
+                {t('contact.mapOpenLink')}
+                <ExternalLink size={16} className="shrink-0" aria-hidden />
+              </a>
             </div>
           </div>
 
