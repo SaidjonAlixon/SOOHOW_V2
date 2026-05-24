@@ -29,7 +29,7 @@ export function NewsSection() {
             <Newspaper size={14} className="shrink-0" />
             {t("news.badge")}
           </motion.span>
-          <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] leading-[0.95] site-heading tracking-wide uppercase">
+          <h2 className="site-section-title">
             {t("news.title")}
           </h2>
           <p className="mt-4 text-base md:text-lg site-muted max-w-2xl mx-auto leading-relaxed">

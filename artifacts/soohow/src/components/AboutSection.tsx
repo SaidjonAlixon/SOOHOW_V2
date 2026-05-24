@@ -100,7 +100,7 @@ export function AboutSection() {
           >
             <h2
               ref={titleRef}
-              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold site-heading mb-6 uppercase tracking-tight leading-[1.05]"
+              className="site-section-title mb-6"
             >
               {t("about.title")}
             </h2>
@@ -155,7 +155,7 @@ export function AboutSection() {
               transition={{ duration: 0.5, delay: 0.25 + i * 0.08 }}
               className="rounded-2xl site-card border site-border p-8 md:p-10 flex flex-col items-center justify-center text-center min-h-[180px] hover:border-[#00A8E8]/40 transition-colors"
             >
-              <p className="font-display text-5xl md:text-6xl font-bold text-[#00A8E8] leading-none">
+              <p className="site-stat-highlight text-5xl md:text-6xl text-[#00A8E8]">
                 {stat.value}
               </p>
               <p className="mt-3 text-[11px] md:text-xs font-mono font-semibold site-muted uppercase tracking-[0.18em]">
@@ -181,7 +181,7 @@ export function AboutSection() {
             <motion.div className="grid grid-cols-2 divide-x site-border">
               {facilityCard.stats.map((stat) => (
                 <motion.div key={stat.label} className="p-6 md:p-8 text-center">
-                  <p className="font-display text-3xl md:text-4xl font-bold text-[#00A8E8] leading-none">
+                  <p className="site-stat-highlight text-3xl md:text-4xl text-[#00A8E8]">
                     {stat.value}
                   </p>
                   <p className="mt-2 text-[10px] md:text-[11px] font-mono font-semibold site-muted uppercase tracking-[0.16em]">
@@ -212,7 +212,7 @@ export function AboutSection() {
                   <motion.div
                     className={`w-full sm:w-5/12 p-5 md:p-6 rounded-xl site-card border site-border hover:border-[#00A8E8]/50 transition-colors ${isLeft ? "sm:text-right" : "sm:text-left"}`}
                   >
-                    <p className="font-display text-3xl text-[#00A8E8] mb-2">{milestone.year}</p>
+                    <p className="site-stat-highlight text-3xl text-[#00A8E8] mb-2">{milestone.year}</p>
                     <p className="font-heading font-bold site-heading mb-2 text-sm md:text-base uppercase tracking-wide">
                       {milestone.title}
                     </p>

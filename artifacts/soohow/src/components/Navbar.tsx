@@ -149,7 +149,7 @@ export function Navbar({ onSearchClick, onQuoteClick }: NavbarProps) {
               </button>
             </div>
 
-            <nav className="flex flex-col space-y-6 text-2xl font-display tracking-widest text-center mt-4">
+            <nav className="flex flex-col space-y-6 text-2xl font-heading font-bold uppercase tracking-wide text-center mt-4">
               {navItems.map((item, i) => (
                 <motion.div
                   key={item.key}

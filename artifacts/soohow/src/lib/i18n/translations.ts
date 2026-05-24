@@ -43,25 +43,25 @@ const en = {
     statYears: "10+ Years",
   },
   homeIntro: {
-    badge: "About the platform",
-    title: "OOO FALCON TRADE LINES — YOUR RELIABLE PARTNER",
+    badge: "Our services",
+    title: "OOO FALCON TRADE LINES YOUR RELIABLE PARTNER",
     lead:
-      "This site is built for laboratories, plants, and engineers who need reliable instruments and professional service without friction. Explore our catalog, company story, and support channels in one modern industrial experience.",
+      "As the authorized SOOHOW partner in Central Asia, we supply spectrometers, oil analyzers, and industrial measurement equipment. Browse the catalog, request a quote online, and rely on warranty service, OEM spare parts, and engineer support.",
     pillars: [
       {
-        title: "Mission & expertise",
+        title: "Official SOOHOW partner",
         description:
-          "We connect Central Asia with world-class measurement technology, spectrometry, and OEM service support backed by ISO-certified quality and 10+ years of field experience.",
+          "OOO FALCON TRADE LINES is the authorized representative of Kunshan Soohow Instrument in Central Asia — spectrometry, oil analysis, and industrial measurement systems with ISO-backed quality.",
       },
       {
-        title: "Design language",
+        title: "Equipment & solutions",
         description:
-          "A clean tech aesthetic — deep navy and cyan accents, clear typography, light and dark modes, and three languages (EN / UZ / RU) for every visitor.",
+          "Browse 40+ instruments in the catalog: OES spectrometers, oil analyzers, metallurgy tools, and lab systems. Request a quote online or ask our engineers for a tailored configuration.",
       },
       {
-        title: "What comes next",
+        title: "Service & support",
         description:
-          "Scroll down for why industry leaders choose us, our scientific and production capabilities, global partners, and the latest company news.",
+          "Warranty and post-warranty repair, original OEM spare parts, calibration, and technical consulting. Reach us by phone, email, or the contact form — we respond during business hours.",
       },
     ],
     ctaAbout: "About us",
@@ -74,11 +74,20 @@ const en = {
     next: "Next slide",
   },
   scientific: {
-    title: "SCIENTIFIC CAPABILITY",
+    title: "SCIENTIFIC POTENTIAL",
+    tag: "02",
     badge: "Technological assets",
-    cardTitle: "Proven R&D and intellectual property portfolio",
+    lead:
+      "Modern R&D, expert knowledge, and the deployment of innovative analytical solutions — backed by patents, software, and national-level projects.",
+    cardTitle: "Years of proven industry experience",
     overlayTitle: "TECHNOLOGICAL ASSETS",
     overlaySubtitle: "Certified excellence",
+    metrics: [
+      { value: "15", label: "Invention patents" },
+      { value: "18", label: "Software copyrights" },
+      { value: "7", label: "Software products" },
+      { value: "4", label: "Leading local products" },
+    ],
     items: [
       "15 invention patents",
       "18 software copyrights",
@@ -86,45 +95,55 @@ const en = {
       "1 national and international advanced-level project",
       "4 leading local products",
     ],
-    imageAlt: "Patent and certification documents",
+    imageAlt: "SOOHOW team at an international exhibition",
   },
   industrial: {
-    badge: "INDUSTRIAL CAPACITY",
-    titleLead: "SMART",
+    badge: "MANUFACTURING EXCELLENCE",
+    titleLead: "PRECISION",
     titleAccent: "PRODUCTION LINES",
     intro:
-      "Smart production lines manufacturing 2,000 advanced spectrometer units per year",
+      "An integrated ecosystem of assembly halls, optical metrology, and certified quality labs — engineered to deliver more than 2,000 advanced analytical instruments every year.",
     statValue: "2,000+",
-    statUnit: "units / year",
+    statUnit: "instruments / year",
+    statCaption: "Annual output capacity",
+    statNote: "Spectrometers, oil analyzers, and specialty laboratory systems built on ISO-certified processes.",
+    highlights: ["12,300 m² facility", "Smart workshop", "Full-cycle QC"],
     cards: [
       {
-        title: "SPECTROMETER MANUFACTURING",
+        tag: "Core line",
+        title: "Spectrometer assembly",
         description:
-          "High-precision assembly for atomic emission and optical analytical instruments.",
+          "High-precision build lines for atomic-emission and optical emission analytical systems.",
       },
       {
-        title: "OPTICAL CALIBRATION",
+        tag: "Metrology",
+        title: "Optical calibration",
         description:
-          "Dedicated dark rooms for ultra-precise sensor tuning and alignment.",
+          "Dedicated dark rooms and alignment rigs for ultra-stable sensor performance.",
       },
       {
-        title: "ISO-CERTIFIED LABORATORIES",
-        description: "Quality control at every stage of the production process.",
+        tag: "Quality",
+        title: "ISO-certified laboratories",
+        description:
+          "Incoming, in-process, and final inspection at every stage of manufacturing.",
       },
       {
-        title: "INTELLIGENT OIL ANALYSIS KIT",
+        tag: "Fluid lab",
+        title: "Intelligent oil analysis kit",
         description:
-          "Portable kinematic viscometer, flash point tester, and insulation oil dielectric strength meter.",
+          "Portable viscometry, flash point, and dielectric strength tools for field and lab use.",
       },
       {
-        title: "INTELLIGENT OIL ANALYSIS SUITE",
+        tag: "Digital lab",
+        title: "Smart oil analysis suite",
         description:
-          "Portable particle moisture checker, Smart Lu A/B/C/D, and smart oil analysis software.",
+          "Particle moisture analysis, Smart Lu series modules, and integrated reporting software.",
       },
       {
-        title: "SPECIAL PROTEIN ANALYZER",
+        tag: "Life science",
+        title: "Protein analyzer systems",
         description:
-          "Fully automatic and semi-automatic special protein analyzers.",
+          "Fully and semi-automatic protein analyzers for food, feed, and research applications.",
       },
     ],
   },
@@ -193,16 +212,60 @@ const en = {
   whyChoose: {
     title: "FOUR REASONS TO CHOOSE US",
     badge: "Advantages",
-    cardTitle: "Official dealer & authorized service in Central Asia",
+    lead: "What sets SOOHOW Central Asia apart — in four clear strengths.",
     years: "10+ YEARS",
     excellence: "Certified excellence",
     openCertificate: "View certificate full size",
     closeLightbox: "Close",
-    items: [
-      "Authorized service center",
-      "After-sales service for equipment and instruments",
-      "Original OEM spare parts",
-      "Professional technical support",
+    pillars: [
+      {
+        tag: "01",
+        chip: "OEM · Service",
+        title: "Official dealer & authorized service",
+        description:
+          "Guarantee of original products and qualified maintenance — from supply and commissioning to warranty support under factory procedures.",
+        highlights: [
+          "Authorized SOOHOW partner in Central Asia",
+          "Certified engineers and OEM spare parts",
+          "Installation, training, and after-sales care",
+        ],
+      },
+      {
+        tag: "02",
+        chip: "R&D · Lab",
+        title: "Scientific potential",
+        description:
+          "Modern developments, expert knowledge, and deployment of innovative solutions for metals analysis, oil diagnostics, and laboratory workflows.",
+        highlights: [
+          "Method development and application consulting",
+          "Spectrometry and analytical expertise",
+          "Continuous innovation from Soohow R&D",
+        ],
+      },
+      {
+        tag: "03",
+        chip: "Smart factory",
+        title: "Intelligent production capacity",
+        description:
+          "Advanced technologies, automated processes, and high production efficiency — precision assembly built for reliable, large-scale instrument manufacturing.",
+        highlights: [
+          "Automated lines and process control",
+          "Optical metrology and quality labs",
+          "Stable output for global deliveries",
+        ],
+      },
+      {
+        tag: "04",
+        chip: "ISO · Global",
+        title: "International management recognition",
+        description:
+          "Compliance with world-class quality and management standards — independently audited systems that protect your investment and data.",
+        highlights: [
+          "ISO 9001 · ISO 14001 · ISO 45001",
+          "ISO/IEC 27001 · ISO/IEC 20000-1",
+          "GJB9001C and international audits",
+        ],
+      },
     ],
   },
   footer: {
@@ -465,10 +528,89 @@ const en = {
     tryTypos: "Try checking for typos or searching with more general terms.",
     tags: ["OES Spectrometers", "Oil Analyzers", "Metal Analysis", "RDE-OES", "Gold Analyzers", "GD-OES"],
   },
+  certificates: {
+    badge: "Management systems",
+    tag: "04",
+    title: "INTERNATIONAL MANAGEMENT RECOGNITION",
+    lead:
+      "Compliance with global quality standards and effective management systems — confirmed by independent certification.",
+    sublead:
+      "Official ISO certificates for Kunshan Soohow Instrument demonstrate audited processes in IT services, information security, and quality management.",
+    company: "Kunshan Soohow Instrument Co., Ltd.",
+    galleryLabel: "Certified management systems",
+    viewAll: "View certificates",
+    enlarge: "A4",
+    hint: "Click a certificate to view the full A4 document.",
+    autoRotate: "Slides change every 10 seconds · hover to pause",
+    prev: "Previous certificates",
+    next: "Next certificates",
+    slide: "Slide",
+    certificateAlt: "Certificate",
+    standards: [
+      "ISO/IEC 20000-1",
+      "ISO/IEC 27001",
+      "ISO 9001",
+      "ISO 14001",
+      "ISO 45001",
+      "GJB9001C",
+    ],
+    items: [
+      {
+        standard: "ITSM",
+        title: "ISO/IEC 20000-1:2018",
+        subtitle: "IT Service Management System",
+      },
+      {
+        standard: "ISMS",
+        title: "ISO/IEC 27001:2022",
+        subtitle: "Information Security Management",
+      },
+      {
+        standard: "EMS",
+        title: "ISO 14001:2015",
+        subtitle: "Environmental Management System",
+      },
+      {
+        standard: "QMS",
+        title: "ISO 9001:2015",
+        subtitle: "Quality Management System",
+      },
+      {
+        standard: "OHS",
+        title: "ISO 45001:2018",
+        subtitle: "Occupational Health & Safety",
+      },
+      {
+        standard: "GJB",
+        title: "GJB9001C-2017",
+        subtitle: "Military Equipment Quality Management",
+      },
+      {
+        standard: "CNAS",
+        title: "CNAS Accreditation",
+        subtitle: "Laboratory & testing competence",
+      },
+      {
+        standard: "CE",
+        title: "CE Conformity",
+        subtitle: "Product safety & regulatory compliance",
+      },
+      {
+        standard: "IP",
+        title: "Intellectual Property",
+        subtitle: "Patents & proprietary technology",
+      },
+      {
+        standard: "HTE",
+        title: "High-Tech Enterprise",
+        subtitle: "National innovation recognition",
+      },
+    ],
+  },
   whyChooseImages: {
-    alt1: "Certificate 1",
-    alt2: "Certificate 2",
-    alt3: "Certificate 3",
+    alt1: "ISO/IEC 20000-1 certificate — Kunshan Soohow Instrument",
+    alt2: "ISO/IEC 27001 certificate — Kunshan Soohow Instrument",
+    alt3: "ISO 14001 certificate — Kunshan Soohow Instrument",
   },
   footerCategories: [
     "Industrial Measurement",
@@ -517,25 +659,25 @@ const uz: TranslationTree = {
     statYears: "10+ Yil",
   },
   homeIntro: {
-    badge: "Platforma haqida",
-    title: "OOO FALCON TRADE LINES — ISHONCHLI HAMKORINGIZ",
+    badge: "Xizmatlarimiz",
+    title: "OOO FALCON TRADE LINES ISHONCHLI HAMKORINGIZ",
     lead:
-      "Sayt laboratoriyalar, zavodlar va muhandislar uchun yaratilgan: sertifikatlangan uskunalarni tez topish, narx so'rash va kompaniya haqida bilish — barchasi bitta zamonaviy sanoat interfeysida.",
+      "Markaziy Osiyoda SOOHOW rasmiy vakili sifatida spektrometrlar, moy tahlil uskunalari va sanoat o'lchov asboblarini yetkazib beramiz. Katalogdan tanlang, saytda narx so'rovi yuboring, kafolatli servis, OEM ehtiyot qismlar va muhandis maslahatidan foydalaning.",
     pillars: [
       {
-        title: "Missiya va tajriba",
+        title: "Rasmiy SOOHOW hamkori",
         description:
-          "Markaziy Osiyoni dunyo darajasidagi o'lchov texnologiyalari, spektrometriya va OEM servis qo'llab-quvvatlash bilan bog'laymiz — ISO sertifikatlari va 10+ yillik amaliy tajriba asosida.",
+          "OOO FALCON TRADE LINES — Kunshan Soohow Instrument kompaniyasining Markaziy Osiyodagi vakili: spektrometriya, moy tahlili va sanoat o'lchov tizimlari, ISO sertifikatlangan sifat bilan.",
       },
       {
-        title: "Sayt uslubi va mavzu",
+        title: "Uskunalar va yechimlar",
         description:
-          "Toza texnologik dizayn: to'q ko'k va cyan urg'ular, o'qilishi oson shriftlar, kunduzgi/tungi rejim hamda uch til (EN / UZ / RU) — har bir foydalanuvchi uchun qulay.",
+          "Katalogda 40+ turdagi asboblar: OES spektrometrlar, moy tahlilchilar, metallografiya va laboratoriya tizimlari. Saytdan narx so'rovi yuboring yoki muhandislarimizdan mos konfiguratsiya so'rang.",
       },
       {
-        title: "Keyingi bo'limlar",
+        title: "Servis va qo'llab-quvvatlash",
         description:
-          "Pastda — bizni tanlash sabablari, ilmiy va ishlab chiqarish quvvati, xalqaro hamkorlar hamda kompaniya yangiliklari. Mahsulotlar va aloqa sahifalariga navigatsiyadan o'ting.",
+          "Kafolatli va kafolatdan keyingi ta'mir, original OEM ehtiyot qismlar, kalibrlash va texnik maslahat. Telefon, email yoki aloqa formasi orqali bog'laning — ish vaqtida javob beramiz.",
       },
     ],
     ctaAbout: "Biz haqimizda",
@@ -549,10 +691,19 @@ const uz: TranslationTree = {
   },
   scientific: {
     title: "ILMIY SALOHIYAT",
+    tag: "02",
     badge: "Texnologik aktivlar",
+    lead:
+      "Zamonaviy ishlanmalar, ekspert bilim va innovatsion analitik yechimlar — patentlar, dasturiy ta'minot va milliy darajadagi loyihalar bilan tasdiqlangan.",
     cardTitle: "Sanoat sohasidagi ko'p yillik tajriba",
     overlayTitle: "TEXNOLOGIK AKTIVLAR",
     overlaySubtitle: "Sertifikatlangan mukammallik",
+    metrics: [
+      { value: "15", label: "Ixtiro patenti" },
+      { value: "18", label: "Dasturiy ta'minot huquqi" },
+      { value: "7", label: "Dasturiy mahsulot" },
+      { value: "4", label: "Yetakchi mahsulot" },
+    ],
     items: [
       "15 ta ixtiro patenti",
       "18 ta dasturiy ta'minot mualliflik huquqi",
@@ -560,45 +711,55 @@ const uz: TranslationTree = {
       "1 ta milliy va xalqaro ilg'or darajadagi loyiha",
       "4 ta yetakchi mahalliy mahsulot",
     ],
-    imageAlt: "Patent va sertifikat hujjatlari",
+    imageAlt: "SOOHOW jamoasi xalqaro ko'rgazmada",
   },
   industrial: {
-    badge: "SANOAT QUVVATI",
-    titleLead: "ISHLAB",
-    titleAccent: "CHIQARISH LINIYALARI",
+    badge: "ISHLAB CHIQARISH",
+    titleLead: "ANIQ",
+    titleAccent: "ISHLAB CHIQARISH LINIYALARI",
     intro:
-      "Yiliga 2000 dona ilg'or spektrometr seriyasini ishlab chiqaradigan aqlli ishlab chiqarish liniyalari",
+      "Yig'ish zallari, optik metrologiya va sertifikatlangan sifat laboratoriyalari — yiliga 2000 dan ortiq ilg'or analitik uskunalarni yetkazib berish uchun yaratilgan yagona ekotizim.",
     statValue: "2000+",
     statUnit: "dona / yil",
+    statCaption: "Yillik ishlab chiqarish quvvati",
+    statNote: "ISO jarayonlari asosida spektrometrlar, moy tahlilchilar va maxsus laboratoriya tizimlari.",
+    highlights: ["12 300 m² maydon", "Aqlli sex", "To'liq sifat nazorati"],
     cards: [
       {
-        title: "SPEKTROMETR ISHLAB CHIQARISH",
+        tag: "Asosiy liniya",
+        title: "Spektrometr yig'ish",
         description:
-          "Atom emissiyasi va optik tahlil uskunalari uchun yuqori aniqlikdagi yig'ish.",
+          "Atom-emissiya va optik emissiya tahlil tizimlari uchun yuqori aniqlikdagi montaj.",
       },
       {
-        title: "OPTIK KALIBRLASH",
+        tag: "Metrologiya",
+        title: "Optik kalibrlash",
         description:
-          "Datchiklarni o'ta aniq sozlash uchun maxsus qorong'u xonalar.",
+          "Datchiklarning barqaror ishlashi uchun maxsus qorong'u xonalar va sozlash stendlari.",
       },
       {
-        title: "ISO SERTIFIKATLANGAN LABORATORIYALAR",
-        description: "Ishlab chiqarish jarayonining har bir bosqichida sifat nazorati.",
+        tag: "Sifat",
+        title: "ISO laboratoriyalari",
+        description:
+          "Kiruvchi, jarayon ichidagi va yakuniy nazorat — ishlab chiqarishning har bosqichida.",
       },
       {
-        title: "AQLLI MOY TAHLILI TO'PLAMI",
+        tag: "Moy laboratoriyasi",
+        title: "Aqlli moy tahlili to'plami",
         description:
-          "Portativ kinematik viskozimetr, umumiy ishqoriylikni o'lchagich, izolyatsiya moyi dielektrik kuchini o'lchagich.",
+          "Portativ viskozimetriya, yonish nuqtasi va dielektrik mustahkamlik o'lchovlari.",
       },
       {
-        title: "AQLLI MOY TAHLILI KOMPLEKSI",
+        tag: "Raqamli laboratoriya",
+        title: "Smart moy tahlili kompleksi",
         description:
-          "Portativ zarrachalar namligini tekshirgich, Smart Lu A, Smart Lu B, Smart Lu C, Smart Lu D, aqlli moy tahlili dasturi.",
+          "Zarracha-namlik tahlili, Smart Lu seriyasi modullari va integratsiyalangan hisobot dasturi.",
       },
       {
-        title: "MAXSUS OQSIL ANALIZATORI",
+        tag: "Bio tahlil",
+        title: "Oqsil analizatorlari",
         description:
-          "To'liq avtomatik maxsus oqsil analizatori, yarim avtomatik maxsus oqsil analizatori.",
+          "Oziq-ovqat, yem va ilmiy tadqiqotlar uchun to'liq va yarim avtomatik tizimlar.",
       },
     ],
   },
@@ -667,16 +828,60 @@ const uz: TranslationTree = {
   whyChoose: {
     title: "BIZNI TANLASHNING TO'RTTA SABABI",
     badge: "Afzalliklari",
-    cardTitle: "Markaziy Osiyodagi rasmiy diler va vakolatli servis markazi",
+    lead: "SOOHOW Central Asia ni ajratib turadigan to'rt aniq ustunlik.",
     years: "10+ YIL",
     excellence: "Sertifikatlangan mukammallik",
     openCertificate: "Sertifikatni to'liq ko'rish",
     closeLightbox: "Yopish",
-    items: [
-      "Vakolatli servis markazi",
-      "Uskuna va asbob-uskunalar uchun sotuvdan keyingi xizmat",
-      "Original OEM ehtiyot qismlar",
-      "Professional texnik qo'llab-quvvatlash",
+    pillars: [
+      {
+        tag: "01",
+        chip: "OEM · Servis",
+        title: "Rasmiy diler va vakolatli servis",
+        description:
+          "Original mahsulot va malakali xizmat kafolati — yetkazib berish va ishga tushirishdan kafolatli servisgacha, zavod tartib-qoidalariga mos.",
+        highlights: [
+          "Markaziy Osiyodagi vakolatli SOOHOW hamkori",
+          "Sertifikatlangan muhandislar va OEM qismlar",
+          "O'rnatish, o'qitish va sotuvdan keyingi xizmat",
+        ],
+      },
+      {
+        tag: "02",
+        chip: "R&D · Laboratoriya",
+        title: "Ilmiy salohiyat",
+        description:
+          "Zamonaviy ishlanmalar, ekspert bilim va innovatsion yechimlar — metall tahlili, moy diagnostikasi va laboratoriya jarayonlari uchun.",
+        highlights: [
+          "Usul ishlab chiqish va ilova bo'yicha maslahat",
+          "Spektrometriya va analitik tajriba",
+          "Soohow R&D dan doimiy yangilanishlar",
+        ],
+      },
+      {
+        tag: "03",
+        chip: "Aqlli zavod",
+        title: "Intellektual ishlab chiqarish quvvatlari",
+        description:
+          "Ilg'or texnologiyalar, avtomatlashtirilgan jarayonlar va yuqori samaradorlik — ishonchli, keng ko'lamli uskunalar ishlab chiqarish uchun.",
+        highlights: [
+          "Avtomatlashtirilgan liniyalar va jarayon nazorati",
+          "Optik metrologiya va sifat laboratoriyalari",
+          "Global yetkazib berish uchun barqaror hajm",
+        ],
+      },
+      {
+        tag: "04",
+        chip: "ISO · Global",
+        title: "Boshqaruv tizimlarining xalqaro tan olinishi",
+        description:
+          "Dunyo darajasidagi sifat va boshqaruv standartlariga muvofiqlik — mustaqil auditdan o'tgan tizimlar, investitsiya va ma'lumotlaringizni himoya qiladi.",
+        highlights: [
+          "ISO 9001 — sifat menejmenti",
+          "ISO/IEC 27001 — axborot xavfsizligi",
+          "ISO/IEC 20000-1 — IT xizmatlar boshqaruvi",
+        ],
+      },
     ],
   },
   footer: {
@@ -934,10 +1139,89 @@ const uz: TranslationTree = {
     tryTypos: "Imlo xatosini tekshiring yoki umumiyroq so'z bilan qidiring.",
     tags: ["OES spektrometr", "Moy analizatori", "Metall tahlili", "RDE-OES", "Oltin analizatori", "GD-OES"],
   },
+  certificates: {
+    badge: "Boshqaruv tizimlari",
+    tag: "04",
+    title: "BOSHQARUV TIZIMLARINING XALQARO TAN OLINISHI",
+    lead:
+      "Dunyo sifat standartlari va samarali boshqaruv tizimlariga muvofiqlik — mustaqil sertifikatlash bilan tasdiqlangan.",
+    sublead:
+      "Kunshan Soohow Instrument uchun rasmiy ISO sertifikatlari IT xizmatlari, axborot xavfsizligi va sifat menejmenti bo'yicha auditdan o'tgan jarayonlarni ko'rsatadi.",
+    company: "Kunshan Soohow Instrument Co., Ltd.",
+    galleryLabel: "Sertifikatlangan boshqaruv tizimlari",
+    viewAll: "Sertifikatlarni ko'rish",
+    enlarge: "A4",
+    hint: "To'liq A4 hujjat uchun sertifikatni bosing.",
+    autoRotate: "Har 10 soniyada almashadi · to'xtatish uchun sichqonchani ushlab turing",
+    prev: "Oldingi sertifikatlar",
+    next: "Keyingi sertifikatlar",
+    slide: "Slayd",
+    certificateAlt: "Sertifikat",
+    standards: [
+      "ISO/IEC 20000-1",
+      "ISO/IEC 27001",
+      "ISO 9001",
+      "ISO 14001",
+      "ISO 45001",
+      "GJB9001C",
+    ],
+    items: [
+      {
+        standard: "ITSM",
+        title: "ISO/IEC 20000-1:2018",
+        subtitle: "IT xizmatlarini boshqarish tizimi",
+      },
+      {
+        standard: "ISMS",
+        title: "ISO/IEC 27001:2022",
+        subtitle: "Axborot xavfsizligi boshqaruvi",
+      },
+      {
+        standard: "EMS",
+        title: "ISO 14001:2015",
+        subtitle: "Atrof-muhitni boshqarish tizimi",
+      },
+      {
+        standard: "QMS",
+        title: "ISO 9001:2015",
+        subtitle: "Sifat menejmenti tizimi",
+      },
+      {
+        standard: "OHS",
+        title: "ISO 45001:2018",
+        subtitle: "Mehnat xavfsizligi va salomatligi",
+      },
+      {
+        standard: "GJB",
+        title: "GJB9001C-2017",
+        subtitle: "Harbiy uskunalar sifatini boshqarish",
+      },
+      {
+        standard: "CNAS",
+        title: "CNAS akkreditatsiyasi",
+        subtitle: "Laboratoriya va sinov kompetensiyasi",
+      },
+      {
+        standard: "CE",
+        title: "CE muvofiqlik",
+        subtitle: "Mahsulot xavfsizligi va me'yoriy talablar",
+      },
+      {
+        standard: "IP",
+        title: "Intellektual mulk",
+        subtitle: "Patentlar va o'zlashtirilgan texnologiyalar",
+      },
+      {
+        standard: "HTE",
+        title: "Yuqori texnologiyali korxona",
+        subtitle: "Milliy innovatsiya tan olinishi",
+      },
+    ],
+  },
   whyChooseImages: {
-    alt1: "Sertifikat 1",
-    alt2: "Sertifikat 2",
-    alt3: "Sertifikat 3",
+    alt1: "ISO/IEC 20000-1 sertifikati — Kunshan Soohow Instrument",
+    alt2: "ISO/IEC 27001 sertifikati — Kunshan Soohow Instrument",
+    alt3: "ISO 14001 sertifikati — Kunshan Soohow Instrument",
   },
   footerCategories: [
     "Sanoat o'lchovi",
@@ -984,25 +1268,25 @@ const ru: TranslationTree = {
     statYears: "10+ лет",
   },
   homeIntro: {
-    badge: "О платформе",
-    title: "OOO FALCON TRADE LINES — ВАШ НАДЕЖНЫЙ ПАРТНЕР",
+    badge: "Наши услуги",
+    title: "OOO FALCON TRADE LINES ВАШ НАДЕЖНЫЙ ПАРТНЕР",
     lead:
-      "Сайт создан для лабораторий, заводов и инженеров: найти приборы, запросить цену и узнать о компании — всё в одном современном промышленном интерфейсе.",
+      "Как официальный партнёр SOOHOW в Центральной Азии поставляем спектрометры, анализаторы масел и промышленные измерительные приборы. Выбирайте в каталоге, запрашивайте цену на сайте, пользуйтесь гарантийным сервисом, оригинальными запчастями OEM и консультацией инженеров.",
     pillars: [
       {
-        title: "Миссия и опыт",
+        title: "Официальный партнёр SOOHOW",
         description:
-          "Связываем Центральную Азию с измерительными технологиями, спектрометрией и химией мирового уровня — при сертификации ISO и более 10 лет практики.",
+          "OOO FALCON TRADE LINES — уполномоченный представитель Kunshan Soohow Instrument в Центральной Азии: спектрометрия, анализ масел и промышленные измерительные системы с качеством по ISO.",
       },
       {
-        title: "Стиль и тема сайта",
+        title: "Оборудование и решения",
         description:
-          "Чистая tech-эстетика: тёмно-синий и cyan, читаемая типографика, светлая/тёмная тема и три языка (EN / UZ / RU) для каждого посетителя.",
+          "В каталоге 40+ приборов: OES-спектрометры, анализаторы масел, металлография и лабораторные системы. Запросите цену на сайте или получите подбор конфигурации от наших инженеров.",
       },
       {
-        title: "Что дальше",
+        title: "Сервис и поддержка",
         description:
-          "Ниже — причины выбрать нас, научный и производственный потенциал, партнёры и новости. Перейдите в каталог или раздел «О нас» через меню.",
+          "Гарантийный и послегарантийный ремонт, оригинальные запчасти OEM, калибровка и технические консультации. Свяжитесь по телефону, email или через форму — отвечаем в рабочее время.",
       },
     ],
     ctaAbout: "О нас",
@@ -1016,10 +1300,19 @@ const ru: TranslationTree = {
   },
   scientific: {
     title: "НАУЧНЫЙ ПОТЕНЦИАЛ",
+    tag: "02",
     badge: "Технологические активы",
+    lead:
+      "Современные разработки, экспертные знания и внедрение инновационных решений — подтверждены патентами, ПО и проектами национального уровня.",
     cardTitle: "Многолетний опыт в промышленности",
     overlayTitle: "ТЕХНОЛОГИЧЕСКИЕ АКТИВЫ",
     overlaySubtitle: "Сертифицированное качество",
+    metrics: [
+      { value: "15", label: "Патентов на изобретения" },
+      { value: "18", label: "Авторских прав на ПО" },
+      { value: "7", label: "Программных продуктов" },
+      { value: "4", label: "Ведущих продукта" },
+    ],
     items: [
       "15 патентов на изобретения",
       "18 авторских прав на ПО",
@@ -1027,45 +1320,55 @@ const ru: TranslationTree = {
       "1 проект национального и международного уровня",
       "4 ведущих локальных продукта",
     ],
-    imageAlt: "Патенты и сертификаты",
+    imageAlt: "Команда SOOHOW на международной выставке",
   },
   industrial: {
-    badge: "ПРОМЫШЛЕННАЯ МОЩНОСТЬ",
-    titleLead: "ПРОИЗВОДСТВЕННЫЕ",
-    titleAccent: "ЛИНИИ",
+    badge: "ПРОИЗВОДСТВО",
+    titleLead: "ТОЧНЫЕ",
+    titleAccent: "ПРОИЗВОДСТВЕННЫЕ ЛИНИИ",
     intro:
-      "Интеллектуальные производственные линии — 2000 передовых спектрометров в год",
+      "Единая экосистема сборочных цехов, оптической метрологии и сертифицированных лабораторий — более 2000 передовых аналитических приборов в год.",
     statValue: "2000+",
-    statUnit: "ед. / год",
+    statUnit: "приборов / год",
+    statCaption: "Годовая мощность",
+    statNote: "Спектрометры, анализаторы масел и специализированные лабораторные системы по процессам ISO.",
+    highlights: ["12 300 м² площадь", "Умный цех", "Полный контроль качества"],
     cards: [
       {
-        title: "ПРОИЗВОДСТВО СПЕКТРОМЕТРОВ",
+        tag: "Основная линия",
+        title: "Сборка спектрометров",
         description:
-          "Высокоточная сборка приборов атомно-эмиссионного и оптического анализа.",
+          "Высокоточные линии для атомно-эмиссионных и оптико-эмиссионных аналитических систем.",
       },
       {
-        title: "ОПТИЧЕСКАЯ КАЛИБРОВКА",
+        tag: "Метрология",
+        title: "Оптическая калибровка",
         description:
-          "Специализированные темные комнаты для сверхточной настройки датчиков.",
+          "Темные комнаты и стенды юстировки для стабильной работы датчиков.",
       },
       {
-        title: "ЛАБОРАТОРИИ С СЕРТИФИКАТОМ ISO",
-        description: "Контроль качества на каждом этапе производства.",
+        tag: "Качество",
+        title: "Лаборатории ISO",
+        description:
+          "Входной, межоперационный и финальный контроль на каждом этапе производства.",
       },
       {
-        title: "КОМПЛЕКТ УМНОГО АНАЛИЗА МАСЛА",
+        tag: "Масла",
+        title: "Комплект анализа масел",
         description:
-          "Портативный кинематический вискозиметр, определитель температуры вспышки, измеритель диэлектрической прочности изоляционного масла.",
+          "Портативная вискозиметрия, температура вспышки и диэлектрическая прочность.",
       },
       {
-        title: "КОМПЛЕКС УМНОГО АНАЛИЗА МАСЛА",
+        tag: "Цифровая лаборатория",
+        title: "Smart-комплекс анализа масел",
         description:
-          "Портативный анализатор влажности частиц, Smart Lu A/B/C/D, программное обеспечение для анализа масла.",
+          "Анализ влажности частиц, модули Smart Lu и интегрированное ПО отчётности.",
       },
       {
-        title: "СПЕЦИАЛЬНЫЙ АНАЛИЗАТОР БЕЛКА",
+        tag: "Биоанализ",
+        title: "Анализаторы белка",
         description:
-          "Полностью автоматический и полуавтоматический специальный анализатор белка.",
+          "Полностью и полуавтоматические системы для пищевой, кормовой и научной отрасли.",
       },
     ],
   },
@@ -1134,16 +1437,60 @@ const ru: TranslationTree = {
   whyChoose: {
     title: "ЧЕТЫРЕ ПРИЧИНЫ ВЫБРАТЬ НАС",
     badge: "Преимущества",
-    cardTitle: "Официальный дилер и авторизованный сервис в Центральной Азии",
+    lead: "Четыре ключевых преимущества SOOHOW Central Asia.",
     years: "10+ ЛЕТ",
     excellence: "Сертифицированное качество",
     openCertificate: "Открыть сертификат в полном размере",
     closeLightbox: "Закрыть",
-    items: [
-      "Авторизованный сервисный центр",
-      "Послепродажное обслуживание оборудования и приборов",
-      "Оригинальные запчасти OEM",
-      "Профессиональная техническая поддержка",
+    pillars: [
+      {
+        tag: "01",
+        chip: "OEM · Сервис",
+        title: "Официальный дилер и авторизованный сервис",
+        description:
+          "Гарантия оригинальной продукции и квалифицированного обслуживания — от поставки и пусконаладки до гарантийной поддержки по стандартам завода.",
+        highlights: [
+          "Авторизованный партнёр SOOHOW в Центральной Азии",
+          "Сертифицированные инженеры и запчасти OEM",
+          "Монтаж, обучение и послепродажный сервис",
+        ],
+      },
+      {
+        tag: "02",
+        chip: "НИОКР · Лаборатория",
+        title: "Научный потенциал",
+        description:
+          "Современные разработки, экспертные знания и внедрение инновационных решений для анализа металлов, диагностики масел и лабораторных процессов.",
+        highlights: [
+          "Разработка методик и прикладные консультации",
+          "Спектрометрия и аналитическая экспертиза",
+          "Постоянные инновации от R&D Soohow",
+        ],
+      },
+      {
+        tag: "03",
+        chip: "Умное производство",
+        title: "Интеллектуальные производственные мощности",
+        description:
+          "Передовые технологии, автоматизированные процессы и высокая эффективность — точная сборка для надёжного серийного выпуска приборов.",
+        highlights: [
+          "Автоматизированные линии и контроль процессов",
+          "Оптическая метрология и лаборатории качества",
+          "Стабильные объёмы для мировых поставок",
+        ],
+      },
+      {
+        tag: "04",
+        chip: "ISO · Мир",
+        title: "Международное признание систем управления",
+        description:
+          "Соответствие мировым стандартам качества и эффективности управления — независимо аудированные системы, защищающие ваши инвестиции и данные.",
+        highlights: [
+          "ISO 9001 — менеджмент качества",
+          "ISO/IEC 27001 — информационная безопасность",
+          "ISO/IEC 20000-1 — управление IT-услугами",
+        ],
+      },
     ],
   },
   footer: {
@@ -1401,10 +1748,89 @@ const ru: TranslationTree = {
     tryTypos: "Проверьте опечатки или используйте более общий запрос.",
     tags: ["OES-спектрометры", "Анализаторы масла", "Анализ металлов", "RDE-OES", "Анализаторы золота", "GD-OES"],
   },
+  certificates: {
+    badge: "Системы управления",
+    tag: "04",
+    title: "МЕЖДУНАРОДНОЕ ПРИЗНАНИЕ СИСТЕМ УПРАВЛЕНИЯ",
+    lead:
+      "Соответствие мировым стандартам качества и эффективности управления — подтверждено независимой сертификацией.",
+    sublead:
+      "Официальные сертификаты ISO Kunshan Soohow Instrument подтверждают прохождение аудита процессов в области IT-услуг, информационной безопасности и менеджмента качества.",
+    company: "Kunshan Soohow Instrument Co., Ltd.",
+    galleryLabel: "Сертифицированные системы управления",
+    viewAll: "Смотреть сертификаты",
+    enlarge: "A4",
+    hint: "Нажмите на сертификат для просмотра документа в формате A4.",
+    autoRotate: "Смена каждые 10 секунд · наведите курсор, чтобы остановить",
+    prev: "Предыдущие сертификаты",
+    next: "Следующие сертификаты",
+    slide: "Слайд",
+    certificateAlt: "Сертификат",
+    standards: [
+      "ISO/IEC 20000-1",
+      "ISO/IEC 27001",
+      "ISO 9001",
+      "ISO 14001",
+      "ISO 45001",
+      "GJB9001C",
+    ],
+    items: [
+      {
+        standard: "ITSM",
+        title: "ISO/IEC 20000-1:2018",
+        subtitle: "Система управления IT-услугами",
+      },
+      {
+        standard: "ISMS",
+        title: "ISO/IEC 27001:2022",
+        subtitle: "Система управления информационной безопасностью",
+      },
+      {
+        standard: "EMS",
+        title: "ISO 14001:2015",
+        subtitle: "Система экологического менеджмента",
+      },
+      {
+        standard: "QMS",
+        title: "ISO 9001:2015",
+        subtitle: "Система менеджмента качества",
+      },
+      {
+        standard: "OHS",
+        title: "ISO 45001:2018",
+        subtitle: "Охрана труда и промышленная безопасность",
+      },
+      {
+        standard: "GJB",
+        title: "GJB9001C-2017",
+        subtitle: "Качество военной техники",
+      },
+      {
+        standard: "CNAS",
+        title: "Аккредитация CNAS",
+        subtitle: "Компетентность лабораторий и испытаний",
+      },
+      {
+        standard: "CE",
+        title: "Соответствие CE",
+        subtitle: "Безопасность продукции и нормативы",
+      },
+      {
+        standard: "IP",
+        title: "Интеллектуальная собственность",
+        subtitle: "Патенты и собственные технологии",
+      },
+      {
+        standard: "HTE",
+        title: "Высокотехнологичное предприятие",
+        subtitle: "Государственное признание инноваций",
+      },
+    ],
+  },
   whyChooseImages: {
-    alt1: "Сертификат 1",
-    alt2: "Сертификат 2",
-    alt3: "Сертификат 3",
+    alt1: "Сертификат ISO/IEC 20000-1 — Kunshan Soohow Instrument",
+    alt2: "Сертификат ISO/IEC 27001 — Kunshan Soohow Instrument",
+    alt3: "Сертификат ISO 14001 — Kunshan Soohow Instrument",
   },
   footerCategories: [
     "Промышленные измерения",

@@ -101,7 +101,7 @@ export function PartnersSection() {
             <Shield size={14} className="text-[#00A8E8]" strokeWidth={2} />
             {t("partners.badge")}
           </span>
-          <h2 className="font-heading font-extrabold text-[clamp(1.75rem,4.5vw,3rem)] leading-[1.08] site-heading uppercase tracking-[0.04em]">
+          <h2 className="site-section-title">
             {t("partners.title")}
           </h2>
         </motion.div>

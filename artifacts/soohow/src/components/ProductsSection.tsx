@@ -62,7 +62,7 @@ export function ProductsSection({ onProductClick, onQuoteClick }: ProductsSectio
     <section id="products" className="py-32 site-section relative" data-testid="products-section">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-16 text-center max-w-3xl mx-auto">
-          <h2 ref={titleRef} className="text-5xl md:text-6xl font-heading font-bold site-heading mb-6 uppercase tracking-tight">
+          <h2 ref={titleRef} className="site-section-title mb-6">
             {t('productsPage.title')}
           </h2>
           <p className="text-xl site-muted font-sans">{t('productsPage.subtitle')}</p>

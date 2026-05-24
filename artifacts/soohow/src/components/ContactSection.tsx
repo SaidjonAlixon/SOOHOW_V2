@@ -83,7 +83,7 @@ export function ContactSection() {
     <section id="contact" className="py-32 relative" data-testid="contact-section">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-20">
-          <h2 ref={titleRef} className="text-5xl md:text-6xl font-heading font-bold site-heading mb-6 uppercase tracking-tight">
+          <h2 ref={titleRef} className="site-section-title mb-6">
             {t('contact.title')}
           </h2>
           <p className="text-xl site-muted font-sans max-w-2xl">{t('contact.subtitle')}</p>

@@ -1,12 +1,12 @@
 import { useRef } from "react";
 import { Link } from "wouter";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Building2, Compass, Sparkles } from "lucide-react";
+import { ArrowRight, Award, Layers, Wrench } from "lucide-react";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { routes } from "@/lib/routes";
 import { EquipmentPromoCarousel } from "@/components/EquipmentPromoCarousel";
 
-const pillarIcons = [Building2, Sparkles, Compass] as const;
+const pillarIcons = [Award, Layers, Wrench] as const;
 
 export function HomeIntroSection() {
   const { t, messages } = useLocale();
@@ -30,7 +30,7 @@ export function HomeIntroSection() {
           <span className="inline-flex items-center gap-2 text-[11px] font-mono font-semibold uppercase tracking-[0.2em] text-[#0096c7] dark:text-[#5dd4ff] mb-4">
             {t("homeIntro.badge")}
           </span>
-          <h2 className="font-heading font-extrabold text-[clamp(1.5rem,4vw,2.5rem)] leading-[1.12] site-heading uppercase tracking-[0.04em] mb-5 text-balance">
+          <h2 className="font-heading font-bold site-heading uppercase tracking-tight text-balance text-2xl sm:text-3xl md:text-[2rem] lg:text-4xl leading-[1.15] mb-5">
             {t("homeIntro.title")}
           </h2>
           <p className="text-sm sm:text-base leading-relaxed site-muted text-balance">
@@ -41,7 +41,7 @@ export function HomeIntroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch mb-10 md:mb-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5 lg:gap-6">
             {pillars.map((pillar, i) => {
-              const Icon = pillarIcons[i] ?? Building2;
+              const Icon = pillarIcons[i] ?? Award;
               return (
                 <motion.article
                   key={pillar.title}

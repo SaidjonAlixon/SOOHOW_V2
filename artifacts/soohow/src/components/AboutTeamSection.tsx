@@ -30,7 +30,7 @@ export function AboutTeamSection() {
             <Users size={14} className="text-[#00A8E8]" strokeWidth={2} />
             {t("aboutTeam.badge")}
           </motion.span>
-          <h2 className="font-display text-[clamp(1.75rem,4.5vw,3rem)] leading-[1.05] site-heading tracking-wide uppercase text-balance">
+          <h2 className="site-section-title">
             {t("aboutTeam.title")}
           </h2>
         </motion.div>
@@ -96,7 +96,7 @@ export function AboutTeamSection() {
                 transition={{ duration: 0.4, delay: 0.2 + i * 0.06 }}
                 className="rounded-xl site-card border site-border p-5 md:p-6 text-center hover:border-[#00A8E8]/35 transition-colors"
               >
-                <p className="font-display text-4xl md:text-5xl font-bold text-[#00A8E8] leading-none">
+                <p className="site-stat-highlight text-4xl md:text-5xl text-[#00A8E8]">
                   {stat.value}
                 </p>
                 <p className="mt-2 text-[10px] md:text-[11px] font-mono font-semibold site-muted uppercase tracking-[0.16em]">

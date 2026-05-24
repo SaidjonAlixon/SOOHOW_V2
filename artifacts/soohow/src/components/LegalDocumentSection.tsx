@@ -27,7 +27,7 @@ export function LegalDocumentSection({ kind }: { kind: LegalKind }) {
         {t("legal.backHome")}
       </Link>
 
-      <h1 className="font-display text-3xl md:text-4xl site-heading tracking-wide mb-3">{doc.title}</h1>
+      <h1 className="site-section-title mb-3">{doc.title}</h1>
       <p className="text-sm site-muted font-sans mb-10">{doc.updated}</p>
 
       <div className="space-y-5 text-sm md:text-base site-muted font-sans leading-relaxed">

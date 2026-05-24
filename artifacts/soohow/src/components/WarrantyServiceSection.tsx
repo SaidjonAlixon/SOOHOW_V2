@@ -43,7 +43,7 @@ export function WarrantyServiceSection() {
             <Wrench size={14} className="text-[#00A8E8]" strokeWidth={2} />
             {t("warranty.badge")}
           </span>
-          <h2 className="font-heading font-extrabold text-[clamp(1.5rem,3.8vw,2.75rem)] leading-[1.12] site-heading uppercase tracking-[0.03em] max-w-4xl mx-auto text-balance">
+          <h2 className="site-section-title max-w-4xl mx-auto">
             {t("warranty.title")}
           </h2>
         </motion.div>

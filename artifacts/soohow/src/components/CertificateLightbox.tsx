@@ -7,9 +7,16 @@ interface CertificateLightboxProps {
   src: string;
   alt: string;
   onClose: () => void;
+  /** Full A4 portrait preview (210×297 mm) */
+  variant?: "thumb" | "a4";
 }
 
-export function CertificateLightbox({ src, alt, onClose }: CertificateLightboxProps) {
+export function CertificateLightbox({
+  src,
+  alt,
+  onClose,
+  variant = "thumb",
+}: CertificateLightboxProps) {
   const { t } = useLocale();
 
   useEffect(() => {
@@ -42,7 +49,11 @@ export function CertificateLightbox({ src, alt, onClose }: CertificateLightboxPr
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.94, opacity: 0 }}
           transition={{ type: "spring", stiffness: 320, damping: 28 }}
-          className="relative max-w-[min(92vw,22rem)] sm:max-w-[min(88vw,26rem)] md:max-w-md rounded-xl border site-border bg-[hsl(var(--site-card))] shadow-2xl overflow-hidden"
+          className={
+            variant === "a4"
+              ? "relative w-[min(95vw,210mm)] max-h-[95vh] flex flex-col rounded-xl border site-border bg-white shadow-2xl overflow-hidden"
+              : "relative max-w-[min(92vw,22rem)] sm:max-w-[min(88vw,26rem)] md:max-w-md rounded-xl border site-border bg-[hsl(var(--site-card))] shadow-2xl overflow-hidden"
+          }
           onClick={(e) => e.stopPropagation()}
         >
           <button
@@ -58,7 +69,12 @@ export function CertificateLightbox({ src, alt, onClose }: CertificateLightboxPr
           <img
             src={src}
             alt={alt}
-            className="block w-full max-h-[min(58vh,28rem)] object-contain bg-white"
+            className={
+              variant === "a4"
+                ? "block w-full h-auto max-h-[calc(95vh-3rem)] object-contain bg-white"
+                : "block w-full max-h-[min(58vh,28rem)] object-contain bg-white"
+            }
+            style={variant === "a4" ? { aspectRatio: "210 / 297" } : undefined}
           />
         </motion.div>
       </motion.div>
