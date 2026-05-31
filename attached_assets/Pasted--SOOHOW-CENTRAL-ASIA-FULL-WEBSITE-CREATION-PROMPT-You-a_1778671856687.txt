@@ -1,0 +1,649 @@
+# SOOHOW CENTRAL ASIA — FULL WEBSITE CREATION PROMPT
+
+---
+
+You are an elite frontend developer and creative director. Build a complete, production-ready, visually extraordinary website for **SOOHOW CENTRAL ASIA** — a company specializing in industrial measurement instruments, chemical reagents, and laboratory equipment for scientific and industrial sectors across Central Asia. The website must feel premium, technical, and trustworthy — like the companies behind the world's most advanced scientific instruments.
+
+The name **SOOHOW CENTRAL ASIA** must appear exactly as written everywhere — navbar, loading screen, browser tab, footer, meta tags. Never shorten or alter it.
+
+---
+
+## COMPANY IDENTITY
+
+**SOOHOW CENTRAL ASIA** is the leading supplier of industrial measurement instruments, chemical reagents, and precision laboratory equipment in Central Asia. The company serves:
+
+- Industrial manufacturing plants requiring precision measurement tools
+- Chemical laboratories and research institutes
+- Oil & gas sector quality control departments
+- Pharmaceutical production facilities
+- Environmental monitoring agencies
+- Universities and scientific research centers
+
+The website's primary commercial goal is to sell and promote **industrial measurement instruments** and **chemical reagents** — this must be felt in every section, every product card, every headline. The site is not a generic lab store — it is a serious B2B supplier for the industrial and scientific world.
+
+---
+
+## PAGE STRUCTURE
+
+The website is a single long-scroll page. The navbar links smooth-scroll to each section. These sections must exist:
+
+**1. HOME**
+Full-screen hero. Establishes authority immediately.
+
+**2. ABOUT**
+Company story, mission, industrial expertise, certifications, partner brands.
+
+**3. PRODUCTS**
+Main commercial section. Industrial instruments and chemical reagents catalog with categories, cards, price inquiry, and order form connected to Telegram bot.
+
+**4. CONTACT**
+All contact details, map, inquiry form, working hours, social links.
+
+---
+
+## VISUAL DESIGN DIRECTION
+
+### Aesthetic: "Industrial Precision"
+
+The design must feel like it belongs to a world-class scientific instruments brand — think Shimadzu, Mettler Toledo, or Endress+Hauser's website energy. Dark, authoritative, precise, with bursts of electric color. Not soft. Not generic. Not startup-y. This is heavy industry meets cutting-edge science.
+
+### Color Palette
+
+```
+Primary Deep:        #061A2E   — darkest navy, main backgrounds
+Primary Navy:        #0A2342   — section backgrounds, cards
+Electric Blue:       #00A8E8   — accent, links, active states, hover
+Chemical Teal:       #00D4AA   — CTA buttons, success states, highlights
+Industrial Amber:    #F5A623   — warning badges, "New", special labels
+Pure White:          #FFFFFF   — text on dark, clean surfaces
+Steel Gray:          #8B9BB4   — secondary text, muted labels
+Dark Surface:        #0D1117   — dark mode deepest background
+Dark Card:           #0F1923   — dark mode card backgrounds
+Border Subtle:       #1E3A5F   — card borders, dividers
+```
+
+### Typography
+
+```
+Display Font:   "Bebas Neue" — for hero headlines, section numbers (bold, industrial, strong)
+Heading Font:   "Plus Jakarta Sans" — for section titles, card names (weight 700–800)
+Body Font:      "Inter" — for descriptions, labels, table content (weight 300–500)
+Mono Font:      "JetBrains Mono" — for model numbers, spec values, technical data
+```
+
+Import from Google Fonts. Every heading must feel heavy and authoritative. Body text must be clean and readable.
+
+### Layout Principles
+
+- Dark background dominant — this is a serious industrial brand
+- Large whitespace between sections — breathing room makes it feel premium
+- Asymmetric grid layouts — not everything centered, break the grid intentionally
+- Overlapping elements — cards slightly overlapping section dividers
+- Full-width hero, full-width CTA blocks
+- Numbers and specs in monospace font — technical credibility
+- Thin horizontal lines (1px, Electric Blue, 20% opacity) used as section dividers
+- Subtle noise texture overlay on hero and CTA backgrounds (CSS grain)
+
+---
+
+## 3D EFFECTS — THREE.JS
+
+### Hero Background — Molecular Network
+
+In the hero section, render a full-screen Three.js canvas behind all content. Create a dynamic 3D molecular/network visualization:
+
+- 150–200 nodes (small glowing spheres, Electric Blue `#00A8E8`, radius 0.04)
+- Nodes connected by thin lines when within distance threshold (line color: `rgba(0,168,232,0.15)`)
+- Entire structure slowly rotates on Y and X axes
+- On mouse move: the entire network subtly tilts toward the cursor (parallax-like)
+- On mouse click: a ripple pulse expands from click point, pushing nearby nodes outward then back
+- Camera: PerspectiveCamera, z=8, no orbit controls — auto-animation only
+- Renderer: `alpha: true`, `antialias: true`, transparent background
+- Resize handler: canvas always fills viewport
+
+This creates a living, breathing molecular world — perfect for a chemical reagents and instruments company.
+
+### Product Cards — Vanilla Tilt 3D
+
+Every product card gets `data-tilt` with:
+- max tilt: 8 degrees
+- scale: 1.03 on hover
+- glare effect: enabled, max-glare 0.15, white glare
+- speed: 400ms
+- Perspective: 1000px
+
+The card must feel like a physical object you can pick up and turn.
+
+### About Section — Floating 3D Orbs
+
+In the About section background, render 3 large semi-transparent glowing spheres using Three.js or pure CSS 3D transforms. They slowly drift and pulse. This adds depth without distracting from content.
+
+---
+
+## SCROLL ANIMATIONS — GSAP + SCROLLTRIGGER
+
+Register `ScrollTrigger` plugin. Apply the following:
+
+### Section Titles
+Every `h2` section title animates on scroll:
+- Characters split into individual spans
+- Each character drops from `y: -60` with `opacity: 0`
+- Stagger: `0.03s` per character
+- Duration: `0.6s`, ease: `power3.out`
+
+### Product Cards
+- Cards enter from bottom: `y: 80, opacity: 0`
+- Stagger: `0.12s` between cards
+- Trigger: when card's top hits 85% of viewport
+- Ease: `power2.out`
+
+### Statistics Counter
+Numbers count up from 0 when scrolled into view using `CountUp.js` or custom interval function. Each number has a suffix ("+", "K+", "%"). Duration: 2 seconds per counter.
+
+### Industrial Timeline (About section)
+- Vertical line draws downward using `scaleY` from 0 to 1, `transformOrigin: top`
+- Each milestone fades in from left or right alternately as the line reaches it
+- Smooth, sequential reveal
+
+### Partner Logos Carousel
+- Infinite horizontal scroll using CSS animation `@keyframes scrollLeft`
+- Two rows: top row scrolls left, bottom row scrolls right
+- Speed: 35s per loop
+- On hover: pauses (`animation-play-state: paused`)
+- Images grayscale by default, full color on hover
+
+### CTA Section Parallax
+- Background moves at 60% scroll speed using GSAP ScrollTrigger scrub
+- Text moves at 100% (normal)
+- Creates depth illusion
+
+### Number Badges
+When spec numbers scroll into view, they count up:
+```
+500+  →  Industrial Instruments
+200+  →  Satisfied Clients
+15+   →  Partner Brands
+10+   →  Years of Experience
+50K+  →  Reagents Supplied
+```
+
+### Reveal on Scroll — General Rule
+Every element that isn't immediately visible on load uses `data-aos` attribute or GSAP ScrollTrigger. Nothing appears static before it's scrolled to.
+
+---
+
+## NAVBAR
+
+Fixed position, full width, z-index: 1000.
+
+**Initial state:** Fully transparent, white text, no background.
+
+**After scrolling 60px:** `backdrop-filter: blur(24px) saturate(180%)`, background `rgba(6,26,46,0.92)`, subtle bottom border `1px solid rgba(0,168,232,0.2)`.
+
+**Left:** Logo — `SOOHOW` in bold weight 800, Electric Blue color, space, `CENTRAL ASIA` in weight 300, Steel Gray, letter-spacing 3px. They sit on two lines in a compact logo block.
+
+**Center:** Navigation links — `HOME` `ABOUT` `PRODUCTS` `CONTACT`. On hover: Electric Blue underline slides in from left (CSS `::after` transform). Active section link has permanent underline.
+
+**Right:** Search icon (magnifier SVG) → opens fullscreen search overlay. Sun/Moon toggle → dark/light mode switch. `Request Quote` pill button → gradient Electric Blue to Teal, smooth hover.
+
+**Mobile:** Hamburger icon (three lines → X animation). Full-screen menu overlay slides down with staggered link animations.
+
+**Scroll Progress Bar:** 2px tall, Electric Blue, at very top of page, `width` grows 0%→100% as user scrolls.
+
+---
+
+## LOADING SCREEN
+
+Full-screen overlay, background `#061A2E`.
+
+**Animation sequence:**
+1. `SOOHOW` text fades in from top (opacity 0→1, y: -30→0), duration 0.5s
+2. `CENTRAL ASIA` fades in from bottom 0.2s after
+3. Thin horizontal line grows from center outward under the text
+4. Progress bar fills from 0% to 100% over 1.5s (Electric Blue)
+5. Small tagline fades in: "Industrial Precision. Chemical Excellence."
+6. Entire screen splits vertically (left half slides left, right half slides right) revealing the site
+7. Site entrance: hero content animates in
+
+Total loading screen duration: ~2.2 seconds.
+
+---
+
+## HOME SECTION — HERO
+
+Layout: Split — left 55%, right 45%
+
+**Left side content:**
+- Small badge (pill shape): `⬡ Central Asia's #1 Industrial Supplier`
+  - Border: `1px solid rgba(0,168,232,0.4)`, Electric Blue text, slight blur background
+- Main headline (3 lines, each line separate animation):
+  ```
+  PRECISION
+  INSTRUMENTS.
+  PURE REAGENTS.
+  ```
+  Font: Bebas Neue, 90px, white, line-height 0.9
+  Each line animates from `y:100` with clip-path `inset(0 0 100% 0)` → `inset(0 0 0% 0)`
+- Subheadline: "SOOHOW CENTRAL ASIA supplies world-class industrial measurement instruments and certified chemical reagents to laboratories and manufacturing plants across Central Asia."
+  Font: Inter 18px, Steel Gray
+- Two CTA buttons:
+  - Primary: `Explore Instruments` — gradient Electric Blue → Teal, hover: scale 1.03 + glow shadow
+  - Secondary: `Request a Quote` — transparent, Electric Blue border, hover: fill
+- Below buttons: Three inline stats with vertical dividers:
+  `500+ Products   |   200+ Clients   |   10+ Years`
+
+**Right side content:**
+- Three.js molecular network canvas (full right column height)
+- Over it, floating glassmorphism card: "Featured Instrument"
+  - Shows a sample instrument name, model, category badge
+  - Slight drop shadow, `backdrop-filter: blur(12px)`, border `1px solid rgba(255,255,255,0.1)`
+  - Floats with subtle CSS `@keyframes float` (translateY ±10px, 4s infinite)
+
+**Bottom:** Scroll indicator — vertical line grows downward, dot bounces at bottom, text "Scroll to explore"
+
+---
+
+## ABOUT SECTION
+
+**Section intro:**
+- Section number: `01` in Bebas Neue 120px, `opacity: 0.06`, positioned absolutely behind title
+- Title: "WHO WE ARE"
+- Subtext: "Engineering trust in every measurement. Building partnerships across Central Asia's most demanding industries."
+
+**Two-column layout:**
+
+**Left — Company Story Text:**
+- 4 paragraphs about SOOHOW CENTRAL ASIA
+- Focus: industrial instruments expertise, chemical reagent quality, Central Asia coverage
+- Bullet points with Electric Blue `▸` markers:
+  - Precision measurement equipment for manufacturing
+  - Certified chemical reagents for labs & industry
+  - Oil & gas sector instrumentation
+  - Pharmaceutical-grade chemicals
+  - Environmental monitoring solutions
+
+**Right — Stats + Visual:**
+- Large circular animated counter: main metric in center
+- 4 stat blocks arranged around it
+- Background: abstract hexagonal grid pattern (CSS or SVG)
+
+**Industrial Timeline:**
+Full-width below the two-column layout. Dark card background. Horizontal line connects years.
+```
+2014 — Founded in Tashkent, focus on lab chemicals
+2016 — Partnership with European instrument manufacturers
+2018 — Expanded to industrial measurement sector
+2020 — Oil & gas division launched
+2022 — Reached 200+ active clients
+2024 — 500+ product catalog, 15+ brand partners
+```
+Each milestone: year in Bebas Neue Electric Blue, title in bold, description in Inter regular.
+
+**Certifications Row:**
+Horizontal row of certification badges. Each shows logo + name. Grayscale, hover: full color + slight glow.
+
+**Partner Brands Carousel:**
+Two infinite-scroll rows of partner brand logos. See animation section above.
+
+---
+
+## PRODUCTS SECTION
+
+This is the most important section of the site. It must communicate depth, variety, and professional-grade quality of industrial instruments and reagents.
+
+**Section header:**
+- Section number `02` ghost text background
+- Title: "INSTRUMENTS & REAGENTS"
+- Subtitle: "Precision tools for demanding industrial environments. Certified reagents for critical analytical processes."
+- Category filter bar (pill buttons, horizontal scroll on mobile)
+
+**Categories (these are the primary catalog segments):**
+
+```
+ALL PRODUCTS
+├── Industrial Measurement
+│     ├── Flow Meters & Analyzers
+│     ├── Pressure & Temperature Instruments
+│     ├── Gas Detectors & Analyzers
+│     ├── Thickness & Hardness Meters
+│     └── Viscometers & Density Meters
+│
+├── Chemical Reagents
+│     ├── Analytical Grade Reagents
+│     ├── HPLC & Chromatography Reagents
+│     ├── Buffer Solutions & Standards
+│     ├── Organic Solvents
+│     └── Inorganic Salts & Acids
+│
+├── Laboratory Instruments
+│     ├── Spectrophotometers
+│     ├── pH Meters & Titrators
+│     ├── Analytical Balances
+│     └── Centrifuges & Mixers
+│
+├── Process Control Equipment
+│     ├── Data Loggers
+│     ├── Calibrators & Reference Standards
+│     └── Industrial Controllers
+│
+├── Safety & Monitoring
+│     ├── Environmental Analyzers
+│     ├── Water Quality Instruments
+│     └── Air Quality Monitors
+│
+└── Consumables & Accessories
+      ├── Glassware & Plasticware
+      ├── Filtration Systems
+      └── Calibration Standards
+```
+
+**Filter bar behavior:**
+- Category pills horizontally arranged
+- Click: smooth filter animation — non-matching cards fade out and scale down, matching cards reflow
+- Active pill: Electric Blue background, white text, slight glow
+- Counter badge on each pill showing item count
+
+**Product Grid:**
+3 columns desktop, 2 tablet, 1 mobile. 12 items per page.
+
+**Product Card design:**
+```
+┌──────────────────────────────────┐
+│ [NEW] [BESTSELLER]               │ ← top badges
+│ ┌──────────────────────────────┐ │
+│ │                              │ │
+│ │      Product Image           │ │ ← hover: zoom 1.08 + overlay with "View Details" button
+│ │                              │ │
+│ └──────────────────────────────┘ │
+│  INDUSTRIAL MEASUREMENT          │ ← category (Steel Gray, caps, small)
+│  Ultrasonic Flow Meter XT-500    │ ← product name (bold, white)
+│  Model: XT-500-DN50              │ ← model number (JetBrains Mono, Electric Blue)
+│  Clamp-on, DN50–DN2000, ±0.5%   │ ← short spec (Inter, Steel Gray)
+│ ─────────────────────────────── │
+│  [💰 Get Price]  [📋 Request]   │ ← two action buttons
+└──────────────────────────────────┘
+```
+
+Card background: `#0F1923`, border `1px solid #1E3A5F`
+Hover: border changes to `#00A8E8`, `box-shadow: 0 0 24px rgba(0,168,232,0.15)`, translateY -4px
+3D tilt: enabled via vanilla-tilt
+
+**Sample products to include:**
+
+```
+INDUSTRIAL MEASUREMENT INSTRUMENTS:
+1. Ultrasonic Flow Meter XT-500     | Bronkhorst     | DN50–DN2000, ±0.5%
+2. Digital Pressure Gauge DPG-200   | WIKA           | 0–600 bar, 0.1% accuracy
+3. Portable Gas Analyzer GA-3000    | Dräger         | CO, H₂S, O₂, LEL
+4. Infrared Thermometer IT-900      | Fluke          | -50°C to +2200°C
+5. Ultrasonic Thickness Gauge TG-5  | Olympus        | 0.08–635mm range
+6. Rotary Viscometer RV-300        | Brookfield     | 1–2000 mPa·s
+
+CHEMICAL REAGENTS:
+7. Acetonitrile HPLC Grade         | Honeywell      | 99.9% purity, 2.5L
+8. Sulfuric Acid Analytical Grade  | Sigma-Aldrich  | 95–97%, 2.5L
+9. pH 7.00 Buffer Solution         | Merck          | ±0.01 pH at 25°C
+10. Sodium Chloride Certified      | AppliChem      | 99.5%, ACS grade
+11. Hexane HPLC Grade              | VWR            | 99%, 1L
+12. Potassium Dichromate Standard  | Certipur       | 0.1N, 500mL
+```
+
+**Product Detail Modal (full-screen overlay when card clicked):**
+- Left: image gallery with thumbnail strip. Fullscreen zoom on click.
+- Right: full product information
+  - Name, brand, model (JetBrains Mono)
+  - Category breadcrumb
+  - "NEW" / "BESTSELLER" badges
+  - Full description paragraph
+  - Specification table (alternating row colors)
+  - "Available on request" pricing note
+  - Two large action buttons: `Get Price Quote` + `Place Order Request`
+  - PDF Datasheet download link
+  - Share: Telegram + WhatsApp buttons
+- Below: Related Products (4 cards)
+- Close: X button top-right + click outside
+
+---
+
+## QUOTE REQUEST MODAL + TELEGRAM
+
+When user clicks "Get Price" or "Request" or "Place Order Request":
+
+A modal opens (centered, backdrop blur behind):
+
+**Header:** Product name auto-filled, "Request a Quote" title
+
+**Form fields:**
+- Full Name * 
+- Phone Number * (format: +998 XX XXX XX XX)
+- Company / Organization
+- Email Address
+- Product (auto-filled, read-only, styled as tag)
+- Quantity needed
+- Message / Special requirements (textarea)
+- Submit button: "Send Request →" — gradient, full width
+
+**On submit:**
+- Button shows loading spinner
+- Sends to Telegram Bot API with this formatted message:
+```
+🏭 NEW QUOTE REQUEST — SOOHOW CENTRAL ASIA
+
+📅 Date: [timestamp Tashkent time]
+👤 Name: [name]
+📞 Phone: [phone]
+🏢 Company: [company]
+📧 Email: [email]
+🔬 Product: [product name + model]
+📦 Quantity: [quantity]
+💬 Message: [message]
+🌐 Source: soohowasia.uz
+```
+- On success: form hides, green checkmark animates in, text: "Your request has been received. Our specialist will contact you within 30 minutes."
+- On error: red alert, retry option
+
+---
+
+## CONTACT SECTION
+
+**Section number `03` ghost behind title**
+**Title:** "GET IN TOUCH"
+**Subtitle:** "Ready to supply your facility. Reach us through any channel."
+
+**Two-column layout:**
+
+**Left — Contact Information Cards:**
+
+Each card: dark background `#0F1923`, left border `3px solid #00A8E8`, hover glow
+
+```
+📍 Location
+Tashkent, Uzbekistan
+Amir Temur Street 108, 4th Floor, Office 401
+
+📞 Phone
++998 71 234-56-78
++998 90 123-45-67
+
+📧 Email
+info@soohowasia.uz
+sales@soohowasia.uz
+
+⏰ Working Hours
+Monday – Friday: 09:00 – 18:00
+Saturday: 09:00 – 14:00
+Sunday: Closed
+```
+
+Social links row:
+- Telegram: `@soohowasia` (opens t.me link)
+- Instagram
+- LinkedIn (important for B2B — include this)
+- YouTube (product demos)
+
+Each social icon in a circle, hover: Electric Blue background + scale 1.1
+
+**Right — Contact Form:**
+- Name *, Phone *, Email, Subject (dropdown), Message *
+- Submit → sends to Telegram bot
+- Same success/error handling as quote modal
+
+**Below full width:** Embedded Google Maps iframe showing Tashkent location
+
+**FAQ Accordion (below map):**
+Title: "FREQUENTLY ASKED QUESTIONS"
+```
+Q: Do you provide product certifications and datasheets?
+A: Yes. All instruments come with manufacturer certificates, calibration records, and full technical documentation in Uzbek, Russian, or English.
+
+Q: Can you supply reagents in bulk quantities?
+A: Absolutely. We work with industrial-scale orders. Contact us for volume pricing and customized packaging.
+
+Q: Do you deliver outside Tashkent?
+A: We deliver across all regions of Uzbekistan and export to Kazakhstan, Kyrgyzstan, and Tajikistan.
+
+Q: What is your calibration and service policy?
+A: We offer on-site calibration, installation supervision, and warranty service for all instruments. Training for operators is included.
+
+Q: How quickly can I get a price quote?
+A: Send a request through the website or Telegram — we respond within 30 minutes during working hours.
+```
+
+Each FAQ: title row with `▼` arrow, click to expand answer. Only one open at a time. Smooth height animation.
+
+---
+
+## FULLSCREEN SEARCH OVERLAY
+
+Search icon click → overlay covers entire screen with `backdrop-filter: blur(20px)` and `background: rgba(6,26,46,0.97)`
+
+Center: large search input, placeholder "Search by instrument name, model, CAS number, or reagent..."
+
+Below input:
+- Recent searches (from localStorage)
+- Popular categories as click tags
+- As user types (300ms debounce): results appear in real-time grid below showing matching product cards (compact version)
+
+Keyboard: `Esc` closes. Arrow keys navigate results. Enter opens first result.
+
+---
+
+## DARK / LIGHT MODE
+
+Toggle in navbar. Sun icon = light mode. Moon icon = dark mode.
+
+**Light mode** (not default, but must work perfectly):
+- Background: `#F0F4F8`
+- Cards: `#FFFFFF`
+- Text: `#0A2342`
+- Borders: `#CBD5E0`
+
+**Dark mode** (default):
+- All specs above
+
+Transition: all color properties change in `0.3s ease`. No flash. Preference saved to `localStorage`. System preference detected via `prefers-color-scheme` on first visit.
+
+Toggle button animates: moon/sun icon rotates 360° during switch.
+
+---
+
+## FOOTER
+
+Dark background `#061A2E`, subtle top border `1px solid #1E3A5F`.
+
+**Four column layout:**
+
+**Column 1 — Brand:**
+- Logo: `SOOHOW CENTRAL ASIA` (same navbar style)
+- Tagline: "Industrial Precision. Chemical Excellence."
+- 2-sentence company description
+- Social icons row
+
+**Column 2 — Navigation:**
+- Home
+- About
+- Products
+- Contact
+
+**Column 3 — Product Categories:**
+- Industrial Measurement
+- Chemical Reagents
+- Laboratory Instruments
+- Process Control
+- Safety & Monitoring
+
+**Column 4 — Contact:**
+- Address (icon + text)
+- Phone (icon + clickable link)
+- Email (icon + clickable link)
+- Working hours
+
+**Footer Bottom bar:**
+- Left: `© 2025 SOOHOW CENTRAL ASIA. All rights reserved.`
+- Right: `Tashkent, Uzbekistan | Industrial Instruments & Chemical Reagents`
+
+---
+
+## CUSTOM CURSOR
+
+Desktop only (hidden on touch devices). Two-part cursor:
+
+1. **Dot** (4px circle, Electric Blue fill): follows cursor instantly with no lag
+2. **Ring** (28px circle, Electric Blue stroke 1.5px, transparent fill): follows cursor with `0.12s` lag using GSAP lerp
+
+On hover over links/buttons/cards:
+- Ring scales to 48px
+- Dot disappears
+- Ring fills with `rgba(0,168,232,0.1)`
+
+On hover over product cards:
+- Ring changes to teal `#00D4AA`
+- Cursor shows `VIEW` text inside ring in 9px mono font
+
+---
+
+## HERO STATISTICS STRIP
+
+Between Hero and About sections: a full-width dark strip (slightly lighter than hero) showing 5 key metrics side by side with vertical dividers:
+
+```
+500+              |    200+           |    15+             |    10+           |    50K+
+Products Listed   |    Clients Served |    Brand Partners  |    Years Active  |    Reagents Supplied
+```
+
+Each number in Bebas Neue 56px Electric Blue, label in Inter 13px Steel Gray.
+All numbers count up via CountUp when strip scrolls into view.
+
+---
+
+## PERFORMANCE & TECHNICAL REQUIREMENTS
+
+- All images: `loading="lazy"`, `decoding="async"`, WebP format preferred
+- Fonts: `<link rel="preconnect">` and `font-display: swap`
+- Three.js canvas: `requestAnimationFrame` with `renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))` to avoid over-rendering on HiDPI screens
+- `@media (prefers-reduced-motion: reduce)` — disable all GSAP animations, keep layout
+- Responsive breakpoints: 375px, 768px, 1024px, 1280px, 1440px, 1920px
+- No horizontal scroll on any breakpoint
+- Tab key navigation works on all interactive elements
+- All images have descriptive `alt` attributes
+- ARIA labels on all icon-only buttons
+
+---
+
+## WHAT TO BUILD FIRST
+
+Start with a single complete `index.html` file containing all HTML, CSS (embedded in `<style>`), and JavaScript (embedded in `<script>`). Include:
+
+- All CDN links for GSAP, Three.js, AOS, vanilla-tilt in the `<head>`
+- Complete CSS with all variables, all section styles, all animations, dark mode
+- Complete JavaScript: Three.js hero scene, GSAP scroll animations, navbar behavior, dark mode toggle, product filtering, modals, Telegram form submission, search overlay, custom cursor, loading screen, FAQ accordion, partner carousel
+- All product data in a JavaScript array (at least 12 products across categories)
+- All category data structured for filtering
+- Telegram bot placeholder clearly marked as `YOUR_BOT_TOKEN` and `YOUR_CHAT_ID`
+
+The final result must be a website that looks like it cost $15,000 to build — because **SOOHOW CENTRAL ASIA** operates at that level of professionalism.
+
+---
+
+**Build it now. Make it extraordinary.**
+
