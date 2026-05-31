@@ -478,7 +478,7 @@
   }
 
   .site-form-control {
-    @apply h-[50px] w-full rounded-md border border-solid shadow-sm px-3 py-0 text-sm site-heading;
+    @apply h-[50px] w-full rounded-md border border-solid shadow-sm px-3 py-0 text-sm;
     @apply placeholder:text-[hsl(var(--site-fg)/0.35)];
     @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#00A8E8]/50;
     border-color: hsl(var(--site-border));
