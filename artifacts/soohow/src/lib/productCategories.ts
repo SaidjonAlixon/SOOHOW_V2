@@ -86,3 +86,11 @@ export const PRODUCT_CATEGORY_BY_ID: Record<number, ProductCategoryKey> = {
 export function getProductCategoryKey(productId: number): ProductCategoryKey {
   return PRODUCT_CATEGORY_BY_ID[productId] ?? "metalSpectral";
 }
+
+export function isProductCategoryKey(value: string): value is ProductCategoryKey {
+  return (PRODUCT_CATEGORY_ORDER as readonly string[]).includes(value);
+}
+
+export function productsPathForCategory(category: ProductCategoryKey): string {
+  return `/products?cat=${category}`;
+}

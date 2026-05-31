@@ -3,9 +3,14 @@ import { Send, Instagram, Linkedin, ArrowUpRight, Clock } from 'lucide-react';
 import { routes, navItems } from '@/lib/routes';
 import { Logo } from '@/components/Logo';
 import { useLocale } from '@/lib/i18n/LocaleContext';
+import {
+  PRODUCT_CATEGORY_I18N_KEY,
+  PRODUCT_CATEGORY_ORDER,
+  productsPathForCategory,
+} from '@/lib/productCategories';
 
 export function Footer() {
-  const { t, messages } = useLocale();
+  const { t } = useLocale();
 
   return (
     <footer className="site-section border-t site-border pt-20 pb-10" data-testid="footer">
@@ -53,10 +58,17 @@ export function Footer() {
           <div>
             <h4 className="font-heading font-bold site-heading mb-6 uppercase">{t('footer.categories')}</h4>
             <ul className="space-y-3">
-              {messages.footerCategories.map((cat) => (
-                <li key={cat}>
-                  <Link href={routes.products} className="text-sm site-muted hover:site-heading transition-colors">
-                    {cat}
+              {PRODUCT_CATEGORY_ORDER.map((categoryKey) => (
+                <li key={categoryKey}>
+                  <Link
+                    href={productsPathForCategory(categoryKey)}
+                    className="text-sm site-muted hover:text-[#00A8E8] transition-colors flex items-center group"
+                  >
+                    <ArrowUpRight
+                      size={14}
+                      className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all mr-1 shrink-0"
+                    />
+                    {t(`productsPage.${PRODUCT_CATEGORY_I18N_KEY[categoryKey]}`)}
                   </Link>
                 </li>
               ))}

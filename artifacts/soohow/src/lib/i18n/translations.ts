@@ -644,13 +644,6 @@ const en = {
     alt2: "ISO/IEC 27001 certificate — Kunshan Soohow Instrument",
     alt3: "ISO 14001 certificate — Kunshan Soohow Instrument",
   },
-  footerCategories: [
-    "Industrial Measurement",
-    "Laboratory Instruments",
-    "Process Control",
-    "Safety & Monitoring",
-    "Service & Support",
-  ],
 };
 
 export type TranslationTree = typeof en;
@@ -1287,13 +1280,6 @@ const uz: TranslationTree = {
     alt2: "ISO/IEC 27001 sertifikati — Kunshan Soohow Instrument",
     alt3: "ISO 14001 sertifikati — Kunshan Soohow Instrument",
   },
-  footerCategories: [
-    "Sanoat o'lchovi",
-    "Laboratoriya uskunalari",
-    "Jarayon nazorati",
-    "Xavfsizlik va monitoring",
-    "Servis va qo'llab-quvvatlash",
-  ],
 };
 
 const ru: TranslationTree = {
@@ -1928,13 +1914,6 @@ const ru: TranslationTree = {
     alt2: "Сертификат ISO/IEC 27001 — Kunshan Soohow Instrument",
     alt3: "Сертификат ISO 14001 — Kunshan Soohow Instrument",
   },
-  footerCategories: [
-    "Промышленные измерения",
-    "Лабораторные приборы",
-    "Контроль процессов",
-    "Безопасность и мониторинг",
-    "Сервис и поддержка",
-  ],
 };
 
 export const translations: Record<Locale, TranslationTree> = { en, uz, ru };

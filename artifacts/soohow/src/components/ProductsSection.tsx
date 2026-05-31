@@ -6,6 +6,7 @@ import { useLocale } from '@/lib/i18n/LocaleContext';
 import { useLocalizedProducts } from '@/lib/i18n/useLocalizedProducts';
 import { mountAnimatedTitleChars } from '@/lib/animateTitleChars';
 import {
+  isProductCategoryKey,
   PRODUCT_CATEGORY_FILTER_I18N_KEY,
   PRODUCT_CATEGORY_I18N_KEY,
   PRODUCT_CATEGORY_ORDER,
@@ -49,6 +50,13 @@ export function ProductsSection({ onProductClick, onQuoteClick }: ProductsSectio
           items: products.filter((p) => p.categoryKey === categoryKey),
         })).filter((section) => section.items.length > 0)
       : null;
+
+  useEffect(() => {
+    const cat = new URLSearchParams(window.location.search).get('cat');
+    if (cat && isProductCategoryKey(cat)) {
+      setFilter(cat);
+    }
+  }, []);
 
   useEffect(() => {
     if (titleRef.current) {
