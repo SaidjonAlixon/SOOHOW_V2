@@ -77,7 +77,6 @@ export const PRODUCT_CATEGORY_BY_ID: Record<number, ProductCategoryKey> = {
   26: "particleCounter", // SLPC300 (+ optional SLPC300W module)
   27: "particleCounter", // OL-1
   30: "particleCounter", // PC550
-  // Медицинские анализаторы
   36: "medical", // STS-A200
   37: "medical", // STS-M100
   38: "medical", // STS-M400
@@ -93,4 +92,11 @@ export function isProductCategoryKey(value: string): value is ProductCategoryKey
 
 export function productsPathForCategory(category: ProductCategoryKey): string {
   return `/products?cat=${category}`;
+}
+
+export function productCategoryFromSearchParams(
+  searchParams: URLSearchParams,
+): ProductCategoryKey | null {
+  const cat = searchParams.get("cat");
+  return cat && isProductCategoryKey(cat) ? cat : null;
 }

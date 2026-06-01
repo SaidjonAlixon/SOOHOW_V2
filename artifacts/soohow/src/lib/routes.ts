@@ -15,7 +15,14 @@ export const navItems = [
   { key: "nav.contact", path: routes.contact },
 ] as const;
 
-export function isNavActive(currentPath: string, itemPath: string): boolean {
+/** Path only — strips `?query` and `#hash` from Wouter location. */
+export function pathnameFromLocation(location: string): string {
+  const pathOnly = location.split("?")[0].split("#")[0];
+  return pathOnly.replace(/\/$/, "") || "/";
+}
+
+export function isNavActive(currentLocation: string, itemPath: string): boolean {
+  const currentPath = pathnameFromLocation(currentLocation);
   if (itemPath === routes.home) {
     return currentPath === routes.home || currentPath === "";
   }

@@ -7,10 +7,40 @@ import {
   PRODUCT_CATEGORY_I18N_KEY,
   PRODUCT_CATEGORY_ORDER,
   productsPathForCategory,
+  type ProductCategoryKey,
 } from '@/lib/productCategories';
+import { useProductCategoryNav } from '@/lib/useProductCategoryNav';
+
+function FooterCategoryLink({
+  categoryKey,
+  label,
+  onNavigate,
+}: {
+  categoryKey: ProductCategoryKey;
+  label: string;
+  onNavigate: (categoryKey: ProductCategoryKey) => void;
+}) {
+  return (
+    <a
+      href={productsPathForCategory(categoryKey)}
+      className="text-sm site-muted hover:text-[#00A8E8] transition-colors flex items-center group w-full text-left"
+      onClick={(e) => {
+        e.preventDefault();
+        onNavigate(categoryKey);
+      }}
+    >
+      <ArrowUpRight
+        size={14}
+        className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all mr-1 shrink-0"
+      />
+      {label}
+    </a>
+  );
+}
 
 export function Footer() {
   const { t } = useLocale();
+  const { navigateToCategory } = useProductCategoryNav();
 
   return (
     <footer className="site-section border-t site-border pt-20 pb-10" data-testid="footer">
@@ -60,16 +90,11 @@ export function Footer() {
             <ul className="space-y-3">
               {PRODUCT_CATEGORY_ORDER.map((categoryKey) => (
                 <li key={categoryKey}>
-                  <Link
-                    href={productsPathForCategory(categoryKey)}
-                    className="text-sm site-muted hover:text-[#00A8E8] transition-colors flex items-center group"
-                  >
-                    <ArrowUpRight
-                      size={14}
-                      className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all mr-1 shrink-0"
-                    />
-                    {t(`productsPage.${PRODUCT_CATEGORY_I18N_KEY[categoryKey]}`)}
-                  </Link>
+                  <FooterCategoryLink
+                    categoryKey={categoryKey}
+                    label={t(`productsPage.${PRODUCT_CATEGORY_I18N_KEY[categoryKey]}`)}
+                    onNavigate={navigateToCategory}
+                  />
                 </li>
               ))}
             </ul>

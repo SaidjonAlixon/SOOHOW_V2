@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { useSearchParams } from "wouter";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -25,6 +26,7 @@ export function useSiteActions(): SiteActions {
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const localizedProducts = useLocalizedProducts();
+  const [searchParams] = useSearchParams();
   const [searchOpen, setSearchOpen] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -37,6 +39,15 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
   const openProductModal = (product: Product) => setModalProduct(product);
   const closeProductModal = () => setModalProduct(null);
+
+  useEffect(() => {
+    const rawId = searchParams.get("product");
+    if (!rawId) return;
+    const id = Number(rawId);
+    if (!Number.isFinite(id)) return;
+    const product = localizedProducts.find((p) => p.id === id);
+    if (product) setModalProduct(product);
+  }, [searchParams, localizedProducts]);
 
   const getRelatedProducts = (current: Product) =>
     localizedProducts

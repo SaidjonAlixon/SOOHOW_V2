@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Product } from '@/lib/products';
 import { useLocale } from '@/lib/i18n/LocaleContext';
-import { X, ChevronRight, Share2, Send, ArrowRight } from 'lucide-react';
+import { copyProductLink, telegramProductUrl } from '@/lib/socialShare';
+import { useToast } from '@/hooks/use-toast';
+import { X, ChevronRight, Copy, Send, ArrowRight, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface ProductModalProps {
@@ -14,7 +16,32 @@ interface ProductModalProps {
 
 export function ProductModal({ product, onClose, onQuote, relatedProducts, onProductSelect }: ProductModalProps) {
   const { t } = useLocale();
+  const { toast } = useToast();
   const modalRef = useRef<HTMLDivElement>(null);
+  const [linkCopied, setLinkCopied] = useState(false);
+  const copyFeedbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleCopyLink = async () => {
+    await copyProductLink(product.id);
+    setLinkCopied(true);
+    if (copyFeedbackTimerRef.current) clearTimeout(copyFeedbackTimerRef.current);
+    copyFeedbackTimerRef.current = setTimeout(() => setLinkCopied(false), 2000);
+    toast({ title: t('productModal.linkCopied') });
+  };
+
+  useEffect(() => {
+    setLinkCopied(false);
+  }, [product.id]);
+
+  useEffect(() => {
+    return () => {
+      if (copyFeedbackTimerRef.current) clearTimeout(copyFeedbackTimerRef.current);
+    };
+  }, []);
+
+  const handleTelegram = () => {
+    window.open(telegramProductUrl(product), '_blank', 'noopener,noreferrer');
+  };
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -157,10 +184,34 @@ export function ProductModal({ product, onClose, onQuote, relatedProducts, onPro
                     {t('productModal.getQuote')} <ArrowRight className="ml-2" size={18} />
                   </button>
                   <div className="flex gap-2">
-                    <button className="w-14 h-14 rounded-full border site-border flex items-center justify-center text-[hsl(var(--site-fg)/0.7)] hover:site-heading hover:border-white/50 transition-colors" aria-label={t('productModal.share')}>
-                      <Share2 size={20} />
+                    <button
+                      type="button"
+                      onClick={() => void handleCopyLink()}
+                      className={`min-w-14 h-14 px-2 rounded-full border flex items-center justify-center transition-colors ${
+                        linkCopied
+                          ? 'border-[#00D4AA] bg-[#00D4AA]/10 text-[#00D4AA]'
+                          : 'border site-border text-[hsl(var(--site-fg)/0.7)] hover:site-heading hover:border-white/50'
+                      }`}
+                      aria-label={linkCopied ? t('productModal.linkCopied') : t('productModal.copyLink')}
+                      title={linkCopied ? t('productModal.linkCopied') : t('productModal.copyLink')}
+                    >
+                      {linkCopied ? (
+                        <span className="flex flex-col items-center gap-0.5">
+                          <Check size={18} strokeWidth={2.5} />
+                          <span className="text-[9px] font-heading font-bold uppercase leading-none">
+                            {t('productModal.linkCopied')}
+                          </span>
+                        </span>
+                      ) : (
+                        <Copy size={20} />
+                      )}
                     </button>
-                    <button className="w-14 h-14 rounded-full border site-border flex items-center justify-center text-[#00A8E8] hover:bg-[#00A8E8]/10 hover:border-[#00A8E8] transition-colors" aria-label={t('productModal.telegram')}>
+                    <button
+                      type="button"
+                      onClick={handleTelegram}
+                      className="w-14 h-14 rounded-full border site-border flex items-center justify-center text-[#00A8E8] hover:bg-[#00A8E8]/10 hover:border-[#00A8E8] transition-colors"
+                      aria-label={t('productModal.telegram')}
+                    >
                       <Send size={20} className="-ml-0.5 mt-0.5" />
                     </button>
                   </div>

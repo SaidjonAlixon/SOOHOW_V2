@@ -46,17 +46,17 @@ const en = {
     badge: "Our services",
     title: "OOO FALCON TRADE LINES YOUR RELIABLE PARTNER",
     lead:
-      "As the authorized partner of KUNSHAN SOOHOW INSTRUMENT TECHNOLOGY CO., LTD. in Central Asia, we supply spectrometers, oil analyzers, and industrial measurement equipment. Browse the catalog, request a quote online, and rely on warranty service, OEM spare parts, and engineer support.",
+      "As the authorized partner of KUNSHAN SOOHOW INSTRUMENT TECHNOLOGY CO., LTD. in Central Asia, we supply spectral metal analysis systems, oil and lubricant analyzers, wear analyzers, ferrography equipment, particle counters, and medical analyzers. Browse the catalog by category, request a quote online, and rely on warranty service, OEM spare parts, and engineer support.",
     pillars: [
       {
         title: "Official SOOHOW partner",
         description:
-          "OOO FALCON TRADE LINES is the authorized representative of Kunshan Soohow Instrument in Central Asia — spectrometry, oil analysis, and industrial measurement systems with ISO-backed quality.",
+          "OOO FALCON TRADE LINES is the authorized representative of Kunshan Soohow Instrument in Central Asia — spectral metal analysis, oil and lubricant testing, wear and ferrography diagnostics, particle counting, and medical analyzers with ISO-backed quality.",
       },
       {
         title: "Equipment & solutions",
         description:
-          "Browse 40+ instruments in the catalog: OES spectrometers, oil analyzers, metallurgy tools, and lab systems. Request a quote online or ask our engineers for a tailored configuration.",
+          "Browse 40+ instruments across six catalog categories: spectral metal analysis, oil and lubricant analyzers, wear analyzers, ferrography, particle counters, and medical analyzers. Request a quote online or ask our engineers for a tailored configuration.",
       },
       {
         title: "Service & support",
@@ -100,10 +100,10 @@ const en = {
   industrial: {
     badge: "MANUFACTURING EXCELLENCE",
     eyebrow: "Scale · automation · QC",
-    title: "Intelligent manufacturing hub",
-    titleSub: "Automated lines for analytical instruments",
+    title: "Smart production complex",
+    titleSub: "Automated analytical instrument lines",
     intro:
-      "An integrated ecosystem of assembly halls, optical metrology, and certified quality labs — engineered to deliver more than 2,000 advanced analytical instruments every year.",
+      "A 12,300 m² facility combines automated spectrometer and analyzer assembly lines, optical metrology, and ISO-certified labs for incoming, in-process, and final inspection. Production covers OES/GD-OES systems, oil and wear analyzers, ferrography, particle counters, and laboratory instruments — over 2,000 units shipped every year.",
     statValue: "2,000+",
     statUnit: "instruments / year",
     statCaption: "Annual output capacity",
@@ -249,11 +249,11 @@ const en = {
       },
       {
         tag: "03",
-        chip: "Production lines",
-        title: "Precise production lines",
-        teaser: "Automated assembly lines, optical metrology, and quality-controlled production.",
+        chip: "Smart complex",
+        title: "Smart production complex",
+        teaser: "Automated instrument lines, optical metrology, and ISO quality control.",
         description:
-          "Advanced technologies, automated processes, and high production efficiency — precision assembly built for reliable, large-scale instrument manufacturing.",
+          "A 12,300 m² facility with automated spectrometer and analyzer assembly, optical metrology, and full-cycle ISO labs — over 2,000 analytical instruments every year.",
         highlights: [
           "Automated lines and process control",
           "Optical metrology and quality labs",
@@ -473,6 +473,8 @@ const en = {
     pricingNote: "Pricing and availability on request. Bulk discounts available.",
     getQuote: "Get Price Quote",
     share: "Share",
+    copyLink: "Copy product link",
+    linkCopied: "Copied",
     telegram: "Telegram",
     related: "Related Instruments",
   },
@@ -687,17 +689,17 @@ const uz: TranslationTree = {
     badge: "Xizmatlarimiz",
     title: "OOO FALCON TRADE LINES ISHONCHLI HAMKORINGIZ",
     lead:
-      "Markaziy Osiyoda KUNSHAN SOOHOW INSTRUMENT TECHNOLOGY CO., LTD. rasmiy vakili sifatida spektrometrlar, moy tahlil uskunalari va sanoat o'lchov asboblarini yetkazib beramiz. Katalogdan tanlang, saytda narx so'rovi yuboring, kafolatli servis, OEM ehtiyot qismlar va muhandis maslahatidan foydalaning.",
+      "Markaziy Osiyoda KUNSHAN SOOHOW INSTRUMENT TECHNOLOGY CO., LTD. rasmiy vakili sifatida metallarning spektral tahlili, moy va moylash materiallari analizatorlari, eskirish analizatorlari, ferrografiya, zarracha hisoblagichlar va tibbiy analizatorlarni yetkazib beramiz. Katalogda kategoriya bo'yicha tanlang, saytda narx so'rovi yuboring, kafolatli servis, OEM ehtiyot qismlar va muhandis maslahatidan foydalaning.",
     pillars: [
       {
         title: "Rasmiy SOOHOW hamkori",
         description:
-          "OOO FALCON TRADE LINES — Kunshan Soohow Instrument kompaniyasining Markaziy Osiyodagi vakili: spektrometriya, moy tahlili va sanoat o'lchov tizimlari, ISO sertifikatlangan sifat bilan.",
+          "OOO FALCON TRADE LINES — Kunshan Soohow Instrument kompaniyasining Markaziy Osiyodagi vakili: spektral metall tahlili, moy va moylash tahlili, eskirish va ferrografiya diagnostikasi, zarracha hisoblash va tibbiy analizatorlar — ISO sertifikatlangan sifat bilan.",
       },
       {
         title: "Uskunalar va yechimlar",
         description:
-          "Katalogda 40+ turdagi asboblar: OES spektrometrlar, moy tahlilchilar, metallografiya va laboratoriya tizimlari. Saytdan narx so'rovi yuboring yoki muhandislarimizdan mos konfiguratsiya so'rang.",
+          "Katalogda 40+ asbob — oltita kategoriya: metallarning spektral tahlili, moy va moylash analizatorlari, eskirish analizatorlari, ferrografiya, zarracha hisoblagichlar va tibbiy analizatorlar. Saytdan narx so'rovi yuboring yoki muhandislarimizdan mos konfiguratsiya so'rang.",
       },
       {
         title: "Servis va qo'llab-quvvatlash",
@@ -741,10 +743,10 @@ const uz: TranslationTree = {
   industrial: {
     badge: "ISHLAB CHIQARISH",
     eyebrow: "Hajm · avtomatlashtirish · nazorat",
-    title: "Intellektual ishlab chiqarish kompleksi",
-    titleSub: "Analitik uskunalar uchun avtomatlashtirilgan liniyalar",
+    title: "Aqlli ishlab chiqarish kompleksi",
+    titleSub: "Analitik uskunalar avtomat liniyalari",
     intro:
-      "Yig'ish zallari, optik metrologiya va sertifikatlangan sifat laboratoriyalari — yiliga 2000 dan ortiq ilg'or analitik uskunalarni yetkazib berish uchun yaratilgan yagona ekotizim.",
+      "12 300 m² maydonda spektrometr va analitik komplekslarni yig'ish avtomat liniyalari, optik metrologiya hamda kiruvchi, jarayon ichidagi va yakuniy nazorat uchun ISO laboratoriyalari birlashtirilgan. OES/GD-OES, moy va eskirish tahlili, ferrografiya, zarracha hisoblagichlar va laboratoriya uskunalari — yiliga 2000 dan ortiq mahsulot ISO standartlari bo'yicha.",
     statValue: "2000+",
     statUnit: "dona / yil",
     statCaption: "Yillik ishlab chiqarish quvvati",
@@ -890,11 +892,11 @@ const uz: TranslationTree = {
       },
       {
         tag: "03",
-        chip: "Aniq liniyalar",
-        title: "Aniq ishlab chiqarish liniyalari",
-        teaser: "Avtomatlashtirilgan liniyalar, optik metrologiya va sifat nazorati.",
+        chip: "Aqlli kompleks",
+        title: "Aqlli ishlab chiqarish kompleksi",
+        teaser: "Analitik uskunalar avtomat liniyalari, optik metrologiya va ISO sifat nazorati.",
         description:
-          "Ilg'or texnologiyalar, avtomatlashtirilgan jarayonlar va yuqori samaradorlik — ishonchli, keng ko'lamli uskunalar ishlab chiqarish uchun aniq yig'ilish.",
+          "12 300 m² maydon — spektrometr va analizatorlarni avtomat yig'ish, optik metrologiya va to'liq sikl ISO laboratoriyalari; yiliga 2000 dan ortiq analitik uskuna.",
         highlights: [
           "Avtomatlashtirilgan liniyalar va jarayon nazorati",
           "Optik metrologiya va sifat laboratoriyalari",
@@ -1109,6 +1111,8 @@ const uz: TranslationTree = {
     pricingNote: "Narx va mavjudlik so'rov bo'yicha. Ulgurji chegirmalar mavjud.",
     getQuote: "Narx so'rash",
     share: "Ulashish",
+    copyLink: "Mahsulot havolasini nusxalash",
+    linkCopied: "Nusxa olindi",
     telegram: "Telegram",
     related: "O'xshash uskunalar",
   },
@@ -1321,17 +1325,17 @@ const ru: TranslationTree = {
     badge: "Наши услуги",
     title: "OOO FALCON TRADE LINES ВАШ НАДЕЖНЫЙ ПАРТНЕР",
     lead:
-      "Как официальный партнёр KUNSHAN SOOHOW INSTRUMENT TECHNOLOGY CO., LTD. в Центральной Азии поставляем спектрометры, анализаторы масел и промышленные измерительные приборы. Выбирайте в каталоге, запрашивайте цену на сайте, пользуйтесь гарантийным сервисом, оригинальными запчастями OEM и консультацией инженеров.",
+      "Как официальный партнёр KUNSHAN SOOHOW INSTRUMENT TECHNOLOGY CO., LTD. в Центральной Азии мы поставляем оборудование для спектрального анализа металлов, анализаторы масел и смазочных материалов, анализаторы износа, феррографию, счётчики частиц и медицинские анализаторы. Выбирайте в каталоге по категориям, запрашивайте цену на сайте, пользуйтесь гарантийным сервисом, оригинальными запчастями OEM и консультацией инженеров.",
     pillars: [
       {
         title: "Официальный партнёр SOOHOW",
         description:
-          "OOO FALCON TRADE LINES — уполномоченный представитель Kunshan Soohow Instrument в Центральной Азии: спектрометрия, анализ масел и промышленные измерительные системы с качеством по ISO.",
+          "OOO FALCON TRADE LINES — уполномоченный представитель Kunshan Soohow Instrument в Центральной Азии: спектральный анализ металлов, анализ масел и смазок, диагностика износа и феррография, счётчики частиц и медицинские анализаторы — качество по ISO.",
       },
       {
         title: "Оборудование и решения",
         description:
-          "В каталоге 40+ приборов: OES-спектрометры, анализаторы масел, металлография и лабораторные системы. Запросите цену на сайте или получите подбор конфигурации от наших инженеров.",
+          "В каталоге 40+ приборов в шести категориях: спектральный анализ металлов, анализаторы масел и смазочных материалов, анализаторы износа, феррография, счётчики частиц и медицинские анализаторы. Запросите цену на сайте или получите подбор конфигурации от наших инженеров.",
       },
       {
         title: "Сервис и поддержка",
@@ -1375,10 +1379,10 @@ const ru: TranslationTree = {
   industrial: {
     badge: "ПРОИЗВОДСТВО",
     eyebrow: "Масштаб · автоматизация · контроль",
-    title: "Интеллектуальный производственный комплекс",
-    titleSub: "Автоматизированные линии аналитических приборов",
+    title: "Умный производственный комплекс",
+    titleSub: "Автоматизированные линии приборов",
     intro:
-      "Единая экосистема сборочных цехов, оптической метрологии и сертифицированных лабораторий — более 2000 передовых аналитических приборов в год.",
+      "Площадка 12 300 м² объединяет автоматизированные линии сборки спектрометров и аналитических комплексов, участки оптической метрологии и ISO-лаборатории входного, межоперационного и финального контроля. Выпускаем OES/GD-OES, анализаторы масел и износа, феррографию, счётчики частиц и лабораторное оборудование — свыше 2000 приборов в год.",
     statValue: "2000+",
     statUnit: "приборов / год",
     statCaption: "Годовая мощность",
@@ -1524,11 +1528,11 @@ const ru: TranslationTree = {
       },
       {
         tag: "03",
-        chip: "Точные линии",
-        title: "ТОЧНЫЕ ПРОИЗВОДСТВЕННЫЕ ЛИНИИ",
-        teaser: "Автоматизированные линии, оптическая метрология и контроль качества.",
+        chip: "Умный комплекс",
+        title: "Умный производственный комплекс",
+        teaser: "Автоматизированные линии приборов, оптическая метрология и ISO-контроль качества.",
         description:
-          "Передовые технологии, автоматизированные процессы и высокая эффективность — точная сборка для надёжного серийного выпуска приборов.",
+          "Площадка 12 300 м² — автоматизированная сборка спектрометров и анализаторов, оптическая метрология и ISO-лаборатории полного цикла; свыше 2000 приборов в год.",
         highlights: [
           "Автоматизированные линии и контроль процессов",
           "Оптическая метрология и лаборатории качества",
@@ -1743,6 +1747,8 @@ const ru: TranslationTree = {
     pricingNote: "Цена и наличие по запросу. Скидки на опт.",
     getQuote: "Запросить цену",
     share: "Поделиться",
+    copyLink: "Копировать ссылку на продукт",
+    linkCopied: "Скопировано",
     telegram: "Telegram",
     related: "Похожие приборы",
   },

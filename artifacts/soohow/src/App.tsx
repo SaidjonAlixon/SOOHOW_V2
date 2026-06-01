@@ -6,8 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import { FullereneIntro } from "@/components/FullereneIntro";
 import { SiteLayout } from "@/layouts/SiteLayout";
-import { routes } from "@/lib/routes";
-import { initTheme } from "@/lib/theme";
+import { pathnameFromLocation, routes } from "@/lib/routes";
+import { initTheme, startThemeSchedule } from "@/lib/theme";
 import { LocaleProvider } from "@/lib/i18n/LocaleContext";
 import HomePage from "@/pages/home";
 import AboutPage from "@/pages/about";
@@ -27,13 +27,9 @@ const sitePaths = new Set<string>([
   routes.terms,
 ]);
 
-function normalizePath(location: string) {
-  return location.replace(/\/$/, "") || "/";
-}
-
 function SiteApp() {
   const [location] = useLocation();
-  const path = normalizePath(location);
+  const path = pathnameFromLocation(location);
 
   let page;
   switch (path) {
@@ -62,7 +58,7 @@ function SiteApp() {
 
 function Router() {
   const [location, setLocation] = useLocation();
-  const path = normalizePath(location);
+  const path = pathnameFromLocation(location);
   const [introComplete, setIntroComplete] = useState(false);
 
   const finishIntro = useCallback(() => {
@@ -82,6 +78,7 @@ function Router() {
 function App() {
   useEffect(() => {
     initTheme();
+    return startThemeSchedule();
   }, []);
 
   return (

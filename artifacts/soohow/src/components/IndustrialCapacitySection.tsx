@@ -72,10 +72,13 @@ export function IndustrialCapacitySection() {
                 className="max-w-3xl"
                 lineClassName="bg-gradient-to-r from-[#00A8E8] via-[#00D4AA] to-[#0077a8] dark:to-[#5dd4ff] bg-clip-text text-transparent"
               >
-                {`${t("industrial.title")}\n${t("industrial.titleSub")}`}
+                {t("industrial.title")}
               </SectionTitle>
+              <p className="mt-3 max-w-4xl font-sans text-lg md:text-xl font-normal normal-case leading-relaxed text-[hsl(var(--site-fg))]">
+                {t("industrial.titleSub")}
+              </p>
 
-              <p className="mt-5 text-base md:text-lg site-muted leading-relaxed max-w-2xl">
+              <p className="mt-5 max-w-4xl font-sans text-base md:text-lg site-muted leading-relaxed">
                 {t("industrial.intro")}
               </p>
 

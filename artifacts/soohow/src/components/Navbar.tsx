@@ -4,7 +4,12 @@ import { Search, Sun, Moon, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { navItems, isNavActive, routes } from '@/lib/routes';
 import { Logo } from '@/components/Logo';
-import { initTheme, toggleTheme as switchTheme, type Theme } from '@/lib/theme';
+import {
+  initTheme,
+  toggleTheme as switchTheme,
+  THEME_CHANGE_EVENT,
+  type Theme,
+} from '@/lib/theme';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { useLocale } from '@/lib/i18n/LocaleContext';
 
@@ -38,6 +43,14 @@ export function Navbar({ onSearchClick, onQuoteClick }: NavbarProps) {
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [location]);
+
+  useEffect(() => {
+    const onThemeChange = (event: Event) => {
+      setTheme((event as CustomEvent<Theme>).detail);
+    };
+    window.addEventListener(THEME_CHANGE_EVENT, onThemeChange);
+    return () => window.removeEventListener(THEME_CHANGE_EVENT, onThemeChange);
+  }, []);
 
   const toggleTheme = () => {
     setTheme(switchTheme(theme));

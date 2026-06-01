@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { ProductCard } from './ProductCard';
 import { Product } from '@/lib/products';
 import { gsap } from 'gsap';
@@ -6,14 +6,14 @@ import { useLocale } from '@/lib/i18n/LocaleContext';
 import { useLocalizedProducts } from '@/lib/i18n/useLocalizedProducts';
 import { mountAnimatedTitleChars } from '@/lib/animateTitleChars';
 import {
-  isProductCategoryKey,
   PRODUCT_CATEGORY_FILTER_I18N_KEY,
   PRODUCT_CATEGORY_I18N_KEY,
   PRODUCT_CATEGORY_ORDER,
   type ProductCategoryKey,
 } from '@/lib/productCategories';
+import { useProductCategoryNav, type ProductFilterKey } from '@/lib/useProductCategoryNav';
 
-type FilterKey = 'all' | ProductCategoryKey;
+type FilterKey = ProductFilterKey;
 
 interface ProductsSectionProps {
   onProductClick: (p: Product) => void;
@@ -23,7 +23,7 @@ interface ProductsSectionProps {
 export function ProductsSection({ onProductClick, onQuoteClick }: ProductsSectionProps) {
   const { t } = useLocale();
   const products = useLocalizedProducts();
-  const [filter, setFilter] = useState<FilterKey>('all');
+  const { filter, navigateToFilter } = useProductCategoryNav();
   const titleRef = useRef<HTMLHeadingElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -50,13 +50,6 @@ export function ProductsSection({ onProductClick, onQuoteClick }: ProductsSectio
           items: products.filter((p) => p.categoryKey === categoryKey),
         })).filter((section) => section.items.length > 0)
       : null;
-
-  useEffect(() => {
-    const cat = new URLSearchParams(window.location.search).get('cat');
-    if (cat && isProductCategoryKey(cat)) {
-      setFilter(cat);
-    }
-  }, []);
 
   useEffect(() => {
     if (titleRef.current) {
@@ -125,7 +118,7 @@ export function ProductsSection({ onProductClick, onQuoteClick }: ProductsSectio
                 role="tab"
                 aria-selected={filter === cat.key}
                 title={cat.title ?? cat.label}
-                onClick={() => setFilter(cat.key)}
+                onClick={() => navigateToFilter(cat.key)}
                 className={`shrink-0 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-heading font-bold transition-all ${
                   filter === cat.key
                     ? 'bg-[#00A8E8] text-white shadow-[0_0_15px_rgba(0,168,232,0.3)] dark:text-[#031018]'
