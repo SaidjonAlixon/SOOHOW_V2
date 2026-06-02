@@ -1,6 +1,6 @@
-import { useCallback } from "react";
-import { useLocation, useSearchParams } from "wouter";
-import { pathnameFromLocation, routes } from "@/lib/routes";
+import { useCallback, useMemo } from "react";
+import { useLocation, useSearch } from "wouter";
+import { routes } from "@/lib/routes";
 import {
   isProductCategoryKey,
   productsPathForCategory,
@@ -28,38 +28,28 @@ export function scrollToProductsSection() {
 }
 
 export function useProductCategoryNav() {
-  const [location, setLocation] = useLocation();
-  const [searchParams, setSearchParams] = useSearchParams();
-
+  const [, setLocation] = useLocation();
+  const search = useSearch();
+  const searchParams = useMemo(() => new URLSearchParams(search || ""), [search]);
   const filter = filterKeyFromSearchParams(searchParams);
 
   const navigateToCategory = useCallback(
     (categoryKey: ProductCategoryKey) => {
-      const onProducts = pathnameFromLocation(location) === routes.products;
-      setSearchParams({ [PRODUCT_CATEGORY_QUERY_KEY]: categoryKey });
-      if (!onProducts) {
-        setLocation(routes.products);
-        setTimeout(scrollToProductsSection, 50);
-      } else {
-        scrollToProductsSection();
-      }
+      setLocation(productsPathForCategory(categoryKey));
+      setTimeout(scrollToProductsSection, 80);
     },
-    [location, setLocation, setSearchParams],
+    [setLocation],
   );
 
   const navigateToFilter = useCallback(
     (key: ProductFilterKey) => {
-      const onProducts = pathnameFromLocation(location) === routes.products;
       if (key === "all") {
-        setSearchParams({});
-      } else {
-        setSearchParams({ [PRODUCT_CATEGORY_QUERY_KEY]: key });
-      }
-      if (!onProducts) {
         setLocation(routes.products);
+      } else {
+        setLocation(productsPathForCategory(key));
       }
     },
-    [location, setLocation, setSearchParams],
+    [setLocation],
   );
 
   return { filter, navigateToCategory, navigateToFilter, productsPathForCategory };
