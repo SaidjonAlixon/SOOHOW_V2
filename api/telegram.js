@@ -1,35 +1,5 @@
-/** @param {Record<string, unknown>} data @param {"quote"|"contact"} type */
-function formatMessage(data, type) {
-  const date = new Date().toLocaleString("en-US", { timeZone: "Asia/Tashkent" });
-  const header =
-    type === "contact"
-      ? "📬 NEW CONTACT MESSAGE — SOOHOW CENTRAL ASIA"
-      : "🏭 NEW QUOTE REQUEST — SOOHOW CENTRAL ASIA";
-
-  const lines = [
-    header,
-    "",
-    `📅 Date: ${date}`,
-    `👤 Name: ${String(data.name ?? "")}`,
-    `📞 Phone: ${String(data.phone ?? "")}`,
-    `🏢 Company: ${data.company ? String(data.company) : "N/A"}`,
-    `📧 Email: ${data.email ? String(data.email) : "N/A"}`,
-  ];
-
-  if (type === "contact") {
-    lines.push(
-      `📋 Subject: ${data.subject ? String(data.subject) : data.product ? String(data.product) : "N/A"}`,
-    );
-  } else {
-    lines.push(`🔬 Product: ${data.product ? String(data.product) : "General Inquiry"}`);
-    lines.push(`📦 Quantity: ${data.quantity ? String(data.quantity) : "N/A"}`);
-  }
-
-  lines.push(`💬 Message: ${data.message ? String(data.message) : "N/A"}`);
-  lines.push("🌐 Source: soohowcentralasia.com");
-
-  return lines.join("\n");
-}
+const { allocateLeadId } = require("./lead-id");
+const { formatTelegramMessage } = require("./telegram-format");
 
 function parseBody(req) {
   let body = req.body ?? {};
@@ -123,7 +93,16 @@ module.exports = async function handler(req, res) {
   }
 
   const type = body.type === "contact" ? "contact" : "quote";
-  const text = formatMessage(body, type);
+  let leadId;
+  let text;
+  try {
+    leadId = await allocateLeadId();
+    text = formatTelegramMessage(body, type, leadId);
+  } catch (err) {
+    console.error("[telegram] lead id allocation failed", err);
+    res.status(500).json({ error: "Failed to allocate request ID" });
+    return;
+  }
 
   try {
     const me = await callTelegram(token, "getMe");
@@ -153,7 +132,7 @@ module.exports = async function handler(req, res) {
       return;
     }
 
-    res.status(200).json({ ok: true });
+    res.status(200).json({ ok: true, leadId });
   } catch (err) {
     console.error("[telegram]", err);
     res.status(502).json({ error: "Failed to reach Telegram API" });

@@ -1,10 +1,35 @@
 import { Router, type IRouter } from "express";
+import fs from "node:fs";
+import path from "node:path";
 
 const router: IRouter = Router();
 
 type FormType = "quote" | "contact";
+const COUNTER_FILE = path.resolve(process.cwd(), "data", "lead-counter.json");
 
-function formatMessage(data: Record<string, unknown>, type: FormType): string {
+function currentYearSuffix() {
+  return String(new Date().getFullYear()).slice(-2);
+}
+
+function allocateLeadId() {
+  const year = currentYearSuffix();
+  let next = 1;
+  try {
+    const raw = fs.readFileSync(COUNTER_FILE, "utf8");
+    const parsed = JSON.parse(raw) as { year?: string; next?: number };
+    if (parsed.year === year && typeof parsed.next === "number" && parsed.next > 0) {
+      next = parsed.next;
+    }
+  } catch {
+    next = 1;
+  }
+  fs.mkdirSync(path.dirname(COUNTER_FILE), { recursive: true });
+  fs.writeFileSync(COUNTER_FILE, JSON.stringify({ year, next: next + 1 }, null, 2) + "\n", "utf8");
+  const digits = next >= 1000 ? 4 : 3;
+  return `SO${year}${String(next).padStart(digits, "0")}`;
+}
+
+function formatMessage(data: Record<string, unknown>, type: FormType, leadId: string): string {
   const date = new Date().toLocaleString("en-US", { timeZone: "Asia/Tashkent" });
   const header =
     type === "contact"
@@ -12,6 +37,7 @@ function formatMessage(data: Record<string, unknown>, type: FormType): string {
       : "🏭 NEW QUOTE REQUEST — SOOHOW CENTRAL ASIA";
 
   const lines = [
+    `🆔 ${leadId}`,
     header,
     "",
     `📅 Date: ${date}`,
@@ -50,7 +76,8 @@ router.post("/telegram", async (req, res) => {
   }
 
   const type: FormType = req.body?.type === "contact" ? "contact" : "quote";
-  const text = formatMessage(req.body as Record<string, unknown>, type);
+  const leadId = allocateLeadId();
+  const text = formatMessage(req.body as Record<string, unknown>, type, leadId);
 
   try {
     const tgRes = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
@@ -68,7 +95,7 @@ router.post("/telegram", async (req, res) => {
       return;
     }
 
-    res.json({ ok: true });
+    res.json({ ok: true, leadId });
   } catch {
     res.status(502).json({ error: "Failed to reach Telegram API" });
   }

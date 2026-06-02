@@ -1,11 +1,26 @@
 export type TelegramFormType = "quote" | "contact";
 
+function currentYearSuffix() {
+  return String(new Date().getFullYear()).slice(-2);
+}
+
+function allocateClientLeadId() {
+  const year = currentYearSuffix();
+  const key = `soohow-lead-counter-${year}`;
+  const raw = localStorage.getItem(key);
+  const next = Number(raw);
+  const seq = Number.isFinite(next) && next > 0 ? next : 1;
+  localStorage.setItem(key, String(seq + 1));
+  const digits = seq >= 1000 ? 4 : 3;
+  return `SO${year}${String(seq).padStart(digits, "0")}`;
+}
+
 function apiTelegramUrl(): string {
   const base = import.meta.env.BASE_URL || "/";
   return `${base.replace(/\/?$/, "/")}api/telegram`.replace(/\/+/g, "/");
 }
 
-function formatMessage(data: Record<string, unknown>, type: TelegramFormType): string {
+function formatMessage(data: Record<string, unknown>, type: TelegramFormType, leadId: string): string {
   const date = new Date().toLocaleString("en-US", { timeZone: "Asia/Tashkent" });
   const header =
     type === "contact"
@@ -13,6 +28,7 @@ function formatMessage(data: Record<string, unknown>, type: TelegramFormType): s
       : "🏭 NEW QUOTE REQUEST — SOOHOW CENTRAL ASIA";
 
   const lines = [
+    `🆔 ${leadId}`,
     header,
     "",
     `📅 Date: ${date}`,
@@ -56,7 +72,7 @@ async function sendViaTelegramApi(text: string, token: string, chatId: string) {
 }
 
 type BackendSendResult =
-  | { ok: true }
+  | { ok: true; leadId?: string }
   | { ok: false; fallback: true; error?: Error }
   | { ok: false; fallback: false; error: Error };
 
@@ -81,7 +97,12 @@ async function sendViaBackend(
 
   const body = (await res.json().catch(() => null)) as { error?: string } | null;
 
-  if (res.ok) return { ok: true };
+  if (res.ok) {
+    return {
+      ok: true,
+      leadId: body && typeof (body as { leadId?: unknown }).leadId === "string" ? (body as { leadId: string }).leadId : undefined,
+    };
+  }
 
   if (res.status === 503) {
     return {
@@ -117,7 +138,7 @@ export async function sendTelegramMessage(
 
   const client = getClientTelegramConfig();
   if (client) {
-    const text = formatMessage(data, type);
+    const text = formatMessage(data, type, allocateClientLeadId());
     await sendViaTelegramApi(text, client.token, client.chatId);
     return;
   }
