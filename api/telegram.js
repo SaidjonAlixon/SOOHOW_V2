@@ -93,16 +93,8 @@ module.exports = async function handler(req, res) {
   }
 
   const type = body.type === "contact" ? "contact" : "quote";
-  let leadId;
-  let text;
-  try {
-    leadId = await allocateLeadId();
-    text = formatTelegramMessage(body, type, leadId);
-  } catch (err) {
-    console.error("[telegram] lead id allocation failed", err);
-    res.status(500).json({ error: "Failed to allocate request ID" });
-    return;
-  }
+  let leadId = await allocateLeadId();
+  let text = formatTelegramMessage(body, type, leadId);
 
   try {
     const me = await callTelegram(token, "getMe");

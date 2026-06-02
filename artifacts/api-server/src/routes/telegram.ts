@@ -29,6 +29,12 @@ function allocateLeadId() {
   return `SO${year}${String(next).padStart(digits, "0")}`;
 }
 
+function allocateFallbackId() {
+  const year = currentYearSuffix();
+  const secondsPart = Math.floor(Date.now() / 1000) % 100000;
+  return `SO${year}${String(secondsPart).padStart(5, "0")}`;
+}
+
 function formatMessage(data: Record<string, unknown>, type: FormType, leadId: string): string {
   const date = new Date().toLocaleString("en-US", { timeZone: "Asia/Tashkent" });
   const header =
@@ -76,7 +82,12 @@ router.post("/telegram", async (req, res) => {
   }
 
   const type: FormType = req.body?.type === "contact" ? "contact" : "quote";
-  const leadId = allocateLeadId();
+  let leadId: string;
+  try {
+    leadId = allocateLeadId();
+  } catch {
+    leadId = allocateFallbackId();
+  }
   const text = formatMessage(req.body as Record<string, unknown>, type, leadId);
 
   try {

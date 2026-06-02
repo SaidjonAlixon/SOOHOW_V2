@@ -40,9 +40,20 @@ function allocateFromFile() {
   return id;
 }
 
+function allocateFallbackId() {
+  const year = currentYearSuffix();
+  const secondsPart = Math.floor(Date.now() / 1000) % 100000;
+  return `SO${year}${String(secondsPart).padStart(5, "0")}`;
+}
+
 /** @returns {Promise<string>} */
 async function allocateLeadId() {
-  return allocateFromFile();
+  try {
+    return allocateFromFile();
+  } catch (err) {
+    console.error("[lead-id] file counter failed, using fallback id", err);
+    return allocateFallbackId();
+  }
 }
 
 module.exports = {
