@@ -5,7 +5,9 @@ import path from "node:path";
 const router: IRouter = Router();
 
 type FormType = "quote" | "contact";
-const COUNTER_FILE = path.resolve(process.cwd(), "data", "lead-counter.json");
+const COUNTER_FILE = process.env.VERCEL
+  ? "/tmp/soohow-lead-counter.json"
+  : path.resolve(process.cwd(), "data", "lead-counter.json");
 
 function currentYearSuffix() {
   return String(new Date().getFullYear()).slice(-2);
@@ -29,10 +31,16 @@ function allocateLeadId() {
   return `SO${year}${String(next).padStart(digits, "0")}`;
 }
 
-function allocateFallbackId() {
+function allocateFromMemory() {
   const year = currentYearSuffix();
-  const secondsPart = Math.floor(Date.now() / 1000) % 100000;
-  return `SO${year}${String(secondsPart).padStart(5, "0")}`;
+  const store = (globalThis as Record<string, unknown>).__soohowLeadCounter as
+    | Record<string, number>
+    | undefined;
+  const counterStore = store ?? ((globalThis as Record<string, unknown>).__soohowLeadCounter = {}) as Record<string, number>;
+  const next = typeof counterStore[year] === "number" && counterStore[year] > 0 ? counterStore[year] : 1;
+  counterStore[year] = next + 1;
+  const digits = next >= 1000 ? 4 : 3;
+  return `SO${year}${String(next).padStart(digits, "0")}`;
 }
 
 function formatMessage(data: Record<string, unknown>, type: FormType, leadId: string): string {
@@ -86,7 +94,7 @@ router.post("/telegram", async (req, res) => {
   try {
     leadId = allocateLeadId();
   } catch {
-    leadId = allocateFallbackId();
+    leadId = allocateFromMemory();
   }
   const text = formatMessage(req.body as Record<string, unknown>, type, leadId);
 

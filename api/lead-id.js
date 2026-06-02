@@ -1,7 +1,9 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const COUNTER_FILE = path.join(__dirname, "..", "data", "lead-counter.json");
+const COUNTER_FILE = process.env.VERCEL
+  ? "/tmp/soohow-lead-counter.json"
+  : path.join(__dirname, "..", "data", "lead-counter.json");
 
 function currentYearSuffix() {
   return String(new Date().getFullYear()).slice(-2);
@@ -40,10 +42,12 @@ function allocateFromFile() {
   return id;
 }
 
-function allocateFallbackId() {
+function allocateFromMemory() {
   const year = currentYearSuffix();
-  const secondsPart = Math.floor(Date.now() / 1000) % 100000;
-  return `SO${year}${String(secondsPart).padStart(5, "0")}`;
+  const store = globalThis.__soohowLeadCounter || (globalThis.__soohowLeadCounter = {});
+  const next = typeof store[year] === "number" && store[year] > 0 ? store[year] : 1;
+  store[year] = next + 1;
+  return formatLeadId(next);
 }
 
 /** @returns {Promise<string>} */
@@ -51,8 +55,8 @@ async function allocateLeadId() {
   try {
     return allocateFromFile();
   } catch (err) {
-    console.error("[lead-id] file counter failed, using fallback id", err);
-    return allocateFallbackId();
+    console.error("[lead-id] file counter failed, using in-memory counter", err);
+    return allocateFromMemory();
   }
 }
 
