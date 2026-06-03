@@ -27,9 +27,7 @@ function generateFibonacciSphere(count: number, radius: number): Ball[] {
     const z = Math.sin(theta) * r * radius;
     const yPos = y * radius;
 
-    // Depth-based size: balls at front (large z) appear bigger
-    const depthFactor = (z + radius) / (2 * radius);
-    const size = 10 + depthFactor * 8;
+    const size = 12;
 
     balls.push({
       id: i,
@@ -52,57 +50,69 @@ export function FullereneIntro({ onComplete }: FullereneIntroProps) {
   const { t } = useLocale();
   const sphereRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const rotRef = useRef({ x: -15, y: 20 });
-  const idleRafRef = useRef(0);
-  const idleStartRef = useRef(performance.now());
+  const rotRef = useRef({ x: -15, y: 0, targetX: -15, targetY: 0 });
+  const rafRef = useRef(0);
   const explodedRef = useRef(false);
-  const [balls] = useState<Ball[]>(() => generateFibonacciSphere(120, 200));
+  const [balls] = useState<Ball[]>(() => generateFibonacciSphere(140, 200));
   const [hint, setHint] = useState(true);
+
+  const applySphereRotation = useCallback(() => {
+    if (!sphereRef.current) return;
+    const { x, y } = rotRef.current;
+    sphereRef.current.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`;
+  }, []);
 
   useEffect(() => {
     document.documentElement.classList.add("fullerene-intro-active");
     return () => document.documentElement.classList.remove("fullerene-intro-active");
   }, []);
 
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    const dx = (e.clientX - cx) / cx;
+    const dy = (e.clientY - cy) / cy;
+    rotRef.current.targetX = -15 + dy * 20;
+    rotRef.current.targetY = dx * 32;
+  }, []);
+
   useEffect(() => {
-    const tick = (now: number) => {
+    const tick = () => {
       if (explodedRef.current) return;
 
-      const elapsed = (now - idleStartRef.current) / 1000;
-      rotRef.current.x = -15 + Math.sin(elapsed * 0.85) * 12;
-      rotRef.current.y = 20 + elapsed * 24;
+      const rot = rotRef.current;
+      rot.x += (rot.targetX - rot.x) * 0.06;
+      rot.y += (rot.targetY - rot.y) * 0.06;
+      applySphereRotation();
 
-      if (sphereRef.current) {
-        sphereRef.current.style.transform = `rotateX(${rotRef.current.x}deg) rotateY(${rotRef.current.y}deg)`;
-      }
-
-      idleRafRef.current = requestAnimationFrame(tick);
+      rafRef.current = requestAnimationFrame(tick);
     };
 
-    idleStartRef.current = performance.now();
-    idleRafRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(idleRafRef.current);
-  }, []);
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [applySphereRotation]);
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [handleMouseMove]);
 
   const triggerExit = useCallback(() => {
     if (explodedRef.current) return;
     explodedRef.current = true;
-    cancelAnimationFrame(idleRafRef.current);
+    cancelAnimationFrame(rafRef.current);
     setHint(false);
 
     if (!sphereRef.current) return;
 
-    const ballEls = sphereRef.current.querySelectorAll<HTMLElement>(".fullerene-ball");
+    const sphere = sphereRef.current;
+    const ballEls = sphere.querySelectorAll<HTMLElement>(".fullerene-ball");
 
     gsap.to(rotRef.current, {
       duration: 1.2,
       y: rotRef.current.y + 720,
       ease: "power2.in",
-      onUpdate: () => {
-        if (sphereRef.current) {
-          sphereRef.current.style.transform = `rotateX(${rotRef.current.x}deg) rotateY(${rotRef.current.y}deg)`;
-        }
-      },
+      onUpdate: applySphereRotation,
     });
 
     ballEls.forEach((el) => {
@@ -179,7 +189,7 @@ export function FullereneIntro({ onComplete }: FullereneIntroProps) {
         <div
           ref={sphereRef}
           className="fullerene-sphere"
-          style={{ transform: `rotateX(-15deg) rotateY(20deg)` }}
+          style={{ transform: "rotateX(-15deg) rotateY(0deg)" }}
         >
           {balls.map((ball) => (
             <div
@@ -188,9 +198,9 @@ export function FullereneIntro({ onComplete }: FullereneIntroProps) {
               style={{
                 width: `${ball.size}px`,
                 height: `${ball.size}px`,
-                transform: `translate3d(${ball.x}px, ${ball.y}px, ${ball.z}px)`,
-                background: `radial-gradient(circle at 35% 35%, ${ball.color}ff, ${ball.color}88 50%, ${ball.color}33 100%)`,
-                boxShadow: `0 0 ${ball.size * 0.8}px ${ball.color}66, 0 0 ${ball.size * 0.4}px ${ball.color}44 inset`,
+                transform: `translate3d(${ball.x}px, ${ball.y}px, ${ball.z}px) translate(-50%, -50%)`,
+                backgroundColor: ball.color,
+                boxShadow: `0 0 8px ${ball.color}`,
               }}
             />
           ))}
