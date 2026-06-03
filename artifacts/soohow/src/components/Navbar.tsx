@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
-import { Search, Sun, Moon, Menu, X } from 'lucide-react';
+import { Search, Sun, Moon, Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { navItems, isNavActive, routes } from '@/lib/routes';
 import { Logo } from '@/components/Logo';
@@ -91,18 +91,18 @@ export function Navbar({ onSearchClick, onQuoteClick }: NavbarProps) {
           style={{ width: `${scrollProgress}%` }}
         />
 
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href={routes.home} className="cursor-pointer" data-testid="logo-block">
+        <div className="w-full max-w-[90rem] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 h-20 flex items-center gap-4 lg:gap-8">
+          <Link href={routes.home} className="cursor-pointer shrink-0" data-testid="logo-block">
             <Logo size="md" />
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex flex-1 items-center justify-center gap-8 lg:gap-11 xl:gap-14 min-w-0">
             {navItems.map((item) => (
               <NavLink key={item.key} path={item.path} label={t(item.key)} />
             ))}
           </nav>
 
-          <div className="flex items-center gap-1.5 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 shrink-0 ml-auto md:ml-0">
             <button
               onClick={onSearchClick}
               className="p-2 site-icon-btn transition-colors shrink-0"
@@ -126,13 +126,31 @@ export function Navbar({ onSearchClick, onQuoteClick }: NavbarProps) {
               </motion.div>
             </button>
 
-            <button
-              onClick={onQuoteClick}
-              className="hidden md:block px-6 py-2 rounded-full bg-gradient-primary text-white font-heading font-bold text-sm hover:shadow-[0_0_20px_rgba(0,168,232,0.4)] transition-shadow"
-              data-testid="btn-nav-quote"
-            >
-              {t("common.requestQuote")}
-            </button>
+            <div className="hidden md:flex items-center gap-4 lg:gap-5 shrink-0">
+              <button
+                onClick={onQuoteClick}
+                className="px-6 py-2 rounded-full bg-gradient-primary text-white font-heading font-bold text-sm hover:shadow-[0_0_20px_rgba(0,168,232,0.4)] transition-shadow shrink-0"
+                data-testid="btn-nav-quote"
+              >
+                {t("common.requestQuote")}
+              </button>
+
+              <a
+                href="tel:+998777444048"
+                className="nav-header-phone flex items-center gap-2.5 pl-3 pr-2.5 py-1.5 rounded-full border border-[#00A8E8]/25 bg-[hsl(var(--site-card)/0.35)] hover:border-[#00D4AA]/50 hover:shadow-[0_0_18px_rgba(0,212,170,0.25)] transition-all shrink-0"
+                data-testid="nav-header-phone"
+                aria-label={t("contact.phone")}
+              >
+                <span className="nav-header-phone__icon-wrap" aria-hidden>
+                  <span className="nav-header-phone__ring" />
+                  <span className="nav-header-phone__ring" />
+                  <Phone size={18} className="relative z-[1] text-[#00D4AA]" />
+                </span>
+                <span className="nav-header-phone__number font-heading font-extrabold text-sm tracking-wide whitespace-nowrap">
+                  {t("contact.phone")}
+                </span>
+              </a>
+            </div>
 
             <button
               className="md:hidden p-2 site-icon-btn"
@@ -186,8 +204,30 @@ export function Navbar({ onSearchClick, onQuoteClick }: NavbarProps) {
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.55 }}
+              className="flex justify-center"
+            >
+              <a
+                href="tel:+998777444048"
+                className="nav-header-phone inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#00A8E8]/30"
+                data-testid="nav-mobile-phone"
+              >
+                <span className="nav-header-phone__icon-wrap" aria-hidden>
+                  <span className="nav-header-phone__ring" />
+                  <span className="nav-header-phone__ring" />
+                  <Phone size={22} className="relative z-[1] text-[#00D4AA]" />
+                </span>
+                <span className="nav-header-phone__number font-heading font-extrabold text-lg tracking-wide site-heading">
+                  {t("contact.phone")}
+                </span>
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="mt-auto mb-8"
+              className="mt-6 mb-8"
             >
               <button
                 onClick={() => {

@@ -19,6 +19,7 @@ export function CustomCursor() {
   const mouseRef = useRef({ x: 0, y: 0 });
   const lastSpawnRef = useRef({ x: 0, y: 0 });
   const rafRef = useRef<number>(0);
+  const hideOverPhoneRef = useRef(false);
 
   useEffect(() => {
     if (window.matchMedia("(pointer: coarse)").matches) return;
@@ -66,6 +67,11 @@ export function CustomCursor() {
       trailRef.current = trail;
 
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      if (hideOverPhoneRef.current) {
+        rafRef.current = requestAnimationFrame(drawTrail);
+        return;
+      }
 
       if (trail.length > 1) {
         ctx.lineCap = "round";
@@ -138,14 +144,33 @@ export function CustomCursor() {
 
     rafRef.current = requestAnimationFrame(drawTrail);
 
+    const isOverNavPhone = (target: EventTarget | null) =>
+      target instanceof Element && !!target.closest(".nav-header-phone");
+
     const onMouseMove = (e: MouseEvent) => {
+      hideOverPhoneRef.current = isOverNavPhone(e.target);
+      if (hideOverPhoneRef.current) {
+        trailRef.current = [];
+        gsap.to(ring, { opacity: 0, scale: 0, duration: 0.15 });
+        return;
+      }
+
       mouseRef.current = { x: e.clientX, y: e.clientY };
       spawnTrailPoint(e.clientX, e.clientY, performance.now());
-      gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.12, ease: "power2.out" });
+      gsap.to(ring, {
+        x: e.clientX,
+        y: e.clientY,
+        opacity: 1,
+        scale: 1,
+        duration: 0.12,
+        ease: "power2.out",
+      });
     };
 
     const onMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
+      if (target.closest(".nav-header-phone")) return;
+
       const isLink = target.closest("a") || target.closest("button");
       const isCard = target.closest("[data-product-card]");
 
