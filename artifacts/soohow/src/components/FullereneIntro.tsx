@@ -93,8 +93,8 @@ export function FullereneIntro({ onComplete }: FullereneIntroProps) {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [handleMouseMove]);
 
-  const handleLeftClick = useCallback((e: MouseEvent) => {
-    if (e.button !== 0 || explodedRef.current) return;
+  const triggerExit = useCallback(() => {
+    if (explodedRef.current) return;
     explodedRef.current = true;
     setHint(false);
 
@@ -102,7 +102,6 @@ export function FullereneIntro({ onComplete }: FullereneIntroProps) {
 
     const ballEls = sphereRef.current.querySelectorAll<HTMLElement>(".fullerene-ball");
 
-    // Spin the sphere
     gsap.to(rotRef.current, {
       duration: 1.2,
       y: rotRef.current.y + 720,
@@ -114,7 +113,6 @@ export function FullereneIntro({ onComplete }: FullereneIntroProps) {
       },
     });
 
-    // Explode balls outward
     ballEls.forEach((el) => {
       const angle = Math.random() * Math.PI * 2;
       const pitch = (Math.random() - 0.5) * Math.PI;
@@ -135,7 +133,6 @@ export function FullereneIntro({ onComplete }: FullereneIntroProps) {
       });
     });
 
-    // Fade out entire screen and navigate
     setTimeout(() => {
       if (containerRef.current) {
         gsap.to(containerRef.current, {
@@ -147,6 +144,19 @@ export function FullereneIntro({ onComplete }: FullereneIntroProps) {
       }
     }, 900);
   }, [onComplete]);
+
+  const handleLeftClick = useCallback(
+    (e: MouseEvent) => {
+      if (e.button !== 0) return;
+      triggerExit();
+    },
+    [triggerExit],
+  );
+
+  useEffect(() => {
+    const autoTimer = window.setTimeout(triggerExit, 5000);
+    return () => window.clearTimeout(autoTimer);
+  }, [triggerExit]);
 
   useEffect(() => {
     const blockScroll = (e: WheelEvent) => e.preventDefault();
