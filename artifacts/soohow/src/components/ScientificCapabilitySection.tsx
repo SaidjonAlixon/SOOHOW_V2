@@ -16,7 +16,7 @@ import { mountAnimatedTitleChars } from "@/lib/animateTitleChars";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const scientificImage = `${import.meta.env.BASE_URL}ish5.png`;
+const scientificImage = `${import.meta.env.BASE_URL}ishh3.jpg`;
 const scientificBg = `${import.meta.env.BASE_URL}yangili/FON4.png`;
 
 type Metric = { value: string; label: string };
