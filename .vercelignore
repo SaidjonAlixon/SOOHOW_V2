@@ -1,0 +1,6 @@
+artifacts/api-server
+attached_assets
+.cache
+.local
+**/*.test.ts
+**/*.test.tsx
